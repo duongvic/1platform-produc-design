@@ -1,0 +1,133 @@
+extends _pug-template/layout.pug
+block head-style
+	style
+block sidebar
+	+sidebar('Inventory', 'Item List')
+block body
+	section.content-body(role='main')
+		header.page-header.container-fluid
+			.page-header-left
+				ol.breadcrumbs
+					li
+						a(href='#')
+							i.fa.fa-home
+					li
+						a(href="#") Inventory Management
+					li
+						span Item Details
+				.pull-right
+					a(href="#").btn.btn-default.btn-xs Help
+		.content-body-wrap
+			.tabs
+				.tab-content
+					.row.form-horizontal.form-horizontal.mb-xl
+						.col-md-6
+							.form-group
+								label.col-md-4.control-label Item ID
+								.col-md-8
+									input.form-control(type='text')
+							.form-group
+								label.col-md-4.control-label Location
+								.col-md-8
+									select.form-control(name='', id='')
+										option(value='') --Select Location--
+							.form-group
+								label.col-md-4.control-label Status
+								.col-md-8
+									select.form-control(name='', id='')
+										option(value='') --Select Location--
+						.col-md-6
+							.form-group
+								label.col-md-4.control-label Item Type
+								.col-md-8
+									select.form-control(name='', id='', disabled='')
+										option(value='') --Select Item Type--
+							.form-group
+								label.col-md-4.control-label PIC
+								.col-md-8
+									select.form-control(name='', id='')
+										option(value='') --Select PIC--
+							.form-group
+								label.col-md-4.control-label Box ID
+								.col-md-8
+									input.form-control(type='text', disabled='')
+					.row.form-horizontal.md-xl
+						.col-md-6
+							.form-group
+								label.col-md-4.control-label Model
+								.col-md-8
+									input.form-control(type='text')
+							.form-group
+								label.col-md-4.control-label Box
+								.col-md-8
+									input.form-control(type='text')
+						.col-md-6
+							.form-group
+								label.col-md-4.control-label Land Date
+								.col-md-8
+									input.form-control(type='text', data-plugin-datepicker='')
+							.form-group
+								label.col-md-4.control-label Communication
+								.col-md-8
+									input.form-control(type='text')
+					.row.form-horizontal.mb-xl
+						.col-md-6
+							.form-group
+								label.col-md-4.control-label Remark
+								.col-md-8
+									textarea.form-control
+						.col-md-6
+							.form-group
+								label.col-md-4.control-label Usertype
+								.col-md-8
+									select.form-control(name='', id='')
+										option(value='') --Select Usertype--
+					.row.form-horizontal.mb-xl
+						.col-md-6
+							.form-group
+								label.col-md-4.control-label Operator
+								.col-md-8
+									select.form-control(name='', id='')
+										option(value='') --Select Operator--
+							.form-group
+								label.col-md-4.control-label Activated At
+								.col-md-8
+									input.form-control(type='text', data-plugin-datepicker='')
+							.form-group
+								label.col-md-4.control-label IMSI
+								.col-md-8
+									input.form-control(type='text')
+						.col-md-6
+							.form-group
+								label.col-md-4.control-label SIM Owner
+								.col-md-8
+									label.mr-md
+										input(type='Radio', name='sim-owner', checked='')
+										|  Yes
+									label
+										input(type='Radio', name='sim-owner')
+										|  No
+							.form-group
+								label.col-md-4.control-label Expired At
+								.col-md-8
+									input.form-control(type='text', data-plugin-datepicker='')
+							.form-group
+								label.col-md-4.control-label Arrived At
+								.col-md-8
+									input.form-control(type='text', data-plugin-datepicker='')
+
+
+block modals
+	//- Modal goes here
+block foot-scripts
+	//- Custom Script goes here
+	script.
+		$(document).ready(function() {
+			$('#make-sure-action').on('change', function(){
+				if (this.checked) {
+					$("#approve-stage-popup .modal-footer button[disabled]").removeAttr('disabled');
+				} else {
+					$("#approve-stage-popup .modal-footer button").attr('disabled', 'disabled');
+				}
+			});
+		});

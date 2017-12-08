@@ -1,0 +1,1348 @@
+<!DOCTYPE html>
+<html class="fixed">
+  <head>
+    <meta charset="UTF-8">
+    <title>Role Manager</title>
+    <meta name="keywords" content="Truemoney Acquire Agent VN">
+    <meta name="description" content="Truemoney Acquire Agent VN">
+    <meta name="author" content="TruemoneyVN">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/vendor/font-simpleline/css/simple-line-icons.css">
+    <link rel="stylesheet" href="assets/vendor/magnific-popup/magnific-popup.css">
+    <link rel="stylesheet" href="assets/vendor/bootstrap-datepicker/css/datepicker3.css">
+    <link rel="stylesheet" href="assets/vendor/owl-carousel/owl.carousel.css">
+    <link rel="stylesheet" href="assets/vendor/owl-carousel/owl.theme.css">
+    <link rel="stylesheet" href="assets/vendor/jquery-ui/css/ui-lightness/jquery-ui-1.10.4.custom.css">
+    <link rel="stylesheet" href="assets/vendor/bootstrap-multiselect/bootstrap-multiselect.css">
+    <link rel="stylesheet" href="assets/vendor/morris/morris.css">
+    <link rel="stylesheet" href="assets/vendor/panel_tool/panel_tool.css">
+    <link rel="stylesheet" href="assets/vendor/select2/dist/css/select2.css">
+    <link rel="stylesheet" href="assets/vendor/jquery-datatables-bs3/assets/css/datatables.css">
+    <link rel="stylesheet" href="assets/stylesheets/theme.css">
+    <link rel="stylesheet" href="assets/stylesheets/skins/1pay_skin/navbar.css">
+    <link rel="stylesheet" href="assets/stylesheets/skins/1pay_skin/bootstrap-select.min.css" type="text/css">
+    <link rel="stylesheet" href="assets/stylesheets/skins/1pay_skin/truemoney.css">
+    <link rel="stylesheet" href="assets/stylesheets/theme-custom.css">
+    <link rel="stylesheet" href="assets/vendor/daterangepicker/daterangepicker.css" type="text/css" media="all">
+    <link rel="stylesheet" href="assets/stylesheets/fileicons.css">
+    <link rel="stylesheet" href="assets/stylesheets/new-custom.css">
+    <link rel="stylesheet" href="assets/stylesheets/settings-css.css">
+    <script src="assets/vendor/modernizr/modernizr.js"></script>
+    <script>
+      var tmv_nav_filter = function(group, event) {
+      	var nav_items = document.querySelectorAll("[data-nav-group]");
+      	[].forEach.call( nav_items, function(item){
+      		if ((item.getAttribute('data-nav-group') !== group) && (group !== 'all')) {
+      			item.style.display = "none";
+      		} else {
+      			item.style.display = null;
+      		}
+      	});
+      
+      	if (event) {
+      		event.target.parentElement.parentElement.getElementsByClassName('active')[0].classList.remove('active');
+      		event.target.parentElement.classList.add('active');
+      		// return false;
+      	}
+      };
+    </script>
+    <style>
+      	.nano-content {
+      		overflow-y: auto !important;
+      		right: !important;
+      	}
+      	#menu .nav-children a {
+      		padding-left: 40px;
+      		color: #aaa !important;
+      	}
+      	#menu .nav-children li.nav-active a {
+      		color: #F58220 !important;
+      	}
+      	#menu ul.nav-children > li > a {
+      		text-overflow: clip !important;
+      		white-space: normal !important;
+      	}
+      	#menu li.nav-parent > a {
+      		text-overflow: ellipsis;
+      		overflow: hidden;
+      	}
+      	.sidebar-left-collapsed #menu li a {
+      		text-overflow: clip;
+      	}
+      .content-body-wrap {
+      		padding: 0;
+      		margin: 0 15px 15px 15px;
+      	background: #fff;
+      }
+      .control-label {white-space: nowrap}
+    </style>
+    <style></style>
+  </head>
+  <body>
+    <section class="body">
+      <header class="header navbar navbar-secondary">
+        <div class="container-fluid navbar-container">
+          <nav class="navbar navbar-default navbar-default-normal" role="navigation">
+            <div class="navbar-header"><a class="navbar-brand navbar-brand-secondary" href="/">Truemoney</a></div>
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+              <ul class="nav navbar-nav" id="navbar-main-1">
+                <li class="navbar-nav-title"><a href="#"></a></li>
+              </ul>
+              <ul class="navbar-nav nav">
+                <li class="active"><a href="#" onclick="tmv_nav_filter(&quot;Customer&quot;, event)">Customer</a></li>
+                <li><a href="#" onclick="tmv_nav_filter(&quot;Provider&quot;, event)">Provider</a></li>
+                <li><a href="#" onclick="tmv_nav_filter(&quot;Wallet&quot;, event)">Wallet</a></li>
+                <li><a href="#" onclick="tmv_nav_filter(&quot;Service&quot;, event)">Service</a></li>
+                <li><a href="#" onclick="tmv_nav_filter(&quot;Operation&quot;, event)">Operation</a></li>
+                <li><a href="#" onclick="tmv_nav_filter(&quot;Setting&quot;, event)">Setting</a></li>
+              </ul>
+              <ul class="nav navbar-nav navbar-right" id="navbar-main-2">
+                <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown"><img style="width:20px;" src="assets/images/navbar/avatar/user_login.png" alt="" data-toggle="tooltip" data-placement="left" title="username@truemoney.com.vn"/></a>
+                  <ul class="dropdown-menu animated" data-animation="fadeInDown-1">
+                    <li><a href="#" data-target="#changePasswordModal" data-toggle="modal">Change Password</a></li>
+                    <li class="divider" role="separator"></li>
+                    <li><a href="/logout">Sign Out</a></li>
+                  </ul>
+                </li>
+                <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown" aria-expanded="true"><img width="23" height="23" alt="" src="https://admin.bizdev.truemoney.com.vn/customer/assets/images/navbar/flags/en.png"/><b class="caret"></b></a>
+                  <ul class="dropdown-menu animated" data-animation="fadeInDown-1">
+                    <li><a href="https://admin.bizdev.truemoney.com.vn/customer/agent-acquire/list?lang=en"><img width="23" height="23" alt="" src="https://admin.bizdev.truemoney.com.vn/customer/assets/images/navbar/flags/en.png"/> English</a></li>
+                    <li><a href="https://admin.bizdev.truemoney.com.vn/customer/agent-acquire/list?lang=vn"><img width="23" height="23" alt="" src="https://admin.bizdev.truemoney.com.vn/customer/assets/images/navbar/flags/vn.png"/> VietNam</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </nav>
+          <nav class="navbar navbar-default navbar-default-responsive" role="navigation">
+            <div class="visible-xs toggle-sidebar-left" data-toggle-class="sidebar-left-opened" data-target="html" data-fire-event="sidebar-left-opened"></div>
+            <div class="navbar-header">
+              <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-ex1-collapse-1"></button><a class="modal-with-move-anim guide_alert guide_alert_bt_responsive guide_alert_over" href="#modalAnim"><span class="pl_remaining_setup_steps_coun">0</span><i class="icon-bell"></i></a><a class="navbar-brand navbar-brand-secondary" href="#"> </a>
+            </div>
+            <div class="collapse navbar-collapse navbar-ex1-collapse-1">
+              <ul class="nav navbar-nav navbar-nav-language navbar-nav-logout">
+                <li class="dropdown dropdown-res navbar-account"><a class="btn-signup ga-signup button secondary dropdown-toggle" href="#" data-toggle="dropdown"><img class="account_img" src="assets/images/navbar/avatar/user_login.png" alt=""/><b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">Change password</a></li>
+                    <li><a href="/logout">Sign out</a></li>
+                  </ul>
+                </li>
+              </ul>
+              <ul class="nav navbar-nav navbar-nav-primary">
+                <li><a href="#">Customer</a></li>
+                <li><a href="#">Provider</a></li>
+                <li><a href="#">Wallet</a></li>
+                <li><a href="#">Service</a></li>
+                <li><a href="#">Operation</a></li>
+                <li><a href="#">Setting</a></li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+      </header>
+      <div class="inner-wrapper">
+        <aside class="sidebar-left" id="sidebar-left">
+          <div class="sidebar-header">
+            <div class="sidebar-title">Menu</div>
+            <div class="sidebar-toggle hidden-xs" data-target="html" data-fire-event="sidebar-left-toggle" data-toggle-class="sidebar-left-collapsed"><i class="fa fa-bars" aria-label="Toggle sidebar"></i></div>
+          </div>
+          <div class="nano">
+            <div class="nano-content" style="overflow-y: auto;">
+              <nav class="nav-main" id="menu" role="navigation">
+                <ul class="nav nav-main">
+                  <li class="nav-parent" data-nav-group="Service" ,="," url:="url:" #="#"><a><i class="fa fa-history"></i><span>Transaction</span></a>
+                    <ul class="nav nav-children">
+                      <li><a href="">Transaction history</a></li>
+                      <li><a href="">Cancel Transaction</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-parent" data-nav-group="Wallet" ,="," url:="url:" #="#"><a><i class="fa fa-usd"></i><span>Fund in</span></a>
+                    <ul class="nav nav-children">
+                      <li><a href="#">Fund-in transaction</a></li>
+                      <li><a href="#">Request Fund-in</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-parent" data-nav-group="Wallet" ,="," url:="url:" #="#"><a><i class="fa fa-money"></i><span>Fund out</span></a>
+                    <ul class="nav nav-children">
+                      <li><a href="">Fund-out transaction</a></li>
+                      <li><a href="">Request Fund-out</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-parent" data-nav-group="Wallet" ,="," url:="url:" #="#"><a><i class="fa fa-mail-forward"></i><span>Money Transfer</span></a>
+                    <ul class="nav nav-children">
+                      <li><a href="#">Money transfer method</a></li>
+                      <li><a href="#">Request transfer</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-parent" data-nav-group="Customer" ,="," url:="url:" #="#"><a><i class="fa fa-archive"></i><span>Card Store</span></a>
+                    <ul class="nav nav-children">
+                      <li><a href="#">Store Monitoring</a></li>
+                      <li><a href="#">Card Item</a></li>
+                      <li><a href="#">Purchase Order</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-parent" data-nav-group="Customer" ,="," url:="url:" #="#"><a><i class="fa fa-circle-o"></i><span>Sales</span></a>
+                    <ul class="nav nav-children">
+                      <li><a href="sales-list.html">Sales List</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-parent" data-nav-group="Provider" ,="," url:="url:" #="#"><a><i class="fa fa-user"></i><span>Providers</span></a>
+                    <ul class="nav nav-children">
+                      <li><a href="#">Provider list</a></li>
+                      <li><a href="#">Provider profile</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-parent" data-nav-group="Customer" ,="," url:="url:" #="#"><a><i class="fa fa-male"></i><span>Agents</span></a>
+                    <ul class="nav nav-children">
+                      <li class="nav-active"><a href="agents-list.html">Agent profile list</a></li>
+                      <li><a href="agents-list.html">Agent acquire</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-parent" data-nav-group="Operator" ,="," url:="url:" #="#"><a><i class="fa fa-circle-o"></i><span>Inventory</span></a>
+                    <ul class="nav nav-children">
+                      <li><a href="items-list.html">Item List</a></li>
+                      <li><a href="boxes-list.html">Box List</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-parent" data-nav-group="Setting" ,="," url:="url:" #="#"><a><i class="fa fa-user"></i><span>Accounts</span></a>
+                    <ul class="nav nav-children">
+                      <li><a href="#">Accounts List</a></li>
+                      <li><a href="#">Account profile</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-parent" data-nav-group="Setting" ,="," url:="url:" #="#"><a><i class="fa fa-gear"></i><span>Privileges</span></a>
+                    <ul class="nav nav-children">
+                      <li><a href="#">Privileges List</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-parent" data-nav-group="Setting" ,="," url:="url:" #="#"><a><i class="fa fa-gear"></i><span>Roles</span></a>
+                    <ul class="nav nav-children">
+                      <li><a href="#">Roles List</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </aside>
+        <section class="content-body" role="main">
+          <header class="page-header container-fluid">
+            <div class="page-header-left">
+              <ol class="breadcrumbs">
+                <li><a href="#"><i class="fa fa-home"></i></a></li>
+                <li><a href="#">Agent Management</a></li>
+                <li><span>Agent Profile</span></li>
+              </ol>
+              <div class="pull-right"><a class="btn btn-default btn-xs" href="#">Help</a></div>
+            </div>
+          </header>
+          <div class="content-body-wrap">
+            <div class="row">
+              <div class="col-md-3 col-lg-3 text-center">
+                <div class="p-md"><img class="img-circle" src="assets/images/man.svg" alt="" height="160" width="160"></div>
+                <div class="p-md">
+                  <h3 class="h4">Nguyễn Ngọc Thiệp</h3>
+                  <p>100000010</p>
+                  <p>nnthieps@gmail.com</p>
+                  <p>Bắc Ninh, Việt Nam</p>
+                </div>
+                <div class="p-md">
+                  <table style="width: auto; margin: auto; text-align: left;">
+                    <tr>
+                      <td style="text-align: right;">Ngày tham gia:&nbsp;&nbsp;</td>
+                      <td>20/02/2012</td>
+                    </tr>
+                    <tr>
+                      <td style="text-align: right;">Tình trạng:&nbsp;&nbsp;</td>
+                      <td>Active</td>
+                    </tr>
+                    <tr>
+                      <td style="text-align: right;">Ngày kết thúc:&nbsp;&nbsp;</td>
+                      <td>20/02/2020</td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+              <div class="col-md-9 col-lg-9">
+                <div class="fr" style="margin: 5px 15px 0;">
+                  <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#approve-stage-popup">Approve/Reject</button>
+                </div>
+                <ul class="nav nav-tabs hidden-sm hidden-xs">
+                  <li><a href="#tab1" data-toggle="tab">Business</a></li>
+                  <li><a href="#tab2" data-toggle="tab">Personal & Identity</a></li>
+                  <li><a href="#tab3" data-toggle="tab">Contract</a></li>
+                  <li class="active"><a href="#tab4" data-toggle="tab">Devices</a></li>
+                  <li><a href="#tab5" data-toggle="tab">Payment</a></li>
+                  <li><a href="#tab6" data-toggle="tab">KYC</a></li>
+                  <li><a href="#tab7" data-toggle="tab">Files</a></li>
+                  <li><a href="#tab8" data-toggle="tab">History</a></li>
+                </ul>
+                <div class="dropdown hidden-lg hidden-md" style="margin: 5px 15px 0;">
+                  <button class="btn btn-sm btn-primary" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tabs <span class="caret"></span></button>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">Personal & Identity</a></li>
+                    <li><a href="#">Contract</a></li>
+                    <li><a href="#">Devices</a></li>
+                    <li><a href="#">Payment</a></li>
+                    <li><a href="#">KYC</a></li>
+                    <li><a href="#">Files</a></li>
+                    <li><a href="#">History</a></li>
+                  </ul>
+                </div>
+                <div class="tab-content">
+                  <div class="tab-pane active" id="tab1">
+                    <section class="panel panel-default">
+                      <div class="panel-title">
+                        <h4>Business information</h4>
+                        <div class="panel-tools">
+                          <button class="btn btn-success btn-sm"><i class="fa fa-plus"></i> Add</button>
+                          <button class="btn btn-complete btn-sm"><i class="fa fa-save"></i> Save</button>
+                          <button class="btn btn-primary btn-sm"><i class="fa fa-pencil"></i> Edit</button>
+                          <button class="btn btn-info btn-sm"><i class="fa fa-print"></i> Print</button>
+                        </div>
+                      </div>
+                      <div class="panel-body">
+                        <div class="row">
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label class="col-md-4 control-label">Full name*</label>
+                              <div class="col-md-8">
+                                <div class="double-input">
+                                  <input class="form-control" id="inputDefault" type="text" value="Nguyễn Ngọc">
+                                  <input class="form-control" id="inputDefault" type="text" value="Thiệp">
+                                </div>
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <label class="col-md-4 control-label">Gender*</label>
+                              <div class="col-md-8">
+                                <div class="radio-custom radio-success radio-inline">
+                                  <input id="radioExample5" type="radio" name="profile_gender" checked="" disabled="">
+                                  <label for="radioExample5">Nam</label>
+                                </div>
+                                <div class="radio-custom radio-success radio-inline">
+                                  <input id="radioExample5" type="radio" name="profile_gender" disabled="">
+                                  <label for="radioExample5">Nữ</label>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <label class="col-md-4 control-label">Shop name*</label>
+                              <div class="col-md-8">
+                                <input class="form-control" id="inputDefault" type="text" value="Lan Shop">
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <label class="col-md-4 control-label">Shop product</label>
+                              <div class="col-md-8">
+                                <input class="form-control" id="inputDefault" type="text" value="Tap hoa">
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <label class="col-md-4 control-label">Shop address*</label>
+                              <div class="col-md-8">
+                                <input class="form-control" id="inputDefault" type="text" value="49 van kiep">
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <label class="col-md-4 control-label">Type*</label>
+                              <div class="col-md-8">
+                                <select class="form-control" name="" id="" disabled="disabled">
+                                  <option selected="" value="#">Agent</option>
+                                  <option value="#">User</option>
+                                </select>
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <label class="col-md-4 control-label">Phone*</label>
+                              <div class="col-md-8">
+                                <input class="form-control" type="text">
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <label class="col-md-4 control-label">Email</label>
+                              <div class="col-md-8">
+                                <input class="form-control" type="text">
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <label class="col-md-4 control-label">Classification*</label>
+                              <div class="col-md-8">
+                                <select class="form-control" name="" id="">
+                                  <option value="">Gold</option>
+                                  <option value="">Silver</option>
+                                </select>
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <label class="col-md-4 control-label">Sales Ex*</label>
+                              <div class="col-md-8">
+                                <select class="form-control" name="" id="">
+                                  <option value="">10001</option>
+                                  <option value="">10002</option>
+                                </select>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label class="col-md-4 control-label">Province*</label>
+                              <div class="col-md-8">
+                                <select class="form-control" name="" id="">
+                                  <option selected="" value="#">Ha Noi</option>
+                                  <option value="#">Hai Phong</option>
+                                </select>
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <label class="col-md-4 control-label">District</label>
+                              <div class="col-md-8">
+                                <select class="form-control" name="" id="">
+                                  <option value="#">Hai Ba Trung</option>
+                                  <option value="#">Cau Giay</option>
+                                </select>
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <label class="col-md-4 control-label">Commune</label>
+                              <div class="col-md-8">
+                                <select class="form-control" name="" id="">
+                                  <option selected="" value="#">Cau Giay</option>
+                                  <option value="#">Bac Dang</option>
+                                </select>
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <label class="col-md-4 control-label">Created At*</label>
+                              <div class="col-md-4">
+                                <input class="form-control" type="text" data-plugin-datepicker="" disabled="disabled">
+                              </div>
+                              <div class="col-md-4"></div>
+                            </div>
+                            <div class="form-group">
+                              <label class="col-md-4 control-label">Updated At</label>
+                              <div class="col-md-4">
+                                <input class="form-control" type="text" data-plugin-datepicker="" disabled="disabled">
+                              </div>
+                              <div class="col-md-4"></div>
+                            </div>
+                            <div class="form-group">
+                              <label class="col-md-4 control-label">Attachments</label>
+                              <div class="col-md-8">
+                                <input class="form-control" type="file" multiple="">
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <label class="col-md-4 control-label">Remark</label>
+                              <div class="col-md-8">
+                                <textarea class="form-control" rows="3"></textarea>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                  <!-- Personal Info & Identity Info-->
+                  <div class="tab-pane" id="tab2">
+                    <!-- Personal Info-->
+                    <div class="panel-title">
+                      <h4>Personal Information</h4>
+                      <div class="panel-tools">
+                        <button class="btn btn-success btn-sm"><i class="fa fa-plus"></i> Add</button>
+                        <button class="btn btn-complete btn-sm"><i class="fa fa-save"></i> Save</button>
+                        <button class="btn btn-primary btn-sm"><i class="fa fa-pencil"></i> Edit</button>
+                        <button class="btn btn-info btn-sm"><i class="fa fa-print"></i> Print</button>
+                      </div>
+                    </div>
+                    <div class="panel-body edit_profile mb-lg" id="edit-business-infomation">
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label class="col-md-4 control-label" for="#">Fullname*</label>
+                            <div class="col-md-8">
+                              <div class="double-input">
+                                <input class="form-control" type="text">
+                                <input class="form-control" type="text">
+                              </div>
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label class="col-md-4 control-label">Gender*</label>
+                            <div class="col-md-4">
+                              <select class="form-control" name="#" id="">
+                                <option value="">Male</option>
+                                <option value="">Female</option>
+                              </select>
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label class="col-md-4 control-label" for="#">Birthdate*</label>
+                            <div class="col-md-8">
+                              <input class="form-control" type="text">
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label class="col-md-4 control-label">Phone*</label>
+                            <div class="col-md-8">
+                              <input class="form-control" type="text">
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label class="col-md-4 control-label" for="#">Email*</label>
+                            <div class="col-md-8">
+                              <input class="form-control" type="text">
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label class="col-md-4 control-label" for="#">Occupation*</label>
+                            <div class="col-md-8">
+                              <input class="form-control" type="text">
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label class="col-md-4 control-label" for="#">Nationality*</label>
+                            <div class="col-md-8">
+                              <select class="form-control" name="" id="">
+                                <option value="">Vietnam</option>
+                                <option value="">US</option>
+                              </select>
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label class="col-md-4 control-label" for="#">Position*</label>
+                            <div class="col-md-8">
+                              <input class="form-control" type="text">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <hr>
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label class="col-md-4 control-label" for="#">Living Add.*</label>
+                            <div class="col-md-8">
+                              <input class="form-control" type="text">
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label class="col-md-4 control-label" for="#">Province*</label>
+                            <div class="col-md-8">
+                              <select class="form-control" name="" id="">
+                                <option value="">Ha Noi</option>
+                                <option value="">Hai Phong</option>
+                              </select>
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label class="col-md-4 control-label" for="#">District*</label>
+                            <div class="col-md-8">
+                              <select class="form-control" name="" id="">
+                                <option value="">Cau Giay</option>
+                                <option value="">Dong Da</option>
+                              </select>
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label class="col-md-4 control-label" for="#">Commune*</label>
+                            <div class="col-md-8">
+                              <select class="form-control" name="" id="">
+                                <option value="">Trung Liet</option>
+                                <option value="">Lang Ha</option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label class="col-md-4 control-label">Resident Add.*</label>
+                            <div class="col-md-8">
+                              <input class="form-control" id="inputDefault" type="text">
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label class="col-md-4 control-label">Province*</label>
+                            <div class="col-md-8">
+                              <select class="form-control" name="" id="">
+                                <option value="">Ha Noi</option>
+                                <option value="">Hai Phong</option>
+                              </select>
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label class="col-md-4 control-label">District*</label>
+                            <div class="col-md-8">
+                              <select class="form-control" name="" id="">
+                                <option value="">Cau Giay</option>
+                                <option value="">Dong Da</option>
+                              </select>
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label class="col-md-4 control-label">Commune*</label>
+                            <div class="col-md-8">
+                              <select class="form-control" name="" id="">
+                                <option value="">Trung Liet</option>
+                                <option value="">Lang Ha</option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <hr>
+                    </div>
+                    <!-- Identity Info-->
+                    <div class="panel-title">
+                      <h4>Identity Information</h4>
+                      <div class="panel-tools">
+                        <button class="btn btn-success btn-sm"><i class="fa fa-plus"></i> Add</button>
+                        <button class="btn btn-complete btn-sm"><i class="fa fa-save"></i> Save</button>
+                        <button class="btn btn-primary btn-sm"><i class="fa fa-pencil"></i> Edit</button>
+                        <button class="btn btn-info btn-sm"><i class="fa fa-print"></i> Print</button>
+                      </div>
+                    </div>
+                    <div class="panel-body edit_identity" id="edit_identity">
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label class="col-md-4 control-label">IndentityType*</label>
+                            <div class="col-md-8">
+                              <select class="form-control input-sm">
+                                <option>CMTND</option>
+                                <option>CCCD</option>
+                                <option>Passport</option>
+                              </select>
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label class="col-md-4 control-label">Identity No.*</label>
+                            <div class="col-md-8">
+                              <input class="form-control" id="inputDefault" type="text" value="125280837">
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label class="col-md-4 control-label">Issue Date*</label>
+                            <div class="col-md-8">
+                              <input class="form-control" type="text" data-plugin-datepicker="" value="01/04/1988">
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label class="col-md-4 control-label">Expired Date</label>
+                            <div class="col-md-4">
+                              <input class="form-control" type="text" data-plugin-datepicker="" value="01/04/1988">
+                            </div>
+                            <div class="col-md-4"></div>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label class="col-md-4 control-label">Issuer*</label>
+                            <div class="col-md-8">
+                              <input class="form-control" id="inputDefault" type="text" value="Bắc Ninh">
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label class="col-md-4 control-label">Status</label>
+                            <div class="col-md-8">
+                              <select class="form-control" name="" id="">
+                                <option value="">Active</option>
+                                <option value="">Disabled</option>
+                              </select>
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label class="col-md-4 control-label">Attachments</label>
+                            <div class="col-md-8">
+                              <input class="form-control" type="file" multiple="">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="tab-pane" id="tab3">
+                    <section class="panel panel-default">
+                      <div class="panel-title">
+                        <h4>Contract Information</h4>
+                        <div class="panel-tools">
+                          <button class="btn btn-success btn-sm"><i class="fa fa-plus"></i> Add</button>
+                          <button class="btn btn-complete btn-sm"><i class="fa fa-save"></i> Save</button>
+                          <button class="btn btn-primary btn-sm"><i class="fa fa-pencil"></i> Edit</button>
+                          <button class="btn btn-info btn-sm"><i class="fa fa-print"></i> Print</button>
+                        </div>
+                      </div>
+                      <div class="panel-body edit_profile">
+                        <div class="form-group">
+                          <label class="col-md-2 control-label">ContractType*</label>
+                          <div class="col-md-4">
+                            <select class="form-control" name="" id="">
+                              <option value="">B2B</option>
+                              <option value="">B2C</option>
+                            </select>
+                          </div>
+                          <label class="col-md-2 control-label">ContractNo*</label>
+                          <div class="col-md-4">
+                            <input class="form-control" type="text">
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label class="col-md-2 control-label">Release*</label>
+                          <div class="col-md-2">
+                            <input class="form-control" type="text" data-plugin-datepicker="" disabled="disabled">
+                          </div>
+                          <div class="col-md-2"></div>
+                          <label class="col-md-2 control-label">Sign Date*</label>
+                          <div class="col-md-2">
+                            <input class="form-control" type="text" data-plugin-datepicker="">
+                          </div>
+                          <div class="col-md-2"></div>
+                        </div>
+                        <div class="form-group">
+                          <label class="col-md-2 control-label">Issue Date*</label>
+                          <div class="col-md-2">
+                            <input class="form-control" type="text" data-plugin-datepicker="">
+                          </div>
+                          <div class="col-md-2"></div>
+                          <label class="col-md-2 control-label">Expired Date*</label>
+                          <div class="col-md-2">
+                            <input class="form-control" type="text" data-plugin-datepicker="">
+                          </div>
+                          <div class="col-md-2"></div>
+                        </div>
+                        <div class="form-group">
+                          <label class="col-md-2 control-label">ExtendType</label>
+                          <div class="col-md-4">
+                            <select class="form-control" name="" id="">
+                              <option value="">Manual</option>
+                              <!-- <option value="">B2C</option>-->
+                            </select>
+                          </div>
+                          <label class="col-md-2 control-label" for="">Period of reconcilation</label>
+                          <div class="col-md-4">
+                            <select class="form-control" name="" id="">
+                              <option value="">Monthly</option>
+                            </select>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <div class="col-md-4 col-md-offset-2">
+                            <label>
+                              <input type="checkbox"> Receive email of reconcilation & invoice
+                            </label>
+                          </div>
+                          <label class="col-md-2 control-label" for="#">Tax payer</label>
+                          <div class="col-md-4">
+                            <input class="form-control" type="text">
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label class="col-md-2 control-label" for="#">Tax number</label>
+                          <div class="col-md-4">
+                            <input class="form-control" type="text">
+                          </div>
+                          <label class="col-md-2 control-label" for="#">Tax Address</label>
+                          <div class="col-md-4">
+                            <input class="form-control" type="text">
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label class="col-md-2 control-label">Assessment attachments</label>
+                          <div class="col-md-4">
+                            <input class="form-control" type="file" multiple="">
+                          </div>
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                  <!-- ===== Devices-->
+                  <div class="tab-pane" id="tab4">
+                    <section class="panel panel-default">
+                      <div class="panel-title">
+                        <h4>Manager Devices</h4>
+                        <div class="panel-tools">
+                          <button class="btn btn-sm btn-info" type="button"><i class="fa fa-print"></i> Print Box Supplied</button>
+                        </div>
+                      </div>
+                      <div class="panel-body edit_profile">
+                        <h5><strong>Box 1</strong></h5>
+                        <div class="form-group">
+                          <label class="col-md-2 control-label">Delivery Date*</label>
+                          <div class="col-md-4">
+                            <input class="form-control" type="text">
+                          </div>
+                          <label class="col-md-2 control-label">Box Status</label>
+                          <div class="col-md-2">
+                            <select class="form-control" name="#" id="#">
+                              <option value="">Linked</option>
+                              <option value="">Unlinked</option>
+                            </select>
+                          </div>
+                          <div class="col-md-2"></div>
+                        </div>
+                        <div class="form-group">
+                          <label class="col-md-2 control-label">Terminal*</label>
+                          <div class="col-md-4">
+                            <select class="form-control input-sm">
+                              <option>G87000001</option>
+                              <option>G87000002</option>
+                              <option>G87000003</option>
+                              <option>G87000004</option>
+                            </select>
+                          </div>
+                          <label class="col-md-2 control-label">Sim3G*</label>
+                          <div class="col-md-4">
+                            <select class="form-control input-sm">
+                              <option>G87000001</option>
+                              <option>G87000002</option>
+                              <option>G87000003</option>
+                              <option>G87000004</option>
+                            </select>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label class="col-md-2 control-label">Battery*</label>
+                          <div class="col-md-4">
+                            <select class="form-control input-sm">
+                              <option>G87000001</option>
+                              <option>G87000002</option>
+                              <option>G87000003</option>
+                              <option>G87000004</option>
+                            </select>
+                          </div>
+                          <label class="col-md-2 control-label">Adapter*</label>
+                          <div class="col-md-4">
+                            <select class="form-control input-sm">
+                              <option>G87000001</option>
+                              <option>G87000002</option>
+                              <option>G87000003</option>
+                              <option>G87000004</option>
+                            </select>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label class="col-md-2 control-label">Card*</label>
+                          <div class="col-md-4">
+                            <select class="form-control input-sm">
+                              <option>G87000001</option>
+                              <option>G87000002</option>
+                              <option>G87000003</option>
+                              <option>G87000004</option>
+                            </select>
+                          </div>
+                          <label class="col-md-2 control-label">EDC Version:</label>
+                          <div class="col-md-4">
+                            <select class="form-control input-sm">
+                              <option>G87000001</option>
+                              <option>G87000002</option>
+                              <option>G87000003</option>
+                              <option>G87000004</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                  <!-- Payment-->
+                  <div class="tab-pane" id="tab5">
+                    <section class="panel panel-default">
+                      <div class="panel-title">
+                        <h4>Payment Information</h4>
+                        <div class="panel-tools">
+                          <button class="btn btn-success btn-sm"><i class="fa fa-plus"></i> Add</button>
+                          <button class="btn btn-complete btn-sm"><i class="fa fa-save"></i> Save</button>
+                          <button class="btn btn-primary btn-sm"><i class="fa fa-pencil"></i> Edit</button>
+                          <button class="btn btn-info btn-sm"><i class="fa fa-print"></i> Print</button>
+                        </div>
+                      </div>
+                      <div class="panel-body edit_profile">
+                        <div class="form-group">
+                          <label class="col-md-2 control-label">Account No.*</label>
+                          <div class="col-md-4">
+                            <input class="form-control" type="text">
+                          </div>
+                          <label class="col-md-2 control-label">Account Name*</label>
+                          <div class="col-md-4">
+                            <input class="form-control" type="text">
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label class="col-md-2 control-label">Bank*</label>
+                          <div class="col-md-4">
+                            <select class="form-control" name="" id="">
+                              <option value="">TPbank</option>
+                              <option value="">Vietcombank</option>
+                            </select>
+                          </div>
+                          <label class="col-md-2 control-label">Bank Branch</label>
+                          <div class="col-md-4">
+                            <input class="form-control" type="text">
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label class="col-md-2 control-label">Register date</label>
+                          <div class="col-md-4">
+                            <input class="form-control" type="text" data-plugin-datepicker="">
+                          </div>
+                          <label class="col-md-2 control-label">Register Source</label>
+                          <div class="col-md-4">
+                            <select class="form-control" name="#" id="">
+                              <option value="#">TPBank</option>
+                              <option value="#">VietcomBank</option>
+                            </select>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label class="col-md-2 control-label">Account status</label>
+                          <div class="col-md-4">
+                            <select class="form-control" name="#" id="">
+                              <option value="">Active</option>
+                              <option value="">Inactive</option>
+                            </select>
+                          </div>
+                          <label class="col-md-2 control-label" for="">Verify status</label>
+                          <div class="col-md-4">
+                            <select class="form-control" name="" id="">
+                              <option value="#">Yes</option>
+                              <option value="#">No</option>
+                            </select>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label class="col-md-2 control-label" for="">Change times</label>
+                          <div class="col-md-4">
+                            <input class="form-control" type="number">
+                          </div>
+                          <label class="col-md-2 control-label" for="">End date</label>
+                          <div class="col-md-4">
+                            <input class="form-control" type="text" data-plugin-datepicker="">
+                          </div>
+                        </div>
+                        <div class="auto-horizontal-scroll" style="margin: 15px;">
+                          <table class="in-form-table">
+                            <thead>
+                              <th>#</th>
+                              <th>Bank Acc.</th>
+                              <th>No.</th>
+                              <th>Bank Acc. Name</th>
+                              <th>Bank</th>
+                              <th>Branch</th>
+                              <th>Date register</th>
+                              <th>Register source</th>
+                              <th>Bank acc. Status</th>
+                              <th>Verify status</th>
+                              <th>End date</th>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                  <!-- KYC-->
+                  <div class="tab-pane" id="tab6">
+                    <section class="panel panel-default">
+                      <div class="panel-title">
+                        <h4>KYC status</h4>
+                        <div class="panel-tools">
+                          <button class="btn btn-success btn-sm"><i class="fa fa-plus"></i> Add</button>
+                          <button class="btn btn-complete btn-sm"><i class="fa fa-save"></i> Save</button>
+                          <button class="btn btn-primary btn-sm"><i class="fa fa-pencil"></i> Edit</button>
+                          <button class="btn btn-info btn-sm"><i class="fa fa-print"></i> Print</button>
+                        </div>
+                      </div>
+                      <div class="panel-body edit_profile">
+                        <div class="form-group">
+                          <label class="col-md-2 control-label">KYC Status</label>
+                          <div class="col-md-4">
+                            <select class="form-control" name="#" id="">
+                              <option value="#">Full</option>
+                              <option value="#">Not Full</option>
+                            </select>
+                          </div>
+                          <label class="col-md-2 control-label">Verify type</label>
+                          <div class="col-md-4">
+                            <select class="form-control" name="#" id="">
+                              <option value="#">Sales Excutive</option>
+                            </select>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label class="col-md-2 control-label">Attachment</label>
+                          <div class="col-md-4">
+                            <input class="form-control" type="file">
+                          </div>
+                          <div class="clr"></div>
+                          <div class="col-md-6">
+                            <div>
+                              <table class="in-form-table">
+                                <thead>
+                                  <tr>
+                                    <th class="min-w">#</th>
+                                    <th>Filename</th>
+                                    <th width="200">Action</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <td>1</td>
+                                    <td>Contract 1</td>
+                                    <td><span class="nowrap">
+                                        <button class="btn btn-sm"><i class="fa fa-eye"></i> View</button>
+                                        <button class="btn btn-sm"><i class="fa fa-pencil"></i> Edit</button>
+                                        <button class="btn btn-sm"><i class="fa fa-trash-o"></i> Del</button></span></td>
+                                  </tr>
+                                  <tr>
+                                    <td>1</td>
+                                    <td>Contract 2</td>
+                                    <td>
+                                      <div class="nowrap">
+                                        <button class="btn btn-sm"><i class="fa fa-eye"></i> View</button>
+                                        <button class="btn btn-sm"><i class="fa fa-pencil"></i> Edit</button>
+                                        <button class="btn btn-sm"><i class="fa fa-trash-o"></i> Del</button>
+                                      </div>
+                                    </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                  <!-- Files-->
+                  <div class="tab-pane" id="tab7">
+                    <div class="form-group">
+                      <div class="col-md-6">
+                        <input class="form-control" type="text">
+                      </div>
+                      <div class="col-md-2">
+                        <button class="btn btn-sm btn-primary">Search</button>
+                      </div>
+                      <div class="col-md-4" style="text-align: right;">
+                        <button class="btn btn-sm btn-primary">Add File</button>
+                      </div>
+                    </div>
+                    <div class="explorer" style="margin: 15px;">
+                      <div class="explorer__folders">
+                        <div class="exp-folder">
+                          <div class="exp-folder__icon"><i class="fa fa-folder"></i></div>
+                          <div class="exp-folder__name">Avatar</div>
+                        </div>
+                        <div class="exp-folder">
+                          <div class="exp-folder__icon"><i class="fa fa-folder"></i></div>
+                          <div class="exp-folder__name">Avatar</div>
+                        </div>
+                        <div class="exp-folder">
+                          <div class="exp-folder__icon"><i class="fa fa-folder"></i></div>
+                          <div class="exp-folder__name">Avatar</div>
+                        </div>
+                        <div class="exp-folder">
+                          <div class="exp-folder__icon"><i class="fa fa-folder"></i></div>
+                          <div class="exp-folder__name">Avatar</div>
+                        </div>
+                        <div class="exp-folder">
+                          <div class="exp-folder__icon"><i class="fa fa-folder"></i></div>
+                          <div class="exp-folder__name">Avatar</div>
+                        </div>
+                        <div class="exp-folder">
+                          <div class="exp-folder__icon"><i class="fa fa-folder"></i></div>
+                          <div class="exp-folder__name">Avatar</div>
+                        </div>
+                        <div class="exp-folder">
+                          <div class="exp-folder__icon"><i class="fa fa-folder"></i></div>
+                          <div class="exp-folder__name">Avatar</div>
+                        </div>
+                        <div class="exp-folder">
+                          <div class="exp-folder__icon"><i class="fa fa-folder"></i></div>
+                          <div class="exp-folder__name">Avatar</div>
+                        </div>
+                        <div class="exp-folder">
+                          <div class="exp-folder__icon"><i class="fa fa-folder"></i></div>
+                          <div class="exp-folder__name">Avatar</div>
+                        </div>
+                        <div class="exp-folder">
+                          <div class="exp-folder__icon"><i class="fa fa-folder"></i></div>
+                          <div class="exp-folder__name">Avatar</div>
+                        </div>
+                      </div>
+                      <div class="explorer__files">
+                        <div class="exp-file">
+                          <div class="exp-file__icon"><i class="fa fa-file"></i></div>
+                          <div class="exp-file__name">Image.jpg</div>
+                        </div>
+                        <div class="exp-file">
+                          <div class="exp-file__icon"><i class="fa fa-file"></i></div>
+                          <div class="exp-file__name">Image.jpg</div>
+                        </div>
+                        <div class="exp-file">
+                          <div class="exp-file__icon"><i class="fa fa-file"></i></div>
+                          <div class="exp-file__name">Image.jpg</div>
+                        </div>
+                        <div class="exp-file">
+                          <div class="exp-file__icon"><i class="fa fa-file"></i></div>
+                          <div class="exp-file__name">Image.jpg</div>
+                        </div>
+                        <div class="exp-file">
+                          <div class="exp-file__icon"><i class="fa fa-file"></i></div>
+                          <div class="exp-file__name">Image.jpg</div>
+                        </div>
+                        <div class="exp-file">
+                          <div class="exp-file__icon"><i class="fa fa-file"></i></div>
+                          <div class="exp-file__name">Image.jpg</div>
+                        </div>
+                        <div class="exp-file">
+                          <div class="exp-file__icon"><i class="fa fa-file"></i></div>
+                          <div class="exp-file__name">Image.jpg</div>
+                        </div>
+                        <div class="exp-file">
+                          <div class="exp-file__icon"><i class="fa fa-file"></i></div>
+                          <div class="exp-file__name">Image.jpg</div>
+                        </div>
+                        <div class="exp-file">
+                          <div class="exp-file__icon"><i class="fa fa-file"></i></div>
+                          <div class="exp-file__name">Image.jpg</div>
+                        </div>
+                        <div class="exp-file">
+                          <div class="exp-file__icon"><i class="fa fa-file"></i></div>
+                          <div class="exp-file__name">Image.jpg</div>
+                        </div>
+                        <div class="exp-file">
+                          <div class="exp-file__icon"><i class="fa fa-file"></i></div>
+                          <div class="exp-file__name">Image.jpg</div>
+                        </div>
+                        <div class="exp-file">
+                          <div class="exp-file__icon"><i class="fa fa-file"></i></div>
+                          <div class="exp-file__name">Image.jpg</div>
+                        </div>
+                        <div class="exp-file">
+                          <div class="exp-file__icon"><i class="fa fa-file"></i></div>
+                          <div class="exp-file__name">Image.jpg</div>
+                        </div>
+                        <div class="exp-file">
+                          <div class="exp-file__icon"><i class="fa fa-file"></i></div>
+                          <div class="exp-file__name">Image.jpg</div>
+                        </div>
+                        <div class="exp-file">
+                          <div class="exp-file__icon"><i class="fa fa-file"></i></div>
+                          <div class="exp-file__name">Image.jpg</div>
+                        </div>
+                        <div class="exp-file">
+                          <div class="exp-file__icon"><i class="fa fa-file"></i></div>
+                          <div class="exp-file__name">Image.jpg</div>
+                        </div>
+                        <div class="exp-file">
+                          <div class="exp-file__icon"><i class="fa fa-file"></i></div>
+                          <div class="exp-file__name">Image.jpg</div>
+                        </div>
+                        <div class="exp-file">
+                          <div class="exp-file__icon"><i class="fa fa-file"></i></div>
+                          <div class="exp-file__name">Image.jpg</div>
+                        </div>
+                        <div class="exp-file">
+                          <div class="exp-file__icon"><i class="fa fa-file"></i></div>
+                          <div class="exp-file__name">Image.jpg</div>
+                        </div>
+                        <div class="exp-file">
+                          <div class="exp-file__icon"><i class="fa fa-file"></i></div>
+                          <div class="exp-file__name">Image.jpg</div>
+                        </div>
+                        <div class="exp-file">
+                          <div class="exp-file__icon"><i class="fa fa-file"></i></div>
+                          <div class="exp-file__name">Image.jpg</div>
+                        </div>
+                        <div class="exp-file">
+                          <div class="exp-file__icon"><i class="fa fa-file"></i></div>
+                          <div class="exp-file__name">Image.jpg</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- History-->
+                  <div class="tab-pane" id="tab8">
+                    <div class="auto-horizontal-scroll">
+                      <table class="in-form-table">
+                        <thead>
+                          <tr>
+                            <th class="min-w">#</th>
+                            <th>Action</th>
+                            <th>Processor</th>
+                            <th>Approver</th>
+                            <th>Status</th>
+                            <th>Date of ending</th>
+                            <th>Date of submit</th>
+                            <th>Remark</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <footer class="main-footer">
+          <div class="container-fluid pt-sm">
+            <div class="row">
+              <div class="col-xs-12 col-md-6 col-md-offset-6">
+                <div class="footer-info"><span>© 2017 by 1PAY Co., Ltd A member of<a target="_blank" href="http://mog.vn">MOG Vietnam</a></span></div>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </section>
+    <div class="modal tmv-fade" id="approve-stage-popup" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content quantrisanpham">
+          <div class="modal-header">
+            <button class="close" type="button" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+            <h4 class="modal-title" id="myModalLabel">Progress</h4>
+          </div>
+          <div class="modal-body modal-scroll">
+            <div style="padding: 0 15px;">
+              <div class="tmv-states-line"><span> </span><span>Current</span><span> </span><br><span class="tmv-state--tobe-rejected">03</span><span class="tmv-state--approved">04</span><span class="tmv-state--tobe-approved">06</span></div>
+            </div>
+            <form action="#" style="margin: 0 0 -15px;">
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="#">Fullname</label>
+                <div class="col-md-8">
+                  <div class="double-input">
+                    <input class="form-control" type="text" style="width: 66%;">
+                    <input class="form-control" type="text" style="width: 34%;">
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-md-4 control-label">Gender</label>
+                <div class="col-md-8">
+                  <select class="form-control" name="" id="">
+                    <option value="">Male</option>
+                    <option value="">Female</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-md-4 control-label">Province*</label>
+                <div class="col-md-8">
+                  <select class="form-control" name="" id="">
+                    <option value="">Ha Noi</option>
+                    <option value="">Hai Phong</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-md-4 control-label">Shop Add.</label>
+                <div class="col-md-8">
+                  <input class="form-control" type="text">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-md-4 control-label">Sales Ex.*</label>
+                <div class="col-md-8">
+                  <input class="form-control" type="text">
+                  <p>nghiadt@truemoney.com.vn <br>09134567899</p>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-md-4 control-label">Agent AccountID</label>
+                <div class="col-md-8">
+                  <input class="form-control" type="text" disabled="disabled">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="#">Remark*</label>
+                <div class="col-md-8">
+                  <textarea class="form-control" name="" id="" cols="30" rows="5"></textarea>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-md-8 col-md-offset-4">
+                  <input id="make-sure-action" type="checkbox"> Are you sure to approve this?
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <div class="fl">
+              <button class="tmv-btn tmv-btn--danger" type="button" disabled="" data-dismiss="modal">Reject </button>
+              <button class="tmv-btn tmv-btn--advance" type="button" disabled="">Approve</button>
+            </div>
+            <div class="fr"><a class="tmv-btn" data-dismiss="modal">Cancel</a></div>
+            <div class="clr"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript" src="assets/vendor/jquery/jquery.js"></script>
+    <script type="text/javascript" src="assets/vendor/bootstrap/js/bootstrap.js"></script>
+    <script type="text/javascript" src="assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+    <script type="text/javascript" src="assets/vendor/bootstrap-multiselect/bootstrap-multiselect.js"></script>
+    <script type="text/javascript" src="assets/vendor/jquery-datatables/media/js/jquery.dataTables.js"></script>
+    <script type="text/javascript" src="assets/vendor/jquery-datatables/extras/TableTools/js/dataTables.tableTools.min.js"></script>
+    <script type="text/javascript" src="assets/vendor/jquery-datatables-bs3/assets/js/datatables.js"></script>
+    <script type="text/javascript" src="assets/vendor/daterangepicker/moment.js"></script>
+    <script type="text/javascript" src="assets/vendor/daterangepicker/daterangepicker.js"></script>
+    <script type="text/javascript" src="assets/vendor/jquery-browser-mobile/jquery.browser.mobile.js"></script>
+    <script type="text/javascript" src="assets/vendor/nanoscroller/nanoscroller.js"></script>
+    <script type="text/javascript" src="assets/vendor/magnific-popup/magnific-popup.js"></script>
+    <script type="text/javascript" src="assets/vendor/jquery-placeholder/jquery.placeholder.js"></script>
+    <script type="text/javascript" src="assets/javascripts/theme.js"></script>
+    <script type="text/javascript" src="assets/vendor/ios7-switch/ios7-switch.js"></script>
+    <script type="text/javascript" src="assets/vendor/select2/dist/js/select2.js"></script>
+    <script type="text/javascript" src="assets/vendor/pnotify/pnotify.custom.js"></script>
+    <script type="text/javascript" src="assets/vendor/owl-carousel/owl.carousel.js"></script>
+    <script type="text/javascript" src="assets/javascripts/ui-elements/examples.modals.js"></script>
+    <script type="text/javascript" src="assets/javascripts/theme.custom.js"></script>
+    <script type="text/javascript" src="assets/javascripts/theme.init.js"></script>
+    <script type="text/javascript" src="assets/vendor/navbar-animate/jquery.bootstrap-dropdown-on-hover.min.js"></script>
+    <script type="text/javascript" src="assets/vendor/panel_tool/plugins.js"></script>
+    <script type="text/javascript" src="assets/javascripts/bootstrap-select.min.js"></script>
+    <script type="text/javascript" src="assets/javascripts/forms/examples.advanced.form.js"></script>
+    <script type="text/javascript" src="assets/javascripts/bootstrap-notify.min.js"></script>
+    <script type="text/javascript" src="assets/javascripts/settings-custom.js"></script>
+    <script>
+      $(document).ready(function() {
+      	$('#make-sure-action').on('change', function(){
+      		if (this.checked) {
+      			$("#approve-stage-popup .modal-footer button[disabled]").removeAttr('disabled');
+      		} else {
+      			$("#approve-stage-popup .modal-footer button").attr('disabled', 'disabled');
+      		}
+      	});
+      });
+    </script>
+  </body>
+</html>

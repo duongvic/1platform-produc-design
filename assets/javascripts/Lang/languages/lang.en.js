@@ -1,0 +1,4 @@
+export en = {
+    lang: 'en',
+
+}

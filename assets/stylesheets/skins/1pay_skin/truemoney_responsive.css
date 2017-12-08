@@ -1,0 +1,296 @@
+@media only screen and (min-width: 768px) {
+    html.fixed .page-header {
+        left: 200px;
+        position: static;
+        margin-bottom: 15px;
+    }
+    html.fixed .content-body {
+        margin-left: 200px;
+    }
+    html.fixed .inner-wrapper {
+        padding-top: 50px;
+    }
+    div.modal-dialog {
+        margin: 15vh auto;
+    }
+        div.modal-dialog .quantrisanpham {
+        width: 700px;
+    }
+    html.fixed .sidebar-left {
+        top: 50px !important;
+        z-index: 99;
+    }
+    /*
+    html.sidebar-left-collapsed .sidebar-left {
+        width: 53px;
+    }
+    html.fixed.sidebar-left-collapsed .content-body {
+        margin-left: 53px;
+    }
+*/
+}
+
+@media only screen and (max-width: 480px) {
+    /*
+    .inner-wrapper aside.sidebar-left {
+        width: 45px;
+    }
+*/
+    .inner-wrapper ul.nav-main > li > a {
+        padding: 12px 13px;
+    }
+    /*
+    .inner-wrapper .content-body {
+        padding: 0px;
+        margin-left: 45px;
+    }
+*/
+    body.edit_profile_file .report_search_bt {
+        padding: 15px !important;
+        margin: 0 15px;
+    }
+    body.edit_profile_file .report_search_bt a {
+        width: 100%;
+        display: block;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .usermarket {
+        margin-left: 2px !important;
+    }
+    div.dataTables_info_footer,
+    div.pagination_footer {
+        text-align: center;
+    }
+    div.dataTables_info {
+        padding-top: 10px;
+    }
+    div.guide_header_title h1 {
+        margin-left: 10px;
+    }
+    a.guide_filter {
+        padding: 15px 10px;
+    }
+    body.edit_profile_file .panel-title {
+        padding: 20px 30px;
+    }
+    div.panel-title {
+        padding: 15px;
+    }
+    div.export_excel_bt {
+        position: static;
+        padding: 10px 0;
+        width: 100%;
+    }
+    body.edit_profile_file .panel-heading {
+        padding-left: 15px;
+    }
+    .modal-dialog {
+        position: relative;
+        width: auto;
+        margin: 28% 10px;
+    }
+    .header {
+        border-bottom: none;
+    }
+    .select2-container.form-control {
+        /*        margin-bottom: 10px;*/
+    }
+    .report_search_bt a {
+        text-align: center;
+    }
+    h4.panel-title {
+        color: #33353f;
+        font-size: 15px;
+        font-weight: 500;
+        line-height: 20px;
+        padding: 0;
+        text-transform: none;
+    }
+    div.area_chart {
+        margin: 15px 0;
+    }
+    div.tab-pane .panel-heading {
+        padding: 15px;
+    }
+    .main-footer .container_footer {
+        padding-top: 0px;
+    }
+    .main-footer {
+        margin-left: 0px;
+    }
+    .country-selector {
+        text-align: center;
+    }
+    header.navbar .navbar-default {
+        border: none;
+    }
+    header.navbar.navbar-secondary {
+        /*        border: none !important;*/
+    }
+    div.leftchart {
+        margin-bottom: 15px;
+    }
+    div.rightchart img {
+        width: 50%;
+        height: 50%;
+    }
+    div.summarylist_item {
+        padding-bottom: 0px;
+        margin: 10px auto;
+        width: 80%;
+    }
+    div.summarylist_item h3 {
+        font-size: 20px;
+    }
+    div.sulist_item h3 {
+        font-size: 16px;
+    }
+    div.panel-body {
+        padding: 15px 0;
+    }
+    div.content-body-wrap {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    div.page-header-right {
+        float: none;
+        /* margin-right: 30px; */
+        margin-top: 15px;
+        /* margin-left: 15px; */
+        width: 100%;
+        padding: 0 25px;
+    }
+    div.header_selectinput ul li {
+        width: 50%;
+        margin-left: 0px;
+        padding: 0 5px;
+        margin-bottom: 8px;
+    }
+    div.header_dateinput {
+        text-align: right;
+        padding: 0 5px;
+        margin: 0 25px;
+    }
+    div.input_date {
+        width: 100%;
+        text-align: center;
+        margin-bottom: -3px;
+    }
+    div.header_selectinput ul {
+        display: block;
+    }
+    div.page-header-left {
+        margin-left: 30px;
+        margin-top: 54px;
+        margin-bottom: 10px;
+    }
+    div.form-control {
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    /*
+    html.csstransforms .sidebar-left {
+        margin-left: 100%;
+    }
+*/
+    .usermarket {
+        margin-left: 0px;
+    }
+    /*
+    ul.nav-main li span {
+        vertical-align: middle;
+        visibility: hidden;
+    }
+*/
+    .sidebar-left {
+        padding-top: 50px;
+    }
+    /*
+    aside.sidebar-left:hover ul.nav-main li span {
+        vertical-align: middle;
+        visibility: visible;
+    }
+*/
+    /*
+    aside.sidebar-left {
+        width: 55px;
+    }
+    aside.sidebar-left:hover {
+        width: 255px;
+    }
+*/
+    ul.nav-main > li > a {
+        padding: 12px 18px;
+    }
+    /*
+    .content-body {
+        padding: 0px;
+        margin-left: 55px;
+    }
+*/
+    body.edit_profile_file .panel-body.edit_profile {
+        padding: 15px;
+    }
+    div.report_search_bt a {
+        margin-bottom: 10px;
+        margin-right: 0;
+    }
+    body.edit_profile_file .report_search_bt {
+        padding: 20px 30px 0px 30px;
+    }
+    .page-header div.page-header-right {
+        margin-left: 0px;
+    }
+}
+
+@media screen and (max-width: 991px) {
+        html .wizard-progress .wizard-steps,
+        html.dark .wizard-progress .wizard-steps {
+            padding: 40px 0 0;
+        }
+    div.wizard-margin{
+    margin-top: 5px !important;
+}
+    .dataTables_wrapper .dataTables_length {
+        margin-bottom: 10px;
+    }
+    header.navbar .navbar-nav li a {
+        padding: 0 10px;
+    }
+    .navbar-nav.navbar-right {
+        margin-right: 10px !important;
+    }
+    div.table-responsive {
+        border: none;
+    }
+    .footer-info {
+        /*        display: none;*/
+        margin: 0 -15px;
+    }
+    .form-control {
+        margin-bottom: 10px;
+    }
+    .select2-container.form-control {
+        /*        margin-bottom: 10px;*/
+    }
+    section.search_payment .panel-actions {
+        position: static;
+        padding: 15px 0 5px 0;
+        text-align: left;
+    }
+    .panel .input_date {
+        margin-bottom: 10px;
+    }
+    div.page-header-right.header_edit_bt {
+        margin-top: 0;
+        margin-bottom: 10px;
+    }
+    div.page-header-right {
+        float: none;
+        margin-left: 5px;
+    }
+}

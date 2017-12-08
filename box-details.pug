@@ -1,0 +1,118 @@
+extends _pug-template/layout.pug
+block head-style
+	style
+block sidebar
+	+sidebar('Inventory', 'Box List')
+block body
+	section.content-body(role='main')
+		header.page-header.container-fluid
+			.page-header-left
+				ol.breadcrumbs
+					li
+						a(href='#')
+							i.fa.fa-home
+					li
+						a(href="#") Inventory Management
+					li
+						span Box Details
+				.pull-right
+					a(href="#").btn.btn-default.btn-xs Help
+		.content-body-wrap
+			.tabs
+				.tab-content
+					.panel.panel-default
+						.panel-title
+							h4 Box Detail
+							.panel-tools
+								button.btn.btn-sm.btn-complete
+									i.fa.fa-save
+									|  Save
+								button.btn.btn-sm.btn-primary
+									i.fa.fa-pencil
+									|  Edit
+						.panel-body
+							.row.form-horizontal
+								.col-md-6
+									.form-group
+										label.col-md-4.control-label Box ID *
+										.col-md-8
+											input.form-control(type='text', disabled='')
+								.col-md-6
+									.form-group
+										label.col-md-4.control-label Status *
+										.col-md-8
+											select.form-control(name='', id='')
+												option(value='') --Select Location--
+								.col-md-6
+									.form-group
+										label.col-md-4.control-label Terminal ID *
+										.col-md-8
+											input.form-control(type='text')
+								.col-md-6
+									.form-group
+										label.col-md-4.control-label SIM ID *
+										.col-md-8
+											input.form-control(type='text')
+								.col-md-6
+									.form-group
+										label.col-md-4.control-label Adapter ID *
+										.col-md-8
+											input.form-control(type='text')
+								.col-md-6
+									.form-group
+										label.col-md-4.control-label Battery ID *
+										.col-md-8
+											input.form-control(type='text')
+								.col-md-6
+									.form-group
+										label.col-md-4.control-label Location *
+										.col-md-8
+											select.form-control(name='', id='')
+												option(value='') --Select Location--
+								.col-md-6
+									.form-group
+										label.col-md-4.control-label PIC *
+										.col-md-8
+											select.form-control(name='', id='', disabled='')
+												option(value='') --Select PIC--
+								.col-md-6
+									.form-group
+										label.col-md-4.control-label Created At *
+										.col-md-8
+											input.form-control(type='text', data-plugin-datepicker='')
+								.col-md-6
+									.form-group
+										label.col-md-4.control-label Updated At *
+										.col-md-8
+											input.form-control(type='text', data-plugin-datepicker='')
+								.col-md-6
+									.form-group
+										label.col-md-4.control-label Delivery Date
+										.col-md-8
+											input.form-control(type='text', data-plugin-datepicker='')
+								.col-md-6
+									.form-group
+										label.col-md-4.control-label Agent
+										.col-md-8
+											select.form-control(name='', id='')
+												option(value='') --Select Agent--
+								.col-md-6
+									.form-group
+										label.col-md-4.control-label Remark *
+										.col-md-8
+											textarea.form-control
+
+block modals
+	//- Modal goes here
+block foot-scripts
+	//- Custom Script goes here
+	script.
+		$(document).ready(function() {
+			$('#make-sure-action').on('change', function(){
+				if (this.checked) {
+					$("#approve-stage-popup .modal-footer button[disabled]").removeAttr('disabled');
+				} else {
+					$("#approve-stage-popup .modal-footer button").attr('disabled', 'disabled');
+				}
+			});
+		});

@@ -1,0 +1,127 @@
+extends _pug-template/layout.pug
+block head-style
+	style
+block sidebar
+	+sidebar('Account Management', 'Account acquire')
+block body
+	section.content-body(role='main')
+		header.page-header.container-fluid
+			.page-header-left
+				ol.breadcrumbs
+					li
+						a(href='#')
+							i.fa.fa-home
+					li
+						a(href="#") Privileges
+					li
+						a(href="#") Add
+				.pull-right
+					a(href="#").btn.btn-primary.btn-xs 
+						i.fa.fa-plus
+						| &nbsp; Add
+		.content-body-wrap
+			.tab-content
+				#tab-list-customer.tab-pane.active
+					form#form-account-create.panel.panel-default(method='POST', action='https://admin.bizdev.truemoney.com.vn/setting/account/add')
+						.panel-title
+							h4 Personal Information
+							.panel-tools
+								button.btn.btn-sm.btn-primary(type='submit', value='Save', name='edit')
+									i.fa.fa-save
+									|  Save
+						.panel-body.form-horizontal
+							.row
+								.col-lg-6
+									.form-group
+										label.col-md-4.control-label(for='') Full Name *
+										.col-md-8.double-input
+											input.form-control(pattern='{1,50}', required='', value='', type='text', name='first-name', placeholder='First Name')
+											input.form-control(pattern='{1,100}', required='', value='', type='text', name='last-name', placeholder='Last Name')
+								.col-lg-6
+									.form-group
+										label.col-md-4.control-label(for='') Notification Mode
+										.col-md-8
+											select.form-control(name='notification')
+												option(value='', selected='') please select
+												option(value='0') None
+												option(value='1') Email
+												option(value='2') SMS
+												option(value='3') Both
+							.row
+								.col-lg-6
+									.form-group
+										label.col-md-4.control-label(for='') Email *
+										.col-md-8
+											.input-group
+												input.form-control(pattern='[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$', required='', value='', type='text', name='email', placeholder='Email')
+												span.input-group-addon.border-input(data-toggle='tooltip', title='verified')
+													i.fa.fa-lg.fa-check-circle.text-success(aria-hidden='true')
+								.col-lg-6
+									.form-group
+										label.col-md-4.control-label(for='') Phone *
+										.col-md-8
+											.input-group
+												input.form-control(pattern='[0-9]{10,11}', required='', value='', type='text', name='phone', placeholder='Phone')
+												span.input-group-addon.border-input(data-toggle='tooltip', title='not yet verified')
+													i.fa.fa-lg.fa-exclamation-triangle.text-danger(aria-hidden='true')
+							.row
+								.col-lg-6
+									.form-group
+										label.col-md-4.control-label(for='customerType') Customer Type *
+										.col-md-8
+											select.form-control(name='customerType', required='')
+												option(value='', selected='') please select
+												option(value='1') CUSTOMER
+												option(value='2') AGENT
+												option(value='3') MERCHANT
+												option(value='4') SALE
+												option(value='5') TRUEMONEY
+												option(value='6') BANK
+												option(value='7') FA
+												option(value='8') STAFF
+												option(value='9') ADMIN
+												option(value='10') SYSTEM
+								.col-lg-6
+									.form-group
+										label.col-md-4.control-label(for='blackList') Blacklist Reason *
+										.col-md-8
+											select.form-control(name='blackList', required='')
+												option(value='', selected='') please select
+												option(value='0') Active
+												option(value='1') 3 times wrong MPIN / PW
+												option(value='2') Device lost
+												option(value='3') Payment dispute
+												option(value='4') Fraud suspicion
+												option(value='5') Registration Pending
+						.panel-title
+							h4 Grant Role
+							.panel-tools
+								button.btn.btn-sm.btn-primary(type='button', disabled='', data-target='#action-grant-role', data-toggle='modal', name='grant-role')
+									i.fa.fa-users
+									|  Grant Role
+						.panel-body
+							.table-responsive
+								table.table.table-bordered
+									thead(style='line-height: 22px; cursor: pointer;')
+										tr
+											th(width='50') #
+											th Role Name
+											th Valid from
+											th Valid to
+											th Description
+											th Action
+
+block modals
+	//- Modal goes here
+block foot-scripts
+	//- Custom Script goes here
+	script.
+		$(document).ready(function() {
+			$('#make-sure-action').on('change', function(){
+				if (this.checked) {
+					$("#approve-stage-popup .modal-footer button[disabled]").removeAttr('disabled');
+				} else {
+					$("#approve-stage-popup .modal-footer button").attr('disabled', 'disabled');
+				}
+			});
+		});

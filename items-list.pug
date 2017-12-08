@@ -1,0 +1,213 @@
+extends _pug-template/layout.pug
+block head-style
+	style
+block sidebar
+	+sidebar('Inventory', 'Item List')
+block body
+	section.content-body(role='main')
+		header.page-header.container-fluid
+			.page-header-left
+				ol.breadcrumbs
+					li
+						a(href='#')
+							i.fa.fa-home
+					li
+						a(href="#") Inventory Management
+					li
+						span Item List
+				.pull-right
+					a(href="#").btn.btn-default.btn-xs Help
+		.content-body-wrap
+			.tabs
+				.tab-content
+					form.panel.panel-default(action='', method='')
+						.row.mb-md
+							.col-lg-4.mb-sm
+								input.form-control(type='text', placeholder='AccountId, Full name, Phone, Email ')
+							.col-lg-3.col-sm-4.col-xs-12.mb-sm
+								button.btn.btn-primary.btn-sm(type='button') Search
+								button.btn.btn-default.btn-sm(type='button') Export Excel
+							.col-lg-5.col-sm-8.col-xs-12.mb-sm
+								label.mr-sm
+									input(name='search-option', checked='', type='radio')
+									|  Need to process
+								label.mr-sm
+									input(name='search-option', type='radio')
+									|  Processed
+								label.mr-sm
+									input(name='search-option', type='radio')
+									|  All
+								.pull-right
+									button.btn.btn-default.btn-sm(type='button', data-toggle="collapse", data-target="#advanced-filter") 
+										i.fa.fa-gear
+										| &nbsp; Advanced
+						// Filter form
+						#advanced-filter.collapse.form-horizontal
+							.row
+								.col-md-4
+									.form-group
+										label.col-md-4.control-label(for='inputDefault') Item Type
+										.col-md-8
+											select.form-control
+												option Terminal
+												option SIM
+												option Card
+												option Battery
+												option Adapter
+								.col-md-4
+									.form-group
+										label.col-md-4.control-label(for='inputDefault') Location
+										.col-md-8
+											select.form-control
+												option ---Select Location---
+												option Gold
+												option Silver
+												option Bronze
+								.col-md-4
+									.form-group
+										label.col-md-4.control-label(for='inputDefault') PIC
+										.col-md-8
+											select.form-control(name='', id='')
+												option(value='') ---Select District---
+												option(value='') Dong Da
+												option(value='') Cau Giay
+												option(value='') Ba Dinh
+							.row
+								.col-md-4
+									.form-group
+										label.col-md-4.control-label(for='inputDefault') Status
+										.col-md-8
+											select.form-control
+												option ---Select status---
+												option Basic
+												option Full
+								.col-md-4
+									.form-group
+										label.col-md-4.control-label(for='inputDefault') Box ID
+										.col-lg-8.col-md-2
+											input.form-control(type='text')
+								.col-md-4
+									.form-group
+										label.col-md-4.control-label(for='inputDefault') SIM Owner
+										.col-md-8
+											select.form-control(name='', id='')
+												option(value='') ---Select SIM Owner---
+												option(value='') Dong Da
+												option(value='') Cau Giay
+												option(value='') Ba Dinh
+							.row
+								.col-md-4
+									.form-group
+										label.col-md-4.control-label(for='inputDefault') From date
+										.col-md-8
+											input.form-control(type='text', data-plugin-datepicker='')
+								.col-md-4
+									.form-group
+										label.col-md-4.control-label(for='inputDefault') To date
+										.col-md-8
+											input.form-control(type='text', data-plugin-datepicker='')
+							.row
+								.col-md-4
+									.form-group
+										label.col-md-4.control-label(for='inputDefault') N-records
+										.col-md-8
+											select.form-control
+												option 10 
+												option 25 
+												option 50 
+												option 100 
+												option 200 
+								.col-md-4
+									.form-group
+										label.col-md-4.control-label Filter By
+										.col-md-8
+											label.mr-sm
+												input(type='radio', name='date-type', checked='checked')
+												|  Created AT
+											label.mr-sm
+												input(type='radio', name='date-type')
+												|  Active At
+											label.mr-sm
+												input(type='radio', name='date-type')
+												|  Expired At
+					section.panel.search_payment.panel-default
+						//- p.mb-sm
+							span.fa.fa-close(onclick="this.parentElement.style.display='none'")
+								i
+							|  Curabitur tortor ipsum, semper ac pellentesque sit amet, condimentum vel nulla.
+						p.fl
+							b 3779
+							|  results
+						.fr
+							ul.pagination.pagination-sm.m-none
+								li
+									a(href='#') 1
+								li
+									a(href='#') 2
+								li
+									a(href='#') 3
+								li
+									a(href='#') 4
+								li
+									a(href='#') 5
+						.clr
+						.table-responsive
+							table.table.table-bordered
+								thead
+									tr
+										th.min-w #
+										th.min-w Item ID
+										th.min-w Type 
+										th.min-w Location 
+										th.min-w PIC 
+										th.min-w Status 
+										th.min-w Box ID 
+										th.min-w Action 
+										th.min-w SIM number 
+										th.min-w Operator  
+										th.min-w Activate At
+										th.min-w Expired At
+										th.min-w SIM Owner
+										th.min-w Created At
+										th.min-w Created By
+										th.min-w Updated At
+										th.min-w Updated By
+										th.min-w Remark
+								tbody
+									tr
+										td   1
+										td   
+										td   
+										td   
+										td   
+										td   
+										td   
+										td
+											a(href='#').btn.btn-primary.btn-xs
+												i.fa.fa-pencil
+												|  Edit
+										td   
+										td   
+										td   
+										td   
+										td   
+										td   
+										td   
+										td   
+										td   
+										td   
+
+block modals
+	//- Modal goes here
+block foot-scripts
+	//- Custom Script goes here
+	script.
+		$(document).ready(function() {
+			$('#make-sure-action').on('change', function(){
+				if (this.checked) {
+					$("#approve-stage-popup .modal-footer button[disabled]").removeAttr('disabled');
+				} else {
+					$("#approve-stage-popup .modal-footer button").attr('disabled', 'disabled');
+				}
+			});
+		});

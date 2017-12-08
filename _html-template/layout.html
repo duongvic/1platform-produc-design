@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html class="fixed sidebar-left-collapsed">
+  <head>
+    <!-- Basic-->
+    <meta charset="UTF-8">
+    <title>Quản lý sản phẩm</title>
+    <meta name="keywords" content="HTML5 Admin Template">
+    <meta name="description" content="Porto Admin - Responsive HTML5 Template">
+    <meta name="author" content="okler.net">
+    <!-- Mobile Metas-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <!-- Web Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <!-- Vendor CSS-->
+    <link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/vendor/font-simpleline/css/simple-line-icons.css">
+    <!-- <link rel="stylesheet" href="assets/vendor/magnific-popup/magnific-popup.css" />-->
+    <link rel="stylesheet" href="assets/vendor/bootstrap-datepicker/css/datepicker3.css">
+    <!-- <link rel="stylesheet" href="assets/vendor/owl-carousel/owl.carousel.css" />-->
+    <!-- <link rel="stylesheet" href="assets/vendor/owl-carousel/owl.theme.css" />-->
+    <!-- Specific Page Vendor CSS-->
+    <link rel="stylesheet" href="assets/vendor/jquery-ui/css/ui-lightness/jquery-ui-1.10.4.custom.css">
+    <link rel="stylesheet" href="assets/vendor/bootstrap-multiselect/bootstrap-multiselect.css">
+    <link rel="stylesheet" href="assets/vendor/morris/morris.css">
+    <link rel="stylesheet" href="assets/vendor/panel_tool/panel_tool.css">
+    <link rel="stylesheet" href="assets/vendor/select2/select2.css">
+    <!-- table-->
+    <link rel="stylesheet" href="assets/vendor/jquery-datatables-bs3/assets/css/datatables.css">
+    <!-- Theme CSS-->
+    <link rel="stylesheet" href="assets/stylesheets/theme.css">
+    <link rel="stylesheet" href="assets/stylesheets/skins/truemoney_skin/navbar.css">
+    <link rel="stylesheet" href="assets/stylesheets/skins/truemoney_skin/bootstrap-select.min.css" type="text/css">
+    <!-- Skin CSS-->
+    <link rel="stylesheet" href="assets/stylesheets/skins/truemoney_skin/truemoney.css">
+    <!-- Theme Custom CSS-->
+    <link rel="stylesheet" href="assets/stylesheets/theme-custom.css">
+    <link rel="stylesheet" type="text/css" media="all" href="assets/vendor/daterangepicker/daterangepicker.css">
+    <!-- Custom by Tamtm-->
+    <link rel="stylesheet" href="assets/stylesheets/new-custom.css">
+    <!-- Head Libs-->
+    <script src="assets/vendor/modernizr/modernizr.js"></script>
+    <style type="text/css">
+      span.multiselect {
+       padding: 2px 6px;
+       font-weight: bold;
+       cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="body">
+      <!-- Header-->
+      <header class="header navbar navbar-secondary">
+        <div class="container-fluid navbar-container">
+          <nav class="navbar navbar-default navbar-default-normal" role="navigation">
+            <div class="navbar-header"><a class="navbar-brand navbar-brand-secondary" href="1.html">Truemoney</a></div>
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+              <ul class="nav navbar-nav" id="navbar-main-1"></ul>
+              <ul class="nav navbar-nav navbar-right" id="navbar-main-2">
+                <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown">English <b class="caret"></b></a>
+                  <ul class="dropdown-menu animated" data-animation="fadeInDown-1">
+                    <li><a href="#">English </a></li>
+                    <li><a href="#">Tiếng Việt</a></li>
+                  </ul>
+                </li>
+                <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown"><img style="width:20px;" src="assets/images/navbar/avatar/av4.jpg" alt=""/>  DatVT</a>
+                  <ul class="dropdown-menu animated" data-animation="fadeInDown-1">
+                    <li><a href="#">Settings</a></li>
+                    <li class="divider" role="separator"></li>
+                    <li><a href="#">Sign out</a></li>
+                  </ul>
+                </li>
+                <li class="guide_alert">
+                  <!-- <span class="pl_remaining_setup_steps_coun">5</span>--><a class="btn btn-sm btn-primary">Guide</a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+          <nav class="navbar navbar-default navbar-default-responsive" role="navigation">
+            <div class="visible-xs toggle-sidebar-left" data-toggle-class="sidebar-left-opened" data-target="html" data-fire-event="sidebar-left-opened"></div>
+            <div class="navbar-header">
+              <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-ex1-collapse-1"></button><a class="modal-with-move-anim guide_alert_bt_responsive guide_alert_over" href="#modalAnim"><span class="pl_remaining_setup_steps_coun">5</span><i class="icon-bell"></i></a><a class="navbar-brand navbar-brand-secondary" href="1.html">Truemoney</a>
+            </div>
+            <div class="collapse navbar-collapse navbar-ex1-collapse-1">
+              <ul class="nav navbar-nav navbar-nav-language navbar-nav-logout">
+                <li class="dropdown dropdown-res navbar-account"><a class="btn-signup ga-signup button secondary dropdown-toggle" href="#" data-toggle="dropdown"><img class="account_img" src="assets/images/navbar/avatar/av4.jpg" alt=""/> DatVT <b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">Insider</a></li>
+                    <li><a href="#">Settings</a></li>
+                    <li><a href="#">Sign out</a></li>
+                  </ul>
+                </li>
+              </ul>
+              <ul class="nav navbar-nav navbar-nav-primary">
+                <li><a href="2_services.html">Services</a></li>
+                <li><a href="4_platform.html">Platform</a></li>
+                <li><a class="new" href="#">1 Cash</a></li>
+                <li><a href="7_developer.html">Developers</a></li>
+                <li><a href="9_support.html">Help & Support</a></li>
+              </ul>
+              <ul class="nav navbar-nav navbar-nav-secondary">
+                <li><a href="5_about.html">About Us</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Policy</a></li>
+                <li><a href="6_terms.html">Privacy & Terms</a></li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+      </header>
+      <!-- End: Header-->
+      <!-- //////// content ////////-->
+      <div class="inner-wrapper">
+        <!-- start: sidebar-->
+        <aside class="sidebar-left" id="sidebar-left">
+          <div class="sidebar-header">
+            <div class="sidebar-title">Quản trị vận hành</div>
+            <div class="sidebar-toggle hidden-xs" data-toggle-class="sidebar-left-collapsed" data-target="html" data-fire-event="sidebar-left-toggle"><i class="fa fa-bars" aria-label="Toggle sidebar"></i></div>
+          </div>
+          <div class="nano">
+            <div class="nano-content">
+              <nav class="nav-main" id="menu" role="navigation">
+                <ul class="nav nav-main">
+                  <li class="nav-active"><a href="#"><i class="icon-grid" aria-hidden="true"></i><span>Quản lý Agent</span></a></li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </aside>
+        <!-- end: sidebar-->
+        <section class="content-body" role="main">
+          <header class="page-header">
+            <div class="row">
+              <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                <div class="page-header-left">
+                  <ol class="breadcrumbs">
+                    <li><a href="#"><i class="fa fa-home"></i></a></li>
+                    <li><span>Quản lý Agent</span></li>
+                  </ol>
+                </div>
+              </div>
+            </div>
+          </header>
+          <!-- start: page-->
+          <div class="row content-body-wrap">
+            <div class="col-md-12 col-lg-12 col-xl-12">
+              <div class="tabs">
+                <ul class="nav nav-tabs">
+                  <li class="active"><a href="#tab1" data-toggle="tab">Agent List</a></li>
+                  <li><a href="#tab2" data-toggle="tab">Request List</a></li>
+                </ul>
+                <div class="tab-content">
+                  <div class="tab-pane active" id="tab1">
+                    <form class="panel panel-default" action="" method="">
+                      <div class="form-group">
+                        <div class="col-md-5">
+                          <div class="panel-tools tool-filter" style="display: inline-block;vertical-align: middle;"><span><a class="icon minimise-tool"><i class="fa fa-chevron-down text-xs"></i></a></span></div>
+                          <div style="display: inline-block; width: 300px;">
+                            <input class="form-control" type="text" placeholder="AccountId, Full name, Phone, Email ">
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <label class="mr-sm">
+                            <input name="search-option" checked="" type="radio"> Need to process
+                          </label>
+                          <label class="mr-sm">
+                            <input name="search-option" type="radio"> Processed
+                          </label>
+                          <label class="mr-sm">
+                            <input name="search-option" type="radio"> All
+                          </label><span class="ml-lg">
+                            <button class="tmv-btn tmv-btn--warning" type="button">Search</button>
+                            <button class="tmv-btn" type="button">Export Excel</button></span>
+                        </div>
+                        <div class="col-md-1" style="text-align: right; padding-right: 0;"><a class="tmv-btn" href="help-docs.html" target="_blank" style="display: inline-block;"> Help</a></div>
+                      </div>
+                      <div class="clr"></div>
+                      <!-- Filter form-->
+                      <div class="panel-body report_search_form" style="border-bottom: 1px solid #eee; border-radius: 0; background: #f9f9f9; margin: 0 -15px; padding: 15px; display: none;">
+                        <div class="row">
+                          <div class="col-md-4">
+                            <div class="form-group">
+                              <label class="col-md-4 control-label" for="inputDefault">Sales</label>
+                              <div class="col-md-8">
+                                <input class="form-control" type="text" list="sales-data">
+                                <datalist id="sales-data">
+                                  <option value="Internet Explorer"></option>
+                                  <option value="Firefox"></option>
+                                  <option value="Chrome"></option>
+                                  <option value="Opera"></option>
+                                  <option value="Safari"></option>
+                                </datalist>
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <label class="col-md-4 control-label" for="inputDefault">KYC status</label>
+                              <div class="col-md-8">
+                                <select class="form-control">
+                                  <option>---Select KYC status---</option>
+                                  <option>Basic</option>
+                                  <option>Full</option>
+                                </select>
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <label class="col-md-4 control-label" for="inputDefault">Classification</label>
+                              <div class="col-md-8">
+                                <select class="form-control">
+                                  <option>---Select Classification---</option>
+                                  <option>Gold</option>
+                                  <option>Silver</option>
+                                  <option>Bronze</option>
+                                </select>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-4">
+                            <div class="form-group">
+                              <label class="col-md-4 control-label" for="inputDefault">Province</label>
+                              <div class="col-lg-8 col-md-2">
+                                <select class="form-control" name="" id="">
+                                  <option value="">---Select Province---</option>
+                                  <option value="">Hanoi</option>
+                                  <option value="">Hanoi</option>
+                                  <option value="">Hai Phong</option>
+                                </select>
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <label class="col-md-4 control-label" for="inputDefault">District</label>
+                              <div class="col-md-8">
+                                <select class="form-control" name="" id="">
+                                  <option value="">---Select District---</option>
+                                  <option value="">Dong Da</option>
+                                  <option value="">Cau Giay</option>
+                                  <option value="">Ba Dinh</option>
+                                </select>
+                              </div>
+                            </div>
+                            <!-- N record-->
+                            <div class="form-group">
+                              <label class="col-md-4 control-label" for="inputDefault">N-records</label>
+                              <div class="col-md-8">
+                                <select class="form-control">
+                                  <option>10 </option>
+                                  <option>25 </option>
+                                  <option>50 </option>
+                                  <option>100 </option>
+                                  <option>200 </option>
+                                </select>
+                              </div>
+                            </div>
+                            <!-- -->
+                          </div>
+                          <div class="col-md-4">
+                            <div class="form-group">
+                              <label class="col-md-4 control-label" for="inputDefault">From date</label>
+                              <div class="col-md-8">
+                                <input class="form-control" type="text" data-plugin-datepicker="">
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <label class="col-md-4 control-label" for="inputDefault">To date</label>
+                              <div class="col-md-8">
+                                <input class="form-control" type="text" data-plugin-datepicker="">
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <label class="col-md-4 control-label">Filter By</label>
+                              <div class="col-md-8">
+                                <label style="margin-right: 2em;">
+                                  <input type="radio" name="date-type" checked="checked"> Created Date
+                                </label>
+                                <label>
+                                  <input type="radio" name="date-type"> Updated Date
+                                </label>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </form>
+                    <section class="panel search_payment panel-default">
+                      <p class="mb-sm"><span class="fa fa-close" onclick="this.parentElement.style.display='none'"><i></i></span> Curabitur tortor ipsum, semper ac pellentesque sit amet, condimentum vel nulla.</p>
+                      <p class="fl"><b>3779</b> results</p>
+                      <div class="fr">
+                        <ul class="pagination pagination-sm m-none">
+                          <li><a href="#">1</a></li>
+                          <li><a href="#">2</a></li>
+                          <li><a href="#">3</a></li>
+                          <li><a href="#">4</a></li>
+                          <li><a href="#">5</a></li>
+                        </ul>
+                      </div>
+                      <div class="clr"></div>
+                      <div class="panel-body">
+                        <div class="table-responsive">
+                          <table class="true-table mt-xs">
+                            <thead>
+                              <tr>
+                                <th class="min-w">#</th>
+                                <th>Account Id</th>
+                                <th>Full name</th>
+                                <th>Phone</th>
+                                <th>Province</th>
+                                <th>AccId Sales</th>
+                                <th>Fullname Sales</th>
+                                <th>Created At</th>
+                                <th>Updated At</th>
+                                <th>Guideline</th>
+                                <th class="min-w">State
+                                  <!-- <a href="#" class="help-point" data-toggle="tooltip" title="This is stage (Click for detail)"></a>-->
+                                </th>
+                                <th class="min-w">KYC status</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr class="recent">
+                                <td>1</td>
+                                <td class="appnem"><a href="tmv_agent_profile.html"><b>10000100</b></a></td>
+                                <td><a href="#"><b>Nguyễn Ngọc Thiệp</b></a></td>
+                                <td><span>0975904238</span></td>
+                                <td><span>Bắc Ninh</span></td>
+                                <td>10000100</td>
+                                <td>Nguyễn Văn A</td>
+                                <td> 10/10/2015</td>
+                                <td> 05/10/2017</td>
+                                <td><a class="guideline-point fa fa-question-circle" href="#" data-toggle="tooltip" title="Lorem ipsum dolor sit amet"></a></td>
+                                <td class="status_table product_ma">
+                                  <div class="tmv-progress"><span class="tmv-state--approved" data-toggle="popover" data-trigger="hover" data-placement="top" data-content="Rejected">04</span><a data-toggle="popover" data-trigger="hover" data-placement="top" data-content="review"><i class="fa fa-angle-right" data-toggle="modal" data-target="#approve-stage-popup" style="cursor:pointer;"></i></a><span class="tmv-state--tobe-approved" data-toggle="popover" data-trigger="hover" data-placement="top" data-content="No actived">06</span></div>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                        <td></td>
+                        <tr>
+                          <td>1</td>
+                          <td class="appnem"><a href="tmv_agent_profile.html"><b>10000100</b></a></td>
+                          <td><a href="#"><b>Nguyễn Ngọc Thiệp</b></a></td>
+                          <td><span>0975904238</span></td>
+                          <td><span>Bắc Ninh</span></td>
+                          <td>10000100</td>
+                          <td>Nguyễn Văn A</td>
+                          <td> 10/10/2015</td>
+                          <td> 05/10/2017</td>
+                          <td><a class="guideline-point fa fa-question-circle" href="#" data-toggle="tooltip" title="Lorem ipsum dolor sit amet"></a></td>
+                          <td class="status_table product_ma">
+                            <div class="tmv-progress"><span class="tmv-state--approved" data-toggle="popover" data-trigger="hover" data-placement="top" data-content="Rejected">04</span><a data-toggle="popover" data-trigger="hover" data-placement="top" data-content="review"><i class="fa fa-angle-right" data-toggle="modal" data-target="#approve-stage-popup" style="cursor:pointer;"></i></a><span class="tmv-state--denied" data-toggle="popover" data-trigger="hover" data-placement="top" data-content="No actived">06</span></div>
+                          </td>
+                        </tr>
+                      </div>
+                      <td></td>
+                      <tr>
+                        <td>1</td>
+                        <td class="appnem"><a href="tmv_agent_profile.html"><b>10000100</b></a></td>
+                        <td><a href="#"><b>Nguyễn Ngọc Thiệp</b></a></td>
+                        <td><span>0975904238</span></td>
+                        <td><span>Bắc Ninh</span></td>
+                        <td>10000100</td>
+                        <td>Nguyễn Văn A</td>
+                        <td> 10/10/2015</td>
+                        <td> 05/10/2017</td>
+                        <td><a class="guideline-point fa fa-question-circle" href="#" data-toggle="tooltip" title="Lorem ipsum dolor sit amet"></a></td>
+                        <td class="status_table product_ma">
+                          <div class="tmv-progress"><span class="tmv-state--rejected" data-toggle="popover" data-trigger="hover" data-placement="top" data-content="Rejected">04</span><a data-toggle="popover" data-trigger="hover" data-placement="top" data-content="review"><i class="fa fa-angle-right" data-toggle="modal" data-target="#approve-stage-popup" style="cursor:pointer;"></i></a><span class="tmv-state--tobe-approved" data-toggle="popover" data-trigger="hover" data-placement="top" data-content="No actived">06</span></div>
+                        </td>
+                      </tr>
+                    </section>
+                  </div>
+                  <td></td>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+      <div class="tab-pane" id="tab2">
+        <section class="panel search_payment panel-default">
+          <p class="fl">Có <b>3779</b> kết quả</p>
+          <div class="fr">
+            <ul class="pagination pagination-sm m-none">
+              <li><a href="#">1</a></li>
+              <li><a href="#">2</a></li>
+              <li><a href="#">3</a></li>
+              <li><a href="#">4</a></li>
+              <li><a href="#">5</a></li>
+            </ul>
+          </div>
+          <div class="clr"></div><a class="help-point" href="#" style="display: inline-block;"> Help</a>
+          <div class="panel-body">
+            <div class="table-responsive">
+              <table class="true-table mt-xs">
+                <thead>
+                  <tr>
+                    <th class="min-w">#</th>
+                    <th>Type</th>
+                    <th>Full name</th>
+                    <th class="min-w">Phone</th>
+                    <th class="min-w">Province</th>
+                    <th>Shop address</th>
+                    <th class="min-w">Created At</th>
+                    <th class="min-w">Updated At</th>
+                    <th class="min-w">State
+                      <!-- <a href="#" class="help-point" data-toggle="tooltip" title="This is stage (Click for detail)"></a>-->
+                    </th>
+                    <th class="min-w">Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>Agent</td>
+                    <td><a href="#"><b>Nguyễn Ngọc Thiệp</b></a></td>
+                    <td><span>0975904238</span></td>
+                    <td><span>Bắc Ninh</span></td>
+                    <td>49 Van Kiep</td>
+                    <td> 10/10/2015</td>
+                    <td> 05/10/2017</td>
+                    <td class="status_table product_ma">
+                      <div class="wizard-progress wizard-mini">
+                        <ul class="wizard-steps clearfix">
+                          <li class="pending" data-toggle="popover" data-trigger="hover" data-placement="top" data-content="Pending" data-original-title="" title=""><a><span>2</span></a></li>
+                          <li class="active charging-step" data-toggle="popover" data-trigger="hover" data-placement="top" data-content="1Pay review" data-original-title="" title=""><a class="btn-sm fr pl-md pr-md btn-tablet-setup" data-toggle="modal" data-target="#approve-request-popup" style="cursor:pointer;"><i class="fa fa-angle-right"></i></a></li>
+                          <li data-toggle="popover" data-trigger="hover" data-placement="top" data-content="No actived" data-original-title="" title=""><a><span>28</span></a></li>
+                        </ul>
+                      </div>
+                    </td>
+                    <td>Rejected</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+      </div>
+      <!-- end: page-->
+    </section>
+    <footer class="main-footer">
+      <div class="container_footer">
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6"></div>
+          <!-- footer-info-->
+          <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+            <div class="footer-info"><span>© 2017 by 1PAY Co., Ltd A member of<a target="_blank" href="http://mog.vn">MOG Vietnam</a></span></div>
+          </div>
+          <!-- end-footer-info-->
+        </div>
+      </div>
+    </footer>
+    <!-- //////// end content //////-->
+    <div class="modal tmv-fade" id="approve-request-popup" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content quantrisanpham">
+          <div class="modal-header">
+            <button class="close" type="button" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+            <h4 class="modal-title" id="myModalLabel">Progress</h4>
+          </div>
+          <div class="modal-body modal-scroll">
+            <!-- <h4>Candy Crush Saga</h4>-->
+            <div class="wizard-progress wizard-margin">
+              <div class="steps-progress">
+                <div class="progress-indicator"></div>
+              </div>
+              <ul class="wizard-steps">
+                <li class="tmv-state--tobe-rejected"><a><span>02</span>
+                    <p class="step-title_pop">Stage1</p></a></li>
+                <li class="tmv-state--approved"><a><span>03</span>
+                    <p class="step-title_pop">Stage2</p></a></li>
+                <li class="tmv-state--tobe-approved"><a><span>04</span>
+                    <p class="step-title_pop">Stage3</p></a></li>
+              </ul>
+            </div>
+            <form action="#" style="padding: 15px;">
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="#">Fullname</label>
+                <div class="col-md-8">
+                  <div class="double-input">
+                    <input class="form-control" type="text">
+                    <input class="form-control" type="text">
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-md-4 control-label">Gender</label>
+                <div class="col-md-8">
+                  <select class="form-control" name="" id="">
+                    <option value="">Male</option>
+                    <option value="">Female</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-md-4 control-label">Province</label>
+                <div class="col-md-8">
+                  <select class="form-control" name="" id="">
+                    <option value="">Ha Noi</option>
+                    <option value="">Hai Phong</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-md-4 control-label">Shop Add.</label>
+                <div class="col-md-8">
+                  <input class="form-control" type="text">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-md-4 control-label">Agent AccountID</label>
+                <div class="col-md-8">
+                  <input class="form-control" type="text" disabled="disabled">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="#">Remark</label>
+                <div class="col-md-8">
+                  <textarea class="form-control" name="" id="" cols="30" rows="5"></textarea>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button class="tmv-btn tmv-btn--danger" type="button" data-dismiss="modal">Reject </button>
+            <button class="tmv-btn tmv-btn--positive" type="button">Approve</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal tmv-fade" id="approve-stage-popup" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content quantrisanpham">
+          <div class="modal-header">
+            <button class="close" type="button" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+            <h4 class="modal-title" id="myModalLabel">Progress</h4>
+          </div>
+          <div class="modal-body modal-scroll">
+            <div style="padding: 0 15px;">
+              <div class="tmv-states-line"><span> </span><span>Current</span><span> </span><br><span class="tmv-state--tobe-rejected">03</span><span class="tmv-state--approved">04</span><span class="tmv-state--tobe-approved">06</span></div>
+            </div>
+            <form action="#" style="margin: 0 0 -15px;">
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="#">Fullname</label>
+                <div class="col-md-8">
+                  <div class="double-input">
+                    <input class="form-control" type="text" style="width: 66%;">
+                    <input class="form-control" type="text" style="width: 34%;">
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-md-4 control-label">Gender</label>
+                <div class="col-md-8">
+                  <select class="form-control" name="" id="">
+                    <option value="">Male</option>
+                    <option value="">Female</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-md-4 control-label">Province*</label>
+                <div class="col-md-8">
+                  <select class="form-control" name="" id="">
+                    <option value="">Ha Noi</option>
+                    <option value="">Hai Phong</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-md-4 control-label">Shop Add.</label>
+                <div class="col-md-8">
+                  <input class="form-control" type="text">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-md-4 control-label">Sales Ex.*</label>
+                <div class="col-md-8">
+                  <input class="form-control" type="text">
+                  <p>nghiadt@truemoney.com.vn <br>09134567899</p>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-md-4 control-label">Agent AccountID</label>
+                <div class="col-md-8">
+                  <input class="form-control" type="text" disabled="disabled">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-md-4 control-label" for="#">Remark*</label>
+                <div class="col-md-8">
+                  <textarea class="form-control" name="" id="" cols="30" rows="5"></textarea>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-md-8 col-md-offset-4">
+                  <input id="make-sure-action" type="checkbox"> Are you sure to approve this?
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <div class="fl">
+              <button class="tmv-btn tmv-btn--danger" type="button" disabled="" data-dismiss="modal">Reject </button>
+              <button class="tmv-btn tmv-btn--advance" type="button" disabled="">Approve</button>
+            </div>
+            <div class="fr"><a class="tmv-btn" data-dismiss="modal">Cancel</a></div>
+            <div class="clr"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="assets/vendor/jquery/jquery.js"></script>
+    <script src="assets/vendor/bootstrap/js/bootstrap.js"></script>
+    <!-- Specific Page Vendor-->
+    <script src="assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+    <script src="assets/vendor/bootstrap-multiselect/bootstrap-multiselect.js"></script>
+    <!-- <script src="assets/javascripts/bootstrap-multiselect.js"></script>-->
+    <!-- Advanced table-->
+    <script src="assets/vendor/jquery-datatables/media/js/jquery.dataTables.js"></script>
+    <script src="assets/vendor/jquery-datatables/extras/TableTools/js/dataTables.tableTools.min.js"></script>
+    <script src="assets/vendor/jquery-datatables-bs3/assets/js/datatables.js"></script>
+    <script type="text/javascript" src="assets/vendor/daterangepicker/moment.js"></script>
+    <script type="text/javascript" src="assets/vendor/daterangepicker/daterangepicker.js"></script>
+    <script src="assets/vendor/jquery-browser-mobile/jquery.browser.mobile.js"></script>
+    <script src="assets/vendor/nanoscroller/nanoscroller.js"></script>
+    <script src="assets/vendor/magnific-popup/magnific-popup.js"></script>
+    <script src="assets/vendor/jquery-placeholder/jquery.placeholder.js"></script>
+    <script src="assets/javascripts/theme.js"></script>
+    <script src="assets/vendor/ios7-switch/ios7-switch.js"></script>
+    <script src="assets/vendor/select2/select2.js"></script>
+    <!-- Theme Base, Slide-->
+    <script src="assets/vendor/pnotify/pnotify.custom.js"></script>
+    <script src="assets/vendor/owl-carousel/owl.carousel.js"></script>
+    <script src="assets/javascripts/ui-elements/examples.modals.js"></script>
+    <!-- Theme Custom-->
+    <script src="assets/javascripts/theme.custom.js"></script>
+    <!-- Theme Initialization Files-->
+    <script src="assets/javascripts/theme.init.js"></script>
+    <script src="assets/vendor/navbar-animate/jquery.bootstrap-dropdown-on-hover.min.js"></script>
+    <script>
+      $(function() {
+      $("#navbar-main-1").bootstrapDropdownOnHover();
+      $("#navbar-main-2").bootstrapDropdownOnHover();
+      $("#navbar-main-3").bootstrapDropdownOnHover();
+      });
+    </script>
+    <script>
+      $(document).ready(function() {
+      $(".guide_alert_over").click(function() {
+      $("body").addClass("body_over");
+      });
+      $(".modal-dismiss").click(function() {
+      $("body").removeClass("body_over");
+      });
+      $('.c-column .multiselect-container li').last().after('<li class="btn-rs"><a href="">Reset as default</a></li>');
+      $('#example-buttonTitle').multiselect({
+      buttonText: function(options, select) {
+      return 'Check the title!';
+      },
+      buttonTitle: function(options, select) {
+      var labels = [];
+      options.each(function() {
+      labels.push($(this).text());
+      });
+      return labels.join(' - ');
+      }
+      });
+      });
+    </script>
+    <script type="text/javascript">
+      $(function() {
+      function cb(start, end) {
+      $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+      }
+      cb(moment().subtract(29, 'days'), moment());
+      $('#reportrange').daterangepicker({
+      ranges: {
+      'Hôm nay': [moment(), moment()],
+      'Hôm qua': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+      '7 Ngày trước': [moment().subtract(6, 'days'), moment()],
+      '30 Ngày trước': [moment().subtract(29, 'days'), moment()],
+      'Tháng này': [moment().startOf('month'), moment().endOf('month')],
+      'Tháng trước': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+      }
+      }, cb);
+      });
+    </script>
+    <script type="text/javascript">
+      $(document).ready(function() {
+      $('#make-sure-action').on('change', function(){
+      if (this.checked) {
+      $("#approve-stage-popup .modal-footer button[disabled]").removeAttr('disabled');
+      } else {
+      $("#approve-stage-popup .modal-footer button").attr('disabled', 'disabled');
+      }
+      });
+      });
+    </script>
+    <script type="text/javascript" src="assets/vendor/panel_tool/plugins.js"></script>
+    <!-- Examples-->
+    <!-- <script src="assets/javascripts/tables/examples.datatables.default.js"></script>-->
+    <!-- <script src="assets/javascripts/tables/examples.datatables.row.with.details.js"></script>-->
+    <!-- <script src="assets/javascripts/tables/examples.datatables.tabletools.js"></script>-->
+    <script src="assets/javascripts/bootstrap-select.min.js"></script>
+    <script src="assets/javascripts/select2.js"></script>
+    <script src="assets/javascripts/forms/examples.advanced.form.js"></script>
+  </body>
+</html>

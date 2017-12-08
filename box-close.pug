@@ -1,0 +1,100 @@
+extends _pug-template/layout.pug
+block head-style
+	style
+block sidebar
+	+sidebar('Inventory', 'Box List')
+block body
+	section.content-body(role='main')
+		header.page-header.container-fluid
+			.page-header-left
+				ol.breadcrumbs
+					li
+						a(href='#')
+							i.fa.fa-home
+					li
+						a(href="#") Inventory Management
+					li
+						span Box Close
+				.pull-right
+					a(href="#").btn.btn-default.btn-xs Help
+		.content-body-wrap
+			.tabs
+				.tab-content
+					.panel.panel-default
+						.panel-title
+							h4 Box Close
+							.panel-tools
+								button.btn.btn-sm.btn-complete
+									i.fa.fa-save
+									|  Save
+								button.btn.btn-sm.btn-primary
+									i.fa.fa-pencil
+									|  Edit
+						.panel-body.pt-md
+							.row.form-horizontal.mb-sm
+								.col-md-6
+									.form-group
+										label.col-md-4.control-label Box ID *
+										.col-md-8
+											input.form-control(type='text', disabled='')
+								.col-md-6
+									.form-group
+										label.col-md-4.control-label Status *
+										.col-md-8
+											select.form-control(name='', id='')
+												option(value='') --Select Location--
+							.table-responsive
+								table.table.table-bordered
+									thead
+										tr
+											th.min-w #
+											th Item ID
+											th Status
+											th Location
+											th PIC
+											th Remark
+									tbody
+										tr
+											td 1
+											td [Terminal ID]
+											td Active
+											td
+											td
+											td
+										tr
+											td 2
+											td [SIM ID]
+											td Expired
+											td
+											td
+											td
+										tr
+											td 3
+											td [Battery ID]
+											td Broken
+											td
+											td
+											td
+										tr
+											td 4
+											td [Adapter ID]
+											td Lost
+											td
+											td
+											td
+
+
+block modals
+	//- Modal goes here
+block foot-scripts
+	//- Custom Script goes here
+	script.
+		$(document).ready(function() {
+			$('#make-sure-action').on('change', function(){
+				if (this.checked) {
+					$("#approve-stage-popup .modal-footer button[disabled]").removeAttr('disabled');
+				} else {
+					$("#approve-stage-popup .modal-footer button").attr('disabled', 'disabled');
+				}
+			});
+		});

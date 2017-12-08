@@ -1,0 +1,122 @@
+extends _pug-template/layout.pug
+block head-style
+	style
+block sidebar
+	+sidebar('Account Management', 'Account acquire')
+block body
+	section.content-body(role='main')
+		header.page-header.container-fluid
+			.page-header-left
+				ol.breadcrumbs
+					li
+						a(href='#')
+							i.fa.fa-home
+					li
+						a(href="#") Privileges
+				.pull-right
+					a(href="#").btn.btn-primary.btn-xs 
+						i.fa.fa-plus
+						| &nbsp; Add
+		.content-body-wrap
+			.tab-content
+				section.panel.panel-default
+					form(action='https://admin.bizdev.truemoney.com.vn/setting/privilege/list', method='POST')
+						.row.mb-md
+							.col-lg-4.mb-sm
+								input.form-control(type='text', placeholder='Privilege Name ')
+							.col-lg-3.col-sm-4.col-xs-12.mb-sm
+								button.btn.btn-primary.btn-sm(type='button') Search
+								//- button.btn.btn-default.btn-sm(type='button') Export Excel
+							.col-lg-5.col-sm-8.col-xs-12.mb-sm.form-horizontal
+								.form-group
+									label.col-sm-4.control-label(for='status') Status:
+									.col-sm-8
+										select#status.form-control(name='status')
+											option(value='', selected='') please select
+											option(value='Y') Active
+											option(value='N') Inactive
+								//- .pull-right
+								//- 	button.btn.btn-default.btn-sm(type='button', data-toggle="collapse", data-target="#advanced-filter") 
+								//- 		i.fa.fa-gear
+								//- 		| &nbsp; Advanced
+					section
+						p.fl
+							b 3779
+							|  results
+						.fr
+							ul.pagination.pagination-sm.m-none
+								li
+									a(href='#') 1
+								li
+									a(href='#') 2
+								li
+									a(href='#') 3
+								li
+									a(href='#') 4
+								li
+									a(href='#') 5
+						.clr
+						.table-responsive
+							table.table.table-bordered(style="width: 100%")
+								thead
+									tr
+										th(style='width:1px') #
+										th Privileges Name
+										th Privileges Description
+										th Privileges Status
+								tbody
+									tr
+										td 1
+										td
+											a(href='https://admin.bizdev.truemoney.com.vn/setting/privilege/PRIVILEGE_TEST_3/details') PRIVILEGE_TEST_3
+										td PRIVILEGE_TEST_3
+										td
+											label.switch(onclick="return preChangeStatusPrivilege('PRIVILEGE_TEST_3');", data-toggle='popover', data-trigger='hover', data-placement='top', data-content='change status')
+												input#chkPRIVILEGE_TEST_3(type='checkbox', checked='')
+												span.slider.round
+									tr
+										td 2
+										td
+											a(href='https://admin.bizdev.truemoney.com.vn/setting/privilege/PRIVILEGE_TEST/details') PRIVILEGE_TEST
+										td PRIVILEGE_TEST PRIVILEGE_TEST PRIVILEGE_TEST
+										td
+											label.switch(onclick="return preChangeStatusPrivilege('PRIVILEGE_TEST');", data-toggle='popover', data-trigger='hover', data-placement='top', data-content='change status')
+												input#chkPRIVILEGE_TEST(type='checkbox')
+												span.slider.round
+			
+block modals
+	//- Modal goes here
+	#action-change-status-privilege.modal.fade.bs-example-modal-lg(role='dialog', aria-labelledby='changeStatusPrivilege', aria-hidden='true')
+		.modal-dialog(role='document', style='width: 400px;')
+			input#privilegeName(type='hidden', name='privilegeName', value='')
+			input#privilegeStatus(type='hidden', name='privilegeStatus', value='')
+			.modal-content
+				.modal-header
+					button.close(type='button', data-dismiss='modal', aria-label='Close')
+						span(aria-hidden='true') ×
+					h4.modal-title Warning
+				.modal-body
+					// tab1
+					.row.form-group
+						label.control-label(for='') Are you sure to change status?
+					#wrapper-chk-customer-confirm
+						input#chk-account-confirm(type='checkbox', name='chk-account-confirm')
+						label(for='chk-account-confirm') I agree with these terms and conditions of use.
+					#msg-change-privilege
+					// end tab1
+				.modal-footer
+					button#btnChangeStatusPrivilege.btn.btn-sm.btn-primary(type='button', onclick='changeStatusPrivilege();') Change
+					button.btn.btn-sm.btn-default(type='button', data-dismiss='modal') Cancel
+			// /.modal-content
+block foot-scripts
+	//- Custom Script goes here
+	script.
+		$(document).ready(function() {
+			$('#make-sure-action').on('change', function(){
+				if (this.checked) {
+					$("#approve-stage-popup .modal-footer button[disabled]").removeAttr('disabled');
+				} else {
+					$("#approve-stage-popup .modal-footer button").attr('disabled', 'disabled');
+				}
+			});
+		});

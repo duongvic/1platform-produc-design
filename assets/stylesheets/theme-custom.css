@@ -1,0 +1,51 @@
+/* Add here all your CSS customizations */
+.modal-body .form-group{
+    margin-left: initial;
+    margin-right: initial;
+}
+.files-folder li a{
+    color:#000;
+}
+.files-folder li.active a{
+    color:#F58220;
+}
+ul.images {
+    display: flex;
+    flex-direction: inherit;
+    flex-wrap: wrap;
+}
+ul.images li {
+    float: left;
+    padding: 10px 15px;
+    text-align: center;
+    border: 1px solid transparent;
+    max-width: 150px;
+    position: relative;
+}
+ul.images li>a {
+    font-size: 25px;
+    position: absolute;
+    right: 50%;
+    top: 0px;
+    color: #ff0000;
+    font-weight: bold;
+    z-index: 999;
+    cursor: pointer;
+    margin-right: -35px;
+}
+ul.images li .info a{
+    word-wrap: break-word;
+}
+span.folder-icon::before{
+    content: "[+]";
+}
+.files-folder li.active span.folder-icon::before{
+    content: "[-]";
+}
+.remove-file{
+    color: #ff0000;
+    font-weight: bold;
+    font-size: 25px;
+    margin-left: 7px;
+    vertical-align: middle;
+}

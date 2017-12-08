@@ -1,0 +1,543 @@
+mixin sidebar(activeNav, activeSubnav)
+	- 
+		var nav = [
+			//- {
+			//- 	name: 'Dashboard',
+			//- 	children:[
+			//- 		{
+			//- 			name: "Transaction Report",
+			//- 			url: '#',
+			//- 		},
+			//- 		{
+			//- 			name: "Card Store Report",
+			//- 			url: '#',
+			//- 		}
+			//- 	],
+			//- 	icon: "line-chart",
+			//- 	group: '',
+			//- 	url: '#',
+			//- },
+			{
+				name: 'Transaction',
+				children:[
+					{
+						name: "Transaction history",
+						url: "",
+					},
+					{
+						name: "Cancel Transaction",
+						url: "",
+					}
+				],
+				icon: "history",
+				group: 'Service',
+				url: '#',
+			},
+			{
+				name: 'Fund in',
+				children:[
+					{
+						name: "Fund-in transaction",
+						url: '#',
+					},
+					{
+						name: "Request Fund-in",
+						url: '#',
+					},
+				],
+				icon: "usd",
+				group: 'Wallet',
+				url: '#',
+			},
+			{
+				name: 'Fund out',
+				children:[
+					{
+						name: "Fund-out transaction",
+						url: ''
+					},
+					{
+						name: "Request Fund-out",
+						url: ''
+					}
+				],
+				icon: "money",
+				group: 'Wallet',
+				url: '#',
+			},
+			{
+				name: 'Money Transfer',
+				children:[
+					{
+						name: "Money transfer method",
+						url: '#'
+					},
+					{
+						name: "Request transfer",
+						url: '#'
+					}
+				],
+				icon: "mail-forward",
+				group: 'Wallet',
+				url: '#',
+			},
+			{
+				name: 'Card Store',
+				children:[
+					{
+						name: "Store Monitoring",
+						url: '#'
+					},
+					{
+						name: "Card Item",
+						url: '#'
+					},
+					{
+						name: "Purchase Order",
+						url: '#'
+					}
+				],
+				icon: "archive",
+				group: 'Customer',
+				url: '#',
+			},
+			//- {
+			//- 	name: 'Reconciliation',
+			//- 	children:[
+			//- 		{
+			//- 			name: "Reconciliation for Provider",
+			//- 			url: '#'
+			//- 		},
+			//- 	],
+			//- 	icon: "arrows-h",
+			//- 	group: 'Operator',
+			//- 	url: '#',
+			//- },
+			//- {
+			//- 	name: 'Service',
+			//- 	children:[
+			//- 		{
+			//- 			name: "Service profile",
+			//- 			url: '#'
+			//- 		},
+			//- 		{
+			//- 			name: "Request service",
+			//- 			url: '#'
+			//- 		},
+			//- 		{
+			//- 			name: "Approve service",
+			//- 			url: '#'
+			//- 		},
+			//- 		{
+			//- 			name: "Service operation",
+			//- 			url: '#'
+			//- 		},
+			//- 		{
+			//- 			name: "Export card",
+			//- 			url: '#',
+			//- 		},
+			//- 		{
+			//- 			name: "API connection",
+			//- 			url: '#',
+			//- 		}
+			//- 	],
+				icon: "files-o",
+				group: 'Service',
+				url: '#',
+			//-},
+			//- {
+			//- 	name: 'Bank',
+			//- 	children:[
+			//- 		{
+			//- 			name: "Bank profile",
+			//- 			url: '#'
+			//- 		},
+			//- 		{
+			//- 			name: "Bank fee structure",
+			//- 			url: '#'
+			//- 		}
+			//- 	],
+			//- 	icon: "bank",
+			//- 	group: 'Provider',
+			//- 	url: '#',
+			//- },
+			//- {
+			//- 	name: 'Third Party',
+			//- 	children:[
+			//- 		{
+			//- 			name: "Third Party profile",
+			//- 			url: '#'
+			//- 		},
+			//- 		{
+			//- 			name:"Third Party request" ,
+			//- 			url: '#'
+			//- 		},
+			//- 		{
+			//- 			name: "Third Party operation",
+			//- 			url: '#'
+			//- 		},
+			//- 	],
+			//- 	icon: "handshake-o",
+			//- 	group: 'Provider',
+			//- 	url: '#',
+			//- },
+			//- {
+			//- 	name: 'Assessment Management',
+			//- 	children:[
+			//- 		{
+			//- 			name: "Assessment list",
+			//- 			url: '#'
+			//- 		},
+			//- 		{
+			//- 			name: "Assessment steps",
+			//- 			url: '#'
+			//- 		}
+			//- 	],
+			//- 	icon: "address-book",
+			//- 	group: 'Customer',
+			//- 	url: '#',
+			//- },
+			//- {
+			//- 	name: 'Customer Management',
+			//- 	children:[
+			//- 		{
+			//- 			name: "Customer profile",
+			//- 			url: '#'
+			//- 		},
+			//- 		{
+			//- 			name: "Customer acquiring processing",
+			//- 			url: '#'
+			//- 		},
+			//- 	],
+			//- 	icon: "circle-o",
+			//- 	group: 'Customer',
+			//- 	url: '#',
+			//- },
+			{
+				name: 'Sales',
+				children:[
+					{
+						name: "Sale list",
+						url: 'sales-list.html'
+					}
+				],
+				icon: "circle-o",
+				group: 'Customer',
+				url: '#',
+			},
+			{
+				name: 'Providers',
+				children:[
+					{
+						name: "Provider list",
+						url: '#'
+					},
+					{
+						name: "Provider profile",
+						url: '#'
+					}
+				],
+				icon: "user",
+				group: 'Provider',
+				url: '#',
+			},
+			{
+				name: 'Agents',
+				children:[
+					{
+						name: "Agent profile list",
+						url: 'agents-list.html'
+					},
+					{
+						name: "Agent acquire",
+						url: 'agents-list.html'
+					}
+				],
+				icon: "male",
+				group: 'Customer',
+				url: '#',
+			},
+			//- {
+			//- 	name: 'KYC Management',
+			//- 	children:[
+			//- 		{
+			//- 			name: "KYC Report",
+			//- 			url: '#'
+			//- 		},
+			//- 		{
+			//- 			name: "KYC History",
+			//- 			url: '#'
+			//- 		},
+			//- 		{
+			//- 			name: "Credit Score",
+			//- 			url: '#'
+			//- 		}
+			//- 	],
+			//- 	icon: "user-circle",
+			//- 	group: 'Customer',
+			//- 	url: '#',
+			//- },
+			//- {
+			//- 	name: 'BI Management',
+			//- 	children:[
+			//- 		{
+			//- 			name: "Stock List",
+			//- 			url: '#'
+			//- 		},
+			//- 		{
+			//- 			name: "Add Stock",
+			//- 			url: '#'
+			//- 		},
+			//- 		{
+			//- 			name: "Transfer Stock",
+			//- 			url: '#'
+			//- 		},
+			//- 		{
+			//- 			name: "Refund Stock",
+			//- 			url: '#'
+			//- 		},
+			//- 		{
+			//- 			name: "History",
+			//- 			url: '#'
+			//- 		},
+			//- 		{
+			//- 			name: "Report",
+			//- 			url: '#'
+			//- 		},
+			//- 		{
+			//- 			name:"Floating account" ,
+			//- 			url: '#'
+			//- 		}
+			//- 	],
+			//- 	icon: "suitcase",
+			//- 	group: 'Operator',
+			//- 	url: '#',
+			//- },
+			//- {
+			//- 	name: 'Risk&Fraud Management',
+			//- 	children:[
+			//- 		{
+			//- 			name: "AML",
+			//- 			url: '#'
+			//- 		},
+			//- 		{
+			//- 			name: "Suspicious transaction identification",
+			//- 			url: '#'
+			//- 		},
+			//- 		{
+			//- 			name: "Risk operation",
+			//- 			url: '#'
+			//- 		},
+			//- 		{
+			//- 			name: "Risk rule & scan",
+			//- 			url: '#'
+			//- 		},
+			//- 		{
+			//- 			name: "Block list",
+			//- 			url: '#'
+			//- 		}
+			//- 	],
+			//- 	icon: "sun-o",
+			//- 	group: 'Operator',
+			//- 	url: '#',
+			//- },
+			//- {
+			//- 	name: 'Help Desk',
+			//- 	children:[
+			//- 		{
+			//- 			name: "Complaint",
+			//- 			url: '#'
+			//- 		},
+			//- 		{
+			//- 			name: "Dispute",
+			//- 			url: '#'
+			//- 		},
+			//- 		{
+			//- 			name: "Ticket",
+			//- 			url: '#'
+			//- 		},
+			//- 		{
+			//- 			name: "Chat box/group",
+			//- 			url: '#'
+			//- 		}
+			//- 	],
+			//- 	icon: "flash",
+			//- 	group: 'Operation',
+			//- 	url: '#',
+			//- },
+			{
+				name: 'Inventory',
+				children:[
+					{
+						name: "Item List",
+						url: 'items-list.html'
+					},
+					{
+						name: "Box List",
+						url: 'boxes-list.html'
+					}
+				],
+				icon: "circle-o",
+				group: 'Operator',
+				url: '#',
+			},
+			//- {
+			//- 	name: 'Announcement',
+			//- 	children:[
+			//- 		{
+			//- 			name: "Announcement/Notification library/Error message",
+			//- 			url: '#'
+			//- 		},
+			//- 		{
+			//- 			name:"Setup Announcement/Notification",
+			//- 			url: '#'
+			//- 		}
+			//- 	],
+			//- 	icon: "gavel",
+			//- 	group: 'Operator',
+			//- 	url: '#',
+			//- },
+			//- {
+			//- 	name: 'Marketing',
+			//- 	children:[
+			//- 		"Campaign operation","History"
+			//- 	],
+			//- 	icon: "circle-o",
+			//- 	group: 'Operator',
+			//- 	url: '#',
+			//- },
+			//- {
+			//- 	name: 'Fee Structure',
+			//- 	children:[
+			//- 		{
+			//- 			name: "Service list",
+			//- 			url: '#',
+			//- 		},
+			//- 		{
+			//- 			name: "Classification list",
+			//- 			url: '#',
+			//- 		},
+			//- 		{
+			//- 			name: "Fee structure",
+			//- 			url: '#',
+			//- 		}
+			//- 	],
+			//- 	icon: "money",
+			//- 	group: 'Operation',
+			//- 	url: '#',
+			//- },
+			//- {
+			//- 	name: 'Balance management',
+			//- 	children:[
+			//- 		{
+			//- 			name: "Stock list",
+			//- 			url: '#'
+			//- 		},
+			//- 		{
+			//- 			name: "Add Stock",
+			//- 			url: '#'
+			//- 		},
+			//- 		{
+			//- 			name: "Transfer Stock",
+			//- 			url: '#'
+			//- 		},
+			//- 		{
+			//- 			name: "Refund Stock",
+			//- 			url: '#'
+			//- 		}
+			//- 	],
+			//- 	icon: "arrows-h",
+			//- 	group: 'Wallet',
+			//- 	url: '#',
+			//- },
+			{
+				name: 'Accounts',
+				children:[
+					{
+						name: "Accounts List",
+						url: '#'
+					},
+					{
+						name: "Account profile",
+						url: '#'
+					},
+				],
+				icon: "user",
+				group: 'Setting',
+				url: '#',
+			},
+			{
+				name: 'User, Role System',
+				children:[
+					{
+						name: "Account list",
+						url: '#'
+					},
+					{
+						name: "Role list",
+						url: '#'
+					},
+					{
+						name: "Permissionlist",
+						url: '#'
+					}
+				],
+				icon: "gear",
+				group: 'Setting',
+				url: '#',
+			},
+			{
+				name: "History",
+				children: null,
+				icon: "history",
+				group: 'Setting',
+				url: '#',
+			},
+			{
+				name: 'Notification',
+				children:[
+					{
+						name:"Error Notification" ,
+						url: '#',
+					},
+					{
+						name: "Smart Notification",
+						url: '#',
+					}
+				],
+				icon: "bell",
+				group: 'Setting',
+				url: '#',
+			}
+		]
+	aside#sidebar-left.sidebar-left
+		.sidebar-header
+			.sidebar-title
+				| Menu
+			.sidebar-toggle.hidden-xs(
+				data-target='html',
+				data-fire-event='sidebar-left-toggle',
+				data-toggle-class='sidebar-left-collapsed')
+				i.fa.fa-bars(aria-label='Toggle sidebar')
+		.nano
+			.nano-content(style='overflow-y: auto')
+				nav#menu.nav-main(role='navigation')
+					ul.nav.nav-main
+						each pnav in nav
+							li(data-nav-group=pnav.group, ,
+							url: '#',
+								class=activeNav === pnav.name ? 'nav-active' : '', 
+								class=pnav.children ? 'nav-parent' : '')
+								if pnav.children 
+									a
+										i.fa(class='fa-'+pnav.icon)
+										span=pnav.name
+								else
+									a(href='#')
+										i.fa(class='fa-'+pnav.icon)
+										span=pnav.name
+								if pnav.children
+									ul.nav.nav-children
+										each cnav in pnav.children
+											li(class=activeSubnav === cnav.name ? 'nav-active' : '')
+												a(href=cnav.url)=cnav.name

@@ -1,0 +1,378 @@
+extends _pug-template/layout.pug
+block head-style
+	style
+		| table.tmv-structure td {
+		| 	/* border:  none; */
+		| }
+		| table.tmv-structure .active {
+		| 	color: #00b359;
+		| }
+		| table.tmv-structure .salesman {
+		| 	white-space: nowrap;
+		| 	padding-left: 12px;
+		| 	margin: -4px 0px;
+		| 	position: relative;
+		| }
+		| table.tmv-structure .salesman__info {
+		| 	display: inline-block;
+		| 	vertical-align: middle;
+		| 	margin: 8px;
+		| }
+		| table.tmv-structure .salesman__avatar img {
+		| 	width: 50px;
+		| 	height: 50px;
+		| }
+		| table.tmv-structure .salesman__avatar {
+		| 	background: #ddd;
+		| 	border-radius: 50%;
+		| 	overflow: hidden;
+		| 	display: inline-block;
+		| 	vertical-align: middle;
+		| 	background: #ddd;
+		| 	position: relative;
+		| 	margin: 8px;
+		| }
+		| table.tmv-structure .salesman:before {
+		| 	content:  '';
+		| 	display: block;
+		| 	position: absolute;
+		| 	height: 50%;
+		| 	width: 20px;
+		| 	left: 0;
+		| 	top: 0;
+		| 	box-sizing: border-box;
+		| 	border-bottom: 1px solid;
+		| 	border-color: #888;
+		| }
+		| table.tmv-structure tr.lv1 .salesman:before {content: none}
+		| table.tmv-structure tr.lv2 .salesman {border-left: 1px solid #888; margin-left: 25px;}
+		| table.tmv-structure tr.lv3 .salesman {border-left: 1px solid #888; margin-left: 50px;}
+		| table.tmv-structure tr.lv4 .salesman {border-left: 1px solid #888; margin-left: 75px;}
+		| table.tmv-structure tr.lv5 .salesman {border-left: 1px solid #888; margin-left: 100px;}
+		| table.tmv-structure tr.lv6 .salesman {border-left: 1px solid #888; margin-left: 125px;}
+		| table.tmv-structure tr.lv1 td {background: rgba(245,130,32, .3 );}
+		| table.tmv-structure tr.lv2 td {background: rgba(245,130,32, .25);}
+		| table.tmv-structure tr.lv3 td {background: rgba(245,130,32, .2 );}
+		| table.tmv-structure tr.lv4 td {background: rgba(245,130,32, .15);}
+		| table.tmv-structure tr.lv5 td {background: rgba(245,130,32, .1 );}
+		| table.tmv-structure tr.lv6 td {background: rgba(245,130,32, .05);}
+block sidebar
+	+sidebar('Sale Management', 'Sale list')
+block body
+	section.content-body(role='main')
+		header.page-header.container-fluid
+			.page-header-left
+				ol.breadcrumbs
+					li
+						a(href='#')
+							i.fa.fa-home
+					li
+						a(href="#") Sale Management
+					li
+						span Sale List
+				.pull-right
+					a(href="#").btn.btn-default.btn-xs Help
+		.content-body-wrap
+			.tab-content
+				form.panel.panel-default(action='', method='')
+					.row.mb-md
+						.col-lg-4.mb-sm
+							input.form-control(type='text', placeholder='AccountId, Full name, Phone, Email ')
+						.col-lg-3.col-sm-4.col-xs-12.mb-sm
+							button.btn.btn-primary.btn-sm(type='button') Search
+							button.btn.btn-default.btn-sm(type='button') Export Excel
+						.col-lg-5.col-sm-8.col-xs-12.mb-sm
+							label.mr-sm
+								input(name='search-option', checked='', type='radio')
+								|  Need to process
+							label.mr-sm
+								input(name='search-option', type='radio')
+								|  Processed
+							label.mr-sm
+								input(name='search-option', type='radio')
+								|  All
+							.pull-right
+								button.btn.btn-default.btn-sm(type='button', data-toggle="collapse", data-target="#advanced-filter") 
+									i.fa.fa-gear
+									| &nbsp; Advanced
+					// Filter form
+					#advanced-filter.collapse.form-horizontal
+						.row
+							.col-md-4
+								.form-group
+									label.col-md-4.control-label(for='inputDefault') Region
+									.col-md-8
+										input.form-control(type='text', list='sales-data')
+										datalist#sales-data
+											option(value='Internet Explorer')
+											option(value='Firefox')
+											option(value='Chrome')
+											option(value='Opera')
+											option(value='Safari')
+							.col-md-4
+								.form-group
+									label.col-md-4.control-label(for='inputDefault') Area
+									.col-lg-8.col-md-2
+										select.form-control(name='', id='')
+											option(value='') ---Select Province---
+											option(value='') Hanoi
+											option(value='') Hanoi
+											option(value='') Hai Phong
+							.col-md-4
+								.form-group
+									label.col-md-4.control-label(for='inputDefault') Province
+									.col-md-8
+										select.form-control(name='', id='')
+											option(value='') ---Select District---
+											option(value='') Dong Da
+											option(value='') Cau Giay
+											option(value='') Ba Dinh
+							.col-md-4
+								.form-group
+									label.col-md-4.control-label(for='inputDefault') Manager
+									.col-md-8
+										select.form-control
+											option ---Select KYC status---
+											option Basic
+											option Full
+							.col-md-4
+								.form-group
+									label.col-md-4.control-label(for='inputDefault') Position
+									.col-md-8
+										select.form-control
+											option ---Select Classification---
+											option Gold
+											option Silver
+											option Bronze
+							.col-md-4
+								.form-group
+									label.col-md-4.control-label(for='inputDefault') Blacklist Reason
+									.col-md-8
+										select.form-control
+											option ---Select Classification---
+											option Gold
+											option Silver
+											option Bronze
+							.col-md-4
+								.form-group
+									label.col-md-4.control-label(for='inputDefault') From date
+									.col-md-8
+										input.form-control(type='text', data-plugin-datepicker='')
+							.col-md-4
+								.form-group
+									label.col-md-4.control-label(for='inputDefault') To date
+									.col-md-8
+										input.form-control(type='text', data-plugin-datepicker='')
+							.col-md-4
+								.form-group
+									label.col-md-4.control-label Filter By
+									.col-md-8
+										label(style='margin-right: 2em')
+											input(type='radio', name='date-type', checked='checked')
+											|  Created Date
+										label
+											input(type='radio', name='date-type')
+											|  Updated Date
+							.col-md-4
+								.form-group
+									label.col-md-4.control-label(for='inputDefault') N-records
+									.col-md-8
+										select.form-control
+											option 10 
+											option 25 
+											option 50 
+											option 100 
+											option 200 
+				section.panel.search_payment.panel-default
+					//- p.mb-sm
+						span.fa.fa-close(onclick="this.parentElement.style.display='none'")
+							i
+						|  Curabitur tortor ipsum, semper ac pellentesque sit amet, condimentum vel nulla.
+					p.fl
+						b 3779
+						|  results
+					.fr
+						ul.pagination.pagination-sm.m-none
+							li
+								a(href='#') 1
+							li
+								a(href='#') 2
+							li
+								a(href='#') 3
+							li
+								a(href='#') 4
+							li
+								a(href='#') 5
+					.clr
+					.table-responsive
+						table.table.table-bordered.tmv-structure
+							thead
+								tr
+									th #
+									th Position - working location - full name - account - id
+									th.min-w Phone
+									th.min-w Account ID
+									th.min-w Level
+									th.min-w Position
+									th.min-w Region
+									th.min-w Area
+									th.min-w Province
+									th.min-w BlackList reason
+									th.min-w Created At
+									th.min-w Updated At
+							tbody
+								tr.lv1
+									td 1
+									td
+										.salesman
+											.salesman__avatar
+												img(src='', alt='')
+											.salesman__info
+												b Nguyen Van A
+												br
+												span aaa@gmail.com
+									td 0123456789
+									td 100077001
+									td 1
+									td Giám đốc kinh doanh
+									td
+									td
+									td
+									td.active 0. Active
+									td
+									td
+								tr.lv2
+									td 2
+									td
+										.salesman
+											.salesman__avatar
+												img(src='', alt='')
+											.salesman__info
+												b Nguyen Van A
+												br
+												span aaa@gmail.com
+									td 0123456789
+									td 100077001
+									td 2
+									td Giám đốc vùng
+									td North
+									td
+									td
+									td.active 0. Active
+									td
+									td
+								tr.lv3
+									td 3
+									td
+										.salesman
+											.salesman__avatar
+												img(src='', alt='')
+											.salesman__info
+												b Nguyen Van A
+												br
+												span aaa@gmail.com
+									td 0123456789
+									td 100077001
+									td 3
+									td Giám đốc khu vưck
+									td North
+									td
+									td
+									td.active 0. Active
+									td
+									td
+								tr.lv3
+									td 3
+									td
+										.salesman
+											.salesman__avatar
+												img(src='', alt='')
+											.salesman__info
+												b Nguyen Van A
+												br
+												span aaa@gmail.com
+									td 0123456789
+									td 100077001
+									td 3
+									td Giám đốc khu vưck
+									td North
+									td
+									td
+									td.active 0. Active
+									td
+									td
+								tr.lv4
+									td 4
+									td
+										.salesman
+											.salesman__avatar
+												img(src='', alt='')
+											.salesman__info
+												b Nguyen Van A
+												br
+												span aaa@gmail.com
+									td 0123456789
+									td 100077001
+									td 3
+									td Giám đốc khu vưck
+									td North
+									td
+									td
+									td.active 0. Active
+									td
+									td
+								tr.lv5
+									td 5
+									td
+										.salesman
+											.salesman__avatar
+												img(src='', alt='')
+											.salesman__info
+												b Nguyen Van A
+												br
+												span aaa@gmail.com
+									td 0123456789
+									td 100077001
+									td 3
+									td Giám đốc khu vưck
+									td North
+									td
+									td
+									td.active 0. Active
+									td
+									td
+								tr.lv6
+									td 3
+									td
+										.salesman
+											.salesman__avatar
+												img(src='', alt='')
+											.salesman__info
+												b Nguyen Van A
+												br
+												span aaa@gmail.com
+									td 0123456789
+									td 100077001
+									td 6
+									td Giám đốc khu vưck
+									td North
+									td
+									td
+									td.active 0. Active
+									td
+									td
+
+block modals
+	//- Modal goes here
+block foot-scripts
+	//- Custom Script goes here
+	script.
+		$(document).ready(function() {
+			$('#make-sure-action').on('change', function(){
+				if (this.checked) {
+					$("#approve-stage-popup .modal-footer button[disabled]").removeAttr('disabled');
+				} else {
+					$("#approve-stage-popup .modal-footer button").attr('disabled', 'disabled');
+				}
+			});
+		});

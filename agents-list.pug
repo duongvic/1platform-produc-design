@@ -1,0 +1,444 @@
+extends _pug-template/layout.pug
+block head-style
+	style
+block sidebar
+	+sidebar('Agent Management', 'Agent acquire')
+block body
+	section.content-body(role='main')
+		header.page-header.container-fluid
+			.page-header-left
+				ol.breadcrumbs
+					li
+						a(href='#')
+							i.fa.fa-home
+					li
+						a(href="#") Agent Management
+					li
+						span Agent Profile List
+				.pull-right
+					a(href="#").btn.btn-default.btn-xs Help
+		.content-body-wrap
+			.tabs
+				ul.nav.nav-tabs
+					li.active
+						a(href='#tab1', data-toggle='tab') Agent List
+					li
+						a(href='#tab2', data-toggle='tab') Request List
+				.tab-content
+					#tab1.tab-pane.active
+						form(action='', method='').mb-xl
+							.row.mb-md
+								.col-lg-4.mb-sm
+									input.form-control(type='text', placeholder='AccountId, Full name, Phone, Email ')
+								.col-lg-3.col-sm-4.col-xs-12.mb-sm
+									button.btn.btn-primary.btn-sm(type='button') Search
+									button.btn.btn-default.btn-sm(type='button') Export Excel
+								.col-lg-5.col-sm-8.col-xs-12.mb-sm
+									label.mr-sm
+										input(name='search-option', checked='', type='radio')
+										|  Need to process
+									label.mr-sm
+										input(name='search-option', type='radio')
+										|  Processed
+									label.mr-sm
+										input(name='search-option', type='radio')
+										|  All
+									.pull-right
+										button.btn.btn-default.btn-sm(type='button', data-toggle="collapse", data-target="#advanced-filter") 
+											i.fa.fa-gear
+											| &nbsp; Advanced
+							//- Filter form
+							#advanced-filter.collapse.form-horizontal
+								.row
+									.col-md-4
+										.form-group
+											label.col-md-4.control-label(for='inputDefault') Sales
+											.col-md-8
+												input.form-control(type='text', list='sales-data')
+												datalist#sales-data
+													option(value='Internet Explorer')
+													option(value='Firefox')
+													option(value='Chrome')
+													option(value='Opera')
+													option(value='Safari')
+									.col-md-4
+										.form-group
+											label.col-md-4.control-label(for='inputDefault') KYC status
+											.col-md-8
+												select.form-control
+													option ---Select KYC status---
+													option Basic
+													option Full
+									.col-md-4
+										.form-group
+											label.col-md-4.control-label(for='inputDefault') Classification
+											.col-md-8
+												select.form-control
+													option ---Select Classification---
+													option Gold
+													option Silver
+													option Bronze
+									.col-md-4
+										.form-group
+											label.col-md-4.control-label(for='inputDefault') Province
+											.col-md-8
+												select.form-control(name='', id='')
+													option(value='') ---Select Province---
+													option(value='') Hanoi
+													option(value='') Hanoi
+													option(value='') Hai Phong
+									.col-md-4
+										.form-group
+											label.col-md-4.control-label(for='inputDefault') District
+											.col-md-8
+												select.form-control(name='', id='')
+													option(value='') ---Select District---
+													option(value='') Dong Da
+													option(value='') Cau Giay
+													option(value='') Ba Dinh
+									.col-md-4
+										.form-group
+											label.col-md-4.control-label(for='inputDefault') N-records
+											.col-md-8
+												select.form-control
+													option 10 
+													option 25 
+													option 50 
+													option 100 
+													option 200 
+									.col-md-4
+										.form-group
+											label.col-md-4.control-label(for='inputDefault') From date
+											.col-md-8
+												input.form-control(type='text', data-plugin-datepicker='')
+									.col-md-4
+										.form-group
+											label.col-md-4.control-label(for='inputDefault') To date
+											.col-md-8
+												input.form-control(type='text', data-plugin-datepicker='')
+									.col-md-4
+										.form-group
+											label.col-md-4.control-label Filter By
+											.col-md-8
+												label(style='margin-right: 2em')
+													input(type='radio', name='date-type', checked='checked')
+													|  Created Date
+												label
+													input(type='radio', name='date-type')
+													|  Updated Date
+						section
+							p.fl
+								b 3779
+								|  results
+							.fr
+								ul.pagination.pagination-sm.m-none
+									li
+										a(href='#') 1
+									li
+										a(href='#') 2
+									li
+										a(href='#') 3
+									li
+										a(href='#') 4
+									li
+										a(href='#') 5
+							.clr
+							.table-responsive
+								table.table.table-bordered
+									thead
+										tr
+											th.min-w #
+											th Account Id
+											th Full name
+											th Phone
+											th Province
+											th AccId Sales
+											th Fullname Sales
+											th Created At
+											th Updated At
+											th Guideline
+											th.min-w
+												| State
+											th.min-w KYC status
+									tbody
+										tr.recent
+											td 1
+											td.appnem
+												a(href='tmv_agent_profile.html')
+													b 10000100
+											td
+												a(href='agent-profile.html')
+													b Nguyễn Ngọc Thiệp
+											td
+												span 0975904238
+											td
+												span Bắc Ninh
+											td 10000100
+											td Nguyễn Văn A
+											td  10/10/2015
+											td  05/10/2017
+											td
+												a.guideline-point.fa.fa-question-circle(href='#', data-toggle='tooltip', title='Lorem ipsum dolor sit amet')
+											td.status_table.product_ma
+												.tmv-progress
+													span.tmv-state--approved(data-toggle='popover', data-trigger='hover', data-placement='top', data-content='Rejected') 04
+													a(data-toggle='popover', data-trigger='hover', data-placement='top', data-content='review')
+														i.fa.fa-angle-right(data-toggle='modal', data-target='#approve-stage-popup', style='cursor:pointer')
+													span.tmv-state--tobe-approved(data-toggle='popover', data-trigger='hover', data-placement='top', data-content='No actived') 06
+											td
+										tr
+											td 1
+											td.appnem
+												a(href='tmv_agent_profile.html')
+													b 10000100
+											td
+												a(href='agent-profile.html')
+													b Nguyễn Ngọc Thiệp
+											td
+												span 0975904238
+											td
+												span Bắc Ninh
+											td 10000100
+											td Nguyễn Văn A
+											td  10/10/2015
+											td  05/10/2017
+											td
+												a.guideline-point.fa.fa-question-circle(href='#', data-toggle='tooltip', title='Lorem ipsum dolor sit amet')
+											td.status_table.product_ma
+												.tmv-progress
+													span.tmv-state--approved(data-toggle='popover', data-trigger='hover', data-placement='top', data-content='Rejected') 04
+													a(data-toggle='popover', data-trigger='hover', data-placement='top', data-content='review')
+														i.fa.fa-angle-right(data-toggle='modal', data-target='#approve-stage-popup', style='cursor:pointer')
+													span.tmv-state--denied(data-toggle='popover', data-trigger='hover', data-placement='top', data-content='No actived') 06
+											td
+										tr
+											td 1
+											td.appnem
+												a(href='tmv_agent_profile.html')
+													b 10000100
+											td
+												a(href='agent-profile.html')
+													b Nguyễn Ngọc Thiệp
+											td
+												span 0975904238
+											td
+												span Bắc Ninh
+											td 10000100
+											td Nguyễn Văn A
+											td  10/10/2015
+											td  05/10/2017
+											td
+												a.guideline-point.fa.fa-question-circle(href='#', data-toggle='tooltip', title='Lorem ipsum dolor sit amet')
+											td.status_table.product_ma
+												.tmv-progress
+													span.tmv-state--rejected(data-toggle='popover', data-trigger='hover', data-placement='top', data-content='Rejected') 04
+													a(data-toggle='popover', data-trigger='hover', data-placement='top', data-content='review')
+														i.fa.fa-angle-right(data-toggle='modal', data-target='#approve-stage-popup', style='cursor:pointer')
+													span.tmv-state--tobe-approved(data-toggle='popover', data-trigger='hover', data-placement='top', data-content='No actived') 06
+											td
+					#tab2.tab-pane
+						section
+							p.fl
+								| Có 
+								b 3779
+								|  kết quả
+							.fr
+								ul.pagination.pagination-sm.m-none
+									li
+										a(href='#') 1
+									li
+										a(href='#') 2
+									li
+										a(href='#') 3
+									li
+										a(href='#') 4
+									li
+										a(href='#') 5
+							.clr
+							a.help-point(href='#', style='display: inline-block')  Help
+							.table-responsive
+								table.table.table-bordered
+									thead
+										tr
+											th.min-w #
+											th Type
+											th Full name
+											th.min-w Phone
+											th.min-w Province
+											th Shop address
+											th.min-w Created At
+											th.min-w Updated At
+											th.min-w
+												| State
+											th.min-w Status
+									tbody
+										tr
+											td 1
+											td Agent
+											td
+												a(href='agent-profile.html')
+													b Nguyễn Ngọc Thiệp
+											td
+												span 0975904238
+											td
+												span Bắc Ninh
+											td 49 Van Kiep
+											td  10/10/2015
+											td  05/10/2017
+											td.status_table.product_ma
+												.wizard-progress.wizard-mini
+													ul.wizard-steps.clearfix
+														li.pending(data-toggle='popover', data-trigger='hover', data-placement='top', data-content='Pending', data-original-title='', title='')
+															a
+																span 2
+														li.active.charging-step(data-toggle='popover', data-trigger='hover', data-placement='top', data-content='1Pay review', data-original-title='', title='')
+															a.btn-sm.fr.pl-md.pr-md.btn-tablet-setup(data-toggle='modal', data-target='#approve-request-popup', style='cursor:pointer')
+																i.fa.fa-angle-right
+														li(data-toggle='popover', data-trigger='hover', data-placement='top', data-content='No actived', data-original-title='', title='')
+															a
+																span 28
+											td Rejected
+block modals
+	//- Modal goes here
+	#approve-stage-popup.modal.tmv-fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
+		.modal-dialog
+			.modal-content.quantrisanpham
+				.modal-header
+					button.close(type='button', data-dismiss='modal')
+						span(aria-hidden='true') ×
+						span.sr-only Close
+					h4#myModalLabel.modal-title Progress
+				.modal-body.modal-scroll
+					div(style='padding: 0 15px')
+						.tmv-states-line
+							span  
+							span Current
+							span  
+							br
+							span.tmv-state--tobe-rejected 03
+							| &nbsp;
+							span.tmv-state--approved 04
+							| &nbsp;
+							span.tmv-state--tobe-approved 06
+					form(action='#', style='margin: 0 0 -15px')
+						.form-group
+							label.col-md-4.control-label(for='#') Fullname
+							.col-md-8
+								.double-input
+									input.form-control(type='text', style='width: 66%')
+									input.form-control(type='text', style='width: 34%')
+						.form-group
+							label.col-md-4.control-label Gender
+							.col-md-8
+								select.form-control(name='', id='')
+									option(value='') Male
+									option(value='') Female
+						.form-group
+							label.col-md-4.control-label Province*
+							.col-md-8
+								select.form-control(name='', id='')
+									option(value='') Ha Noi
+									option(value='') Hai Phong
+						.form-group
+							label.col-md-4.control-label Shop Add.
+							.col-md-8
+								input.form-control(type='text')
+						.form-group
+							label.col-md-4.control-label Sales Ex.*
+							.col-md-8
+								input.form-control(type='text')
+								p
+									| nghiadt@truemoney.com.vn 
+									br
+									| 09134567899
+						.form-group
+							label.col-md-4.control-label Agent AccountID
+							.col-md-8
+								input.form-control(type='text', disabled='disabled')
+						.form-group
+							label.col-md-4.control-label(for='#') Remark*
+							.col-md-8
+								textarea.form-control(name='', id='', cols='30', rows='5')
+						.form-group
+							.col-md-8.col-md-offset-4
+								input#make-sure-action(type='checkbox')
+								|  Are you sure to approve this?
+				.modal-footer
+					.fl
+						button.btn.btn-danger(type='button', disabled='', data-dismiss='modal') Reject 
+						button.btn.btn-primary(type='button', disabled='') Approve
+					.fr
+						a.btn.btn-default(data-dismiss='modal') Cancel
+					.clr
+	#approve-request-popup.modal.tmv-fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
+		.modal-dialog
+			.modal-content.quantrisanpham
+				.modal-header
+					button.close(type='button', data-dismiss='modal')
+						span(aria-hidden='true') ×
+						span.sr-only Close
+					h4#myModalLabel.modal-title Progress
+				.modal-body.modal-scroll
+					// <h4>Candy Crush Saga</h4>
+					.wizard-progress.wizard-margin
+						.steps-progress
+							.progress-indicator
+						ul.wizard-steps
+							li.tmv-state--tobe-rejected
+								a
+									span 02
+									p.step-title_pop Stage1
+							li.tmv-state--approved
+								a
+									span 03
+									p.step-title_pop Stage2
+							li.tmv-state--tobe-approved
+								a
+									span 04
+									p.step-title_pop Stage3
+					form(action='#', style='padding: 15px')
+						.form-group
+							label.col-md-4.control-label(for='#') Fullname
+							.col-md-8
+								.double-input
+									input.form-control(type='text')
+									input.form-control(type='text')
+						.form-group
+							label.col-md-4.control-label Gender
+							.col-md-8
+								select.form-control(name='', id='')
+									option(value='') Male
+									option(value='') Female
+						.form-group
+							label.col-md-4.control-label Province
+							.col-md-8
+								select.form-control(name='', id='')
+									option(value='') Ha Noi
+									option(value='') Hai Phong
+						.form-group
+							label.col-md-4.control-label Shop Add.
+							.col-md-8
+								input.form-control(type='text')
+						.form-group
+							label.col-md-4.control-label Agent AccountID
+							.col-md-8
+								input.form-control(type='text', disabled='disabled')
+						.form-group
+							label.col-md-4.control-label(for='#') Remark
+							.col-md-8
+								textarea.form-control(name='', id='', cols='30', rows='5')
+				.modal-footer
+					button.btn.btn-danger(type='button', data-dismiss='modal') Reject 
+					button.btn.btn-primary(type='button') Approve
+block foot-scripts
+	//- Custom Script goes here
+	script.
+		$(document).ready(function() {
+			$('#make-sure-action').on('change', function(){
+				if (this.checked) {
+					$("#approve-stage-popup .modal-footer button[disabled]").removeAttr('disabled');
+				} else {
+					$("#approve-stage-popup .modal-footer button").attr('disabled', 'disabled');
+				}
+			});
+		});

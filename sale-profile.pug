@@ -1,0 +1,564 @@
+extends _pug-template/layout.pug
+block head-style
+	style
+		| table.tmv-structure td {
+		| 	/* border:  none; */
+		| }
+		| table.tmv-structure .active {
+		| 	color: #00b359;
+		| }
+		| table.tmv-structure .salesman {
+		| 	white-space: nowrap;
+		| 	padding-left: 12px;
+		| 	margin: -4px 0px;
+		| 	position: relative;
+		| }
+		| table.tmv-structure .salesman__info {
+		| 	display: inline-block;
+		| 	vertical-align: middle;
+		| 	margin: 8px;
+		| }
+		| table.tmv-structure .salesman__avatar img {
+		| 	width: 50px;
+		| 	height: 50px;
+		| }
+		| table.tmv-structure .salesman__avatar {
+		| 	background: #ddd;
+		| 	border-radius: 50%;
+		| 	overflow: hidden;
+		| 	display: inline-block;
+		| 	vertical-align: middle;
+		| 	background: #ddd;
+		| 	position: relative;
+		| 	margin: 8px;
+		| }
+		| table.tmv-structure .salesman:before {
+		| 	content:  '';
+		| 	display: block;
+		| 	position: absolute;
+		| 	height: 50%;
+		| 	width: 20px;
+		| 	left: 0;
+		| 	top: 0;
+		| 	box-sizing: border-box;
+		| 	border-bottom: 1px solid;
+		| 	border-color: #888;
+		| }
+		| table.tmv-structure tr.lv1 .salesman:before {content: none}
+		| table.tmv-structure tr.lv2 .salesman {border-left: 1px solid #888; margin-left: 25px;}
+		| table.tmv-structure tr.lv3 .salesman {border-left: 1px solid #888; margin-left: 50px;}
+		| table.tmv-structure tr.lv4 .salesman {border-left: 1px solid #888; margin-left: 75px;}
+		| table.tmv-structure tr.lv5 .salesman {border-left: 1px solid #888; margin-left: 100px;}
+		| table.tmv-structure tr.lv6 .salesman {border-left: 1px solid #888; margin-left: 125px;}
+		| table.tmv-structure tr.lv1 td {background: rgba(245,130,32, .3 );}
+		| table.tmv-structure tr.lv2 td {background: rgba(245,130,32, .25);}
+		| table.tmv-structure tr.lv3 td {background: rgba(245,130,32, .2 );}
+		| table.tmv-structure tr.lv4 td {background: rgba(245,130,32, .15);}
+		| table.tmv-structure tr.lv5 td {background: rgba(245,130,32, .1 );}
+		| table.tmv-structure tr.lv6 td {background: rgba(245,130,32, .05);}
+block sidebar
+	+sidebar('Sale Management', 'Sale list')
+block body
+	section.content-body(role='main')
+		header.page-header.container-fluid
+			.page-header-left
+				ol.breadcrumbs
+					li
+						a(href='#')
+							i.fa.fa-home
+					li
+						a(href="#") Sale Management
+					li
+						span Sale profile
+				.pull-right
+					a(href="#").btn.btn-default.btn-xs Help
+		.content-body-wrap
+			.row
+				.col-md-3.col-lg-3.text-center
+					.p-md
+						img.img-circle(src='assets/images/man.svg', alt='', height='160', width='160')
+					.p-md
+						h3.h4 Nguyễn Ngọc Thiệp
+						p 100000010
+						p nnthieps@gmail.com
+						p Bắc Ninh, Việt Nam
+					.p-md
+						table(style="width: auto; margin: auto; text-align: left")
+							tr
+								td(style='text-align: right') Ngày tham gia:&nbsp;&nbsp;
+								td 20/02/2012
+							tr
+								td(style='text-align: right') Tình trạng:&nbsp;&nbsp;
+								td Active
+							tr
+								td(style='text-align: right') Ngày kết thúc:&nbsp;&nbsp;
+								td 20/02/2020
+				.col-md-9.col-lg-9
+					.fr(style='margin: 5px 15px 0;')
+						button.btn.btn-sm.btn-primary(data-toggle='modal', data-target='#approve-stage-popup') Approve/Reject
+					ul.nav.nav-tabs.hidden-sm.hidden-xs
+						li.active
+							a(href='#tab1', data-toggle='tab') Business
+						li
+							a(href='#tab2', data-toggle='tab') Payment
+						li
+							a(href='#tab3', data-toggle='tab') Agent Network
+					.btn-group.hidden-lg.hidden-md(style='margin: 5px 15px 0;')
+						button.tmv-btn(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+							| Business 
+							span.caret
+						ul.dropdown-menu
+							li
+								a(href='#tab1') Business
+							li
+								a(href='#tab2') Payment
+							li
+								a(href='#tab3') Agent Network
+					.tab-content
+						#tab1.tab-pane.active
+							section.panel.panel-default
+								.panel-title
+									h4 Personal Information
+									.panel-tools
+										button.btn.btn-success.btn-sm
+											i.fa.fa-plus
+											|  Add
+										button.btn.btn-complete.btn-sm
+											i.fa.fa-save
+											|  Save
+										button.btn.btn-primary.btn-sm
+											i.fa.fa-pencil
+											|  Edit
+										button.btn.btn-info.btn-sm
+											i.fa.fa-print
+											|  Print
+								.panel-body.e.mb-lg
+									.row.form-horizontal
+										.col-md-6
+											.form-group
+												label.col-md-4.control-label(for='#') Fullname*
+												.col-md-8
+													.double-input
+														input.form-control(type='text')
+														input.form-control(type='text')
+											.form-group
+												label.col-md-4.control-label Phone*
+												.col-md-8
+													input.form-control(type='text')
+											.form-group
+												label.col-md-4.control-label(for='#') Birthdate*
+												.col-md-8
+													input.form-control(type='text')
+										.col-md-6
+											.form-group
+												label.col-md-4.control-label Gender*
+												.col-md-4
+													select.form-control(name='#', id='')
+														option(value='') Male
+														option(value='') Female
+											.form-group
+												label.col-md-4.control-label(for='#') Email*
+												.col-md-8
+													input.form-control(type='text')
+											.form-group
+												label.col-md-4.control-label(for='#') Nationality*
+												.col-md-8
+													select.form-control(name='', id='')
+														option(value='') Vietnam
+														option(value='') US
+								// <hr>
+								// Identity Info
+								.panel-title
+									h4 Identity Information
+									.panel-tools
+										button.btn.btn-success.btn-sm
+											i.fa.fa-plus
+											|  Add
+										button.btn.btn-complete.btn-sm
+											i.fa.fa-save
+											|  Save
+										button.btn.btn-primary.btn-sm
+											i.fa.fa-pencil
+											|  Edit
+										button.btn.btn-info.btn-sm
+											i.fa.fa-print
+											|  Print
+								.panel-body.mb-lg
+									.row.form-horizontal
+										.col-md-6
+											.form-group
+												label.col-md-4.control-label IndentityType*
+												.col-md-8
+													select.form-control.input-sm
+														option CMTND
+														option CCCD
+														option Passport
+											.form-group
+												label.col-md-4.control-label Identity No.*
+												.col-md-8
+													input#inputDefault.form-control(type='text', value='125280837')
+											.form-group
+												label.col-md-4.control-label Issuer*
+												.col-md-8
+													input#inputDefault.form-control(type='text', value='Bắc Ninh')
+										.col-md-6
+											.form-group
+												label.col-md-4.control-label Issue Date*
+												.col-md-8
+													input.form-control(type='text', data-plugin-datepicker='', value='01/04/1988')
+											.form-group
+												label.col-md-4.control-label Expired Date
+												.col-md-4
+													input.form-control(type='text', data-plugin-datepicker='', value='01/04/1988')
+												.col-md-4
+								.panel-title
+									h4 Business information
+									.panel-tools
+										button.btn.btn-success.btn-sm
+											i.fa.fa-plus
+											|  Add
+										button.btn.btn-complete.btn-sm
+											i.fa.fa-save
+											|  Save
+										button.btn.btn-primary.btn-sm
+											i.fa.fa-pencil
+											|  Edit
+										button.btn.btn-info.btn-sm
+											i.fa.fa-print
+											|  Print
+								.panel-body
+									.row.form-horizontal
+										.col-md-6
+											.form-group
+												label.col-md-4.control-label Type *
+												.col-md-8
+													input.form-control(type='text', disabled='disabled')
+											.form-group
+												label.col-md-4.control-label Employee ID *
+												.col-md-8
+													input.form-control(type='text')
+										.col-md-6
+											.form-group
+												label.col-md-4.control-label Position
+												.col-md-8
+													select.form-control(name='', id='')
+														option(value='') Sale Supervisor
+														option(value='') Sale
+											.form-group
+												label.col-md-4.control-label Card *
+												.col-md-8
+													input.form-control(type='text')
+									h5.h5.mb-lg.mt-lg
+										| Working Location
+									.row.form-horizontal.mb-lg
+										.col-md-6
+											.form-group
+												label.col-md-4.control-label Region
+												.col-md-8
+													select.form-control(name='', id='')
+														option(value='') Middle
+														option(value='') North
+														option(value='') South
+											.form-group
+												label.col-md-4.control-label Area
+												.col-md-8
+													select.form-control(name='', id='')
+														option(value='') AM1
+														option(value='') AM2
+										.col-md-6
+											.form-group
+												label.col-md-4.control-label Province
+												.col-md-8
+													select.form-control(name='', id='')
+														option(value='') --Select Province
+														option(value='') Da Nang
+											.form-group
+												label.col-md-4.control-label District
+												.col-md-8
+													select.form-control(name='', id='')
+														option(value='') --Select Distric--
+														option(value='') Thanh Khe
+									.row.form-horizontal
+										.col-md-6
+											.form-group
+												label.col-md-4.control-label Manager
+												.col-md-8
+													select.form-control(name='', id='')
+														option(value='')
+										.col-md-6
+											.form-group
+												label.col-md-4.control-label Remark
+												.col-md-8
+													textarea.form-control(rows='3')
+											.form-group
+												label.col-md-4.control-label Created At*
+												.col-md-4
+													input.form-control(type='text', data-plugin-datepicker='', disabled='disabled')
+												.col-md-4
+											.form-group
+												label.col-md-4.control-label Updated At
+												.col-md-4
+													input.form-control(type='text', data-plugin-datepicker='', disabled='disabled')
+												.col-md-4
+						// Personal Info & Identity Info
+						#tab2.tab-pane
+							// Personal Info
+							.panel-title
+								h4 Bank account information
+								.panel-tools
+									button.btn.btn-success.btn-sm
+										i.fa.fa-plus
+										|  Add
+									button.btn.btn-complete.btn-sm
+										i.fa.fa-save
+										|  Save
+									button.btn.btn-primary.btn-sm
+										i.fa.fa-pencil
+										|  Edit
+									button.btn.btn-info.btn-sm
+										i.fa.fa-print
+										|  Print
+							.panel-body.mb-lg
+								.row.form-horizontal.mb-lg
+									.col-md-6
+										.form-group
+											label.col-md-4.control-label(for='#') Account No.*
+											.col-md-8
+												input.form-control(type='text')
+										.form-group
+											label.col-md-4.control-label(for='#') Account Name*
+											.col-md-8
+												input.form-control(type='text')
+										.form-group
+											label.col-md-4.control-label Register date
+											.col-md-8
+												input.form-control(type='text', data-plugin-datepicker='', disabled='disabled')
+										.form-group
+											label.col-md-4.control-label End date
+											.col-md-8
+												input.form-control(type='text', data-plugin-datepicker='', disabled='disabled')
+										.form-group
+											label.col-md-4.control-label(for='#') Change times
+											.col-md-8
+												input.form-control(type='text')
+									.col-md-6
+										.form-group
+											label.col-md-4.control-label Bank *
+											.col-md-8
+												select.form-control(name='', id='')
+													option(value='') Active
+										.form-group
+											label.col-md-4.control-label Bank Branch
+											.col-md-8
+												input.form-control(type='text')
+										.form-group
+											label.col-md-4.control-label Register Source *
+											.col-md-8
+												select.form-control(name='', id='')
+													option(value='') Active
+										.form-group
+											label.col-md-4.control-label Account Status
+											.col-md-8
+												select.form-control(name='', id='')
+													option(value='') Active
+										.form-group
+											label.col-md-4.control-label Verify Status *
+											.col-md-8
+												select.form-control(name='', id='')
+													option(value='') Yes
+								.table-responsive
+									table.table.table-bordered
+										thead
+											tr
+												th #
+												th Bank Acc. No.
+												th Bank Acc Name
+												th Bank 
+												th Branch
+												th Register Date
+												th Register Source
+												th Bank Acc. Status
+												th Verify Status
+												th End Date
+										tbody
+											tr
+												td 1
+												td
+												td
+												td
+												td
+												td
+												td
+												td
+												td
+												td
+											tr
+												td 2
+												td
+												td
+												td
+												td
+												td
+												td
+												td
+												td
+												td
+								hr
+						// === Contract
+						#tab3.tab-pane
+							section.panel.panel-default
+								.panel-title
+									h4 Agent Network
+								.panel-body
+									.row.form-horizontal.mb-md
+										.col-md-6
+											input.form-control(type='text', placeholder='AccountId, Full name, Phone, Email ')
+										.col-md-6.text-right
+											span.ml-lg
+												button.btn.btn-primary.btn-sm(type='button') Search
+												button.btn.btn-default.btn-sm(type='button') Export Excel
+									.row.form-horizontal.mb-md
+										.col-md-6
+											.form-group
+												label.col-xs-4.control-label Type
+												.col-xs-8
+													select.form-control(name='', id='')
+														option(value='') --Select type--
+														option(value='') Agent
+										.col-md-6
+											.form-group
+												label.col-xs-4.control-label Blacklist Reason
+												.col-xs-8
+													select.form-control(name='', id='')
+														option(value='') --Select type--
+														option(value='') Agent
+									.clr
+									section.panel.panel-default
+										p.fl
+											b 3779
+											|  results
+										.fr
+											ul.pagination.pagination-sm.m-none
+												li
+													a(href='#') 1
+												li
+													a(href='#') 2
+												li
+													a(href='#') 3
+												li
+													a(href='#') 4
+												li
+													a(href='#') 5
+										.clr
+										.table-responsive
+												table.table.table-bordered.tmv-structure
+													thead
+														tr
+															th.min-w #
+															th Position - working location - full name - account - id
+															th.min-w Type
+															th.min-w Level
+															th.min-w Phone/Email
+															th.min-w Accquire Status
+															th.min-w Account Status
+													tbody
+														tr.lv1
+															td 1
+															td
+																.salesman
+																	.salesman__avatar
+																		img(src='', alt='')
+																	.salesman__info
+																		span RSM - North
+																		br
+																		b Nguyen Van A
+																		br
+																		span 221234
+															td Sales
+															td 1
+															td
+															td 20
+															td.active Active
+														tr.lv2
+															td 1
+															td
+																.salesman
+																	.salesman__avatar
+																		img(src='', alt='')
+																	.salesman__info
+																		span RSM - North
+																		br
+																		b Nguyen Van A
+																		br
+																		span 221234
+															td Sales
+															td 1
+															td
+															td 20
+															td.active Active
+														tr.lv3
+															td 1
+															td
+																.salesman
+																	.salesman__avatar
+																		img(src='', alt='')
+																	.salesman__info
+																		span RSM - North
+																		br
+																		b Nguyen Van A
+																		br
+																		span 221234
+															td Sales
+															td 1
+															td
+															td 20
+															td.active Active
+														tr.lv4
+															td 1
+															td
+																.salesman
+																	.salesman__avatar
+																		img(src='', alt='')
+																	.salesman__info
+																		span RSM - North
+																		br
+																		b Nguyen Van A
+																		br
+																		span 221234
+															td Sales
+															td 1
+															td
+															td 20
+															td.active Active
+														tr.lv5
+															td 1
+															td
+																.salesman
+																	.salesman__avatar
+																		img(src='', alt='')
+																	.salesman__info
+																		span RSM - North
+																		br
+																		b Nguyen Van A
+																		br
+																		span 221234
+															td Sales
+															td 1
+															td
+															td 20
+															td.active Active
+block modals
+	//- Modal goes here
+
+block foot-scripts
+	//- Custom Script goes here
+	script.
+		$(document).ready(function() {
+			$('#make-sure-action').on('change', function(){
+				if (this.checked) {
+					$("#approve-stage-popup .modal-footer button[disabled]").removeAttr('disabled');
+				} else {
+					$("#approve-stage-popup .modal-footer button").attr('disabled', 'disabled');
+				}
+			});
+		});

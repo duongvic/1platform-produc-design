@@ -1,0 +1,270 @@
+extends _pug-template/layout.pug
+block head-style
+	style
+block sidebar
+	+sidebar('Account Management', 'Account acquire')
+block body
+	section.content-body(role='main')
+		header.page-header.container-fluid
+			.page-header-left
+				ol.breadcrumbs
+					li
+						a(href='#')
+							i.fa.fa-home
+					li
+						a(href="#") Accounts
+				.pull-right
+					a(href="#").btn.btn-primary.btn-xs 
+						i.fa.fa-plus
+						| &nbsp; Add
+		.content-body-wrap
+			.tabs
+				.tab-content
+					.tab-pane.active
+						form(action='', method='').mb-xl
+							.row.pb-md
+								.col-md-4
+									a.icon(data-toggle="collapse", data-target="#advanced-filter" style='display: block; float: left; width: 24px')
+											i.fa.fa-chevron-down.text-xs
+									div(style='float: left; width: calc(100% - 24px);')
+										input#fullTextSearch.form-control(type='text', name='fullTextSearch', placeholder='AccountId, Full name, Phone, Email', value='')
+
+								.col-lg-4
+								.col-lg-4.mb-sm.text-right
+									button.btn.btn-primary.btn-sm(type='button') Search
+									//- button.btn.btn-default.btn-sm(type='button') Export Excel
+								//- .col-lg-5.col-sm-8.col-xs-12.mb-sm
+								//- 	.pull-right
+								//- 		button.btn.btn-default.btn-sm(type='button', data-toggle="collapse", data-target="#advanced-filter") 
+								//- 			i.fa.fa-gear
+								//- 			| &nbsp; Advanced
+							//- Filter form
+							#advanced-filter.collapse.form-horizontal
+								.row
+									.col-lg-4.col-md-6
+										.form-group
+											label.col-md-4.control-label(for='customerType') Customer type
+											.col-md-8
+												select#customerType.form-control(name='customerType')
+													option(value='', selected='') please select
+													option(value='1') CUSTOMER
+													option(value='2') AGENT
+													option(value='3') MERCHANT
+													option(value='4') SALE
+													option(value='5') TRUEMONEY
+													option(value='6') BANK
+													option(value='7') FA
+													option(value='8') STAFF
+													option(value='9') ADMIN
+													option(value='10') SYSTEM
+									.col-lg-4.col-md-6
+										.form-group
+												label.col-md-4.control-label(for='roleList') Role
+												.col-md-8
+													select#roleList.form-control(name='roleList')
+														option(value='', selected='') please select
+														option(value='role_test_P') role_test_P
+														option(value='_A123') _A123
+														option(value='123_123') 123_123
+														option(value='TEST_4') TEST_4
+														option(value='TEST_3') TEST_3
+														option(value='ROLE_TEST_1') ROLE_TEST_1
+														option(value='ROLE_ADMIN3') ROLE_ADMIN3
+														option(value='ROLEADMIN3') ROLEADMIN3
+														option(value='ROLE_ADMIN2') ROLE_ADMIN2
+														option(value='test 4') test 4
+														option(value='test 2') test 2
+														option(value='test1') test1
+														option(value='222') 222
+														option(value='ROLE_LEGAL') ROLE_LEGAL
+														option(value='ROLE_TRUEMONEY') ROLE_TRUEMONEY
+														option(value='ROLE_FA') ROLE_FA
+														option(value='ROLE_TECH_SUPPORT') ROLE_TECH_SUPPORT
+														option(value='ROLE_BANK') ROLE_BANK
+														option(value='ROLE_ASM') ROLE_ASM
+														option(value='ROLE_SALE_SUPERVISOR') ROLE_SALE_SUPERVISOR
+														option(value='ROLE_SALE_ASSISTANT') ROLE_SALE_ASSISTANT
+														option(value='ROLE_RSM') ROLE_RSM
+														option(value='ROLE_AGENT') ROLE_AGENT
+														option(value='ROLE_FINANCE_SUPERVISOR') ROLE_FINANCE_SUPERVISOR
+														option(value='ROLE_SALE_MANAGER') ROLE_SALE_MANAGER
+														option(value='ROLE_SALE') ROLE_SALE
+														option(value='ROLE_RECONCILIATION') ROLE_RECONCILIATION
+														option(value='ROLE_CUSTOMER_CARE') ROLE_CUSTOMER_CARE
+														option(value='ROLE_CUSTOMER') ROLE_CUSTOMER
+														option(value='ROLE_ADMIN') ROLE_ADMIN
+														option(value='ROLE_FINANCE') ROLE_FINANCE
+														option(value='ROLE_SYSTEM') ROLE_SYSTEM
+														option(value='ROLE_STAFF') ROLE_STAFF
+														option(value='ROLE_SALE_SUPPORT') ROLE_SALE_SUPPORT
+														option(value='ROLE_MERCHANT') ROLE_MERCHANT
+														option(value='ROLE_MANAGER') ROLE_MANAGER
+									.col-lg-4.col-md-6
+										.form-group
+											label.col-md-4.control-label(for='blackList') Blacklist
+											.col-md-8
+												select#blackList.form-control(name='blackList')
+													option(value='', selected='') please select
+													option(value='0') Active
+													option(value='1') 3 times wrong MPIN / PW
+													option(value='2') Device lost
+													option(value='3') Payment dispute
+													option(value='4') Fraud suspicion
+													option(value='5') Registration Pending
+						section
+							p.fl
+								b 3779
+								|  results
+							.fr
+								ul.pagination.pagination-sm.m-none
+									li
+										a(href='#') 1
+									li
+										a(href='#') 2
+									li
+										a(href='#') 3
+									li
+										a(href='#') 4
+									li
+										a(href='#') 5
+							.clr
+							.table-responsive
+								table.table.table-bordered(style='width: 100%')
+									thead(style='line-height: 22px; cursor: pointer;')
+										tr
+											th(width='50') #
+											th(width='100') Account Id
+											th(width='1') Full name
+											th Phone
+											th Customer type
+											th Blacklist reason
+											th Created At
+											th Action
+									tbody
+										tr
+											td 1
+											td
+												b
+													a#customer-link-247(href='https://admin.bizdev.truemoney.com.vn/setting/account/247/details') 0000002024
+											td(style='width:1px')
+												.user-info-box
+													.avt
+														img.img-circle.list-user-avatar(data-id='247', data-toggle='modal', src='https://admin.bizdev.truemoney.com.vn/setting/assets/images/man.svg', alt='Liên Nguyễn Thu Hằng')
+													.user-info
+														p.user-name
+															b
+																a#customer-link-247(href='https://admin.bizdev.truemoney.com.vn/setting/account/247/details')
+																	span.last-name Liên
+																	span.first-name Nguyễn Thu Hằng
+														p nguyenthulien@gmail.co.uk
+											td.white-space-normal
+												span 09133563680
+											td MERCHANT
+											td#txn-blacklist-reason-247.text-success
+												| Active
+											td
+												| 11/08/2017 16:36:07 +00:00 UTC
+											td
+												button.btn.btn-xs.btn-success(data-toggle='modal', data-target="#action-blacklist") Change status
+												button.btn.btn-xs.btn-default(data-toggle='modal', data-target="#action-changepassword") Reset Password
+										tr
+											td 2
+											td
+												b
+													a#customer-link-246(href='https://admin.bizdev.truemoney.com.vn/setting/account/246/details') 0000002023
+											td(style='width:1px')
+												.user-info-box
+													.avt
+														img.img-circle.list-user-avatar(data-id='246', data-toggle='modal', src='https://admin.bizdev.truemoney.com.vn/setting/assets/images/man.svg', alt='Hoàng Mạnh Hà')
+													.user-info
+														p.user-name
+															b
+																a#customer-link-246(href='https://admin.bizdev.truemoney.com.vn/setting/account/246/details')
+																	span.last-name Hoàng Mạnh
+																	span.first-name Hà
+														p hoangmanhha@gmail.com
+											td.white-space-normal
+												span 0936663369
+											td.text-success AGENT
+											td#txn-blacklist-reason-246.text-success
+												| Active
+											td
+												| 11/08/2017 16:19:32 +00:00 UTC
+											td
+												button.btn.btn-xs.btn-success(data-toggle='modal', data-target="#action-blacklist") Change status
+												button.btn.btn-xs.btn-default(data-toggle='modal', data-target="#action-changepassword") Reset Password
+block modals
+	//- Modal goes here
+	#action-blacklist.modal.fade.bs-example-modal-lg(role='dialog')
+		.modal-dialog(role='document')
+			.modal-content
+				.modal-header
+					button.close(type='button', data-dismiss='modal', aria-label='Close')
+						span(aria-hidden='true') ×
+					h4.modal-title Change Blacklist reason
+				.modal-body
+					// tab1
+					input#account-id(type='hidden', value='')
+					input#blacklist-id(type='hidden', value='')
+					.row.form-group
+						label.col-md-3.col-sm-3.col-xs-3.control-label(for='') Blacklist reason *
+						.col-md-9.col-sm-9.col-xs-9
+							select#blackListModal.form-control(name='blackList')
+								option(value='') please select
+								option(value='0') Active
+								option(value='1') 3 times wrong MPIN / PW
+								option(value='2') Device lost
+								option(value='3') Payment dispute
+								option(value='4') Fraud suspicion
+								option(value='5') Registration Pending
+					.row.form-group
+						label.col-md-3.col-sm-3.col-xs-3.control-label(for='') Remark *
+						.col-md-9.col-sm-9.col-xs-9
+							textarea#remark-modal-account-list.form-control(rows='2', name='remark')
+					#wrapper-chk-customer-confirm(style='padding-left: 15px;')
+						input#chk-customer-confirm(type='checkbox', name='chk-customer-confirm')
+						label(for='chk-customer-confirm') I agree with these terms and conditions of use.
+					#msg-blacklist
+				.modal-footer
+					button#btn-account-blacklist-save.btn.btn-sm.btn-primary(type='button', onclick='changeBlackList()') Save
+					button.btn.btn-sm.btn-default(type='button', data-dismiss='modal') Close
+	#action-changepassword.modal.fade.bs-example-modal-lg(role='dialog')
+		.modal-dialog(role='document')
+			.modal-content
+				.modal-header
+					button.close(type='button', data-dismiss='modal', aria-label='Close')
+						span(aria-hidden='true') ×
+					h4.modal-title Change Password for: HoangManhHa@gmail.com
+				.modal-body
+					form.form-horizontal
+						.form-group
+							.col-sm-4.control-label New Password
+							.col-sm-8
+								input.form-control(type='password')
+						.form-group
+							.col-sm-4.control-label Retype Password
+							.col-sm-8
+								input.form-control(type='password')
+						.form-group
+							.col-sm-4.control-label Remark *
+							.col-sm-8
+								textarea.form-control
+						.form-group
+							label.col-xs-12
+								input(type="checkbox") 
+								| &nbsp; I agree with these terms and conditions of use.
+				.modal-footer
+					button.btn.btn-sm.btn-primary(type='button', onclick='changeBlackList()') Save
+					button.btn.btn-sm.btn-default(type='button', data-dismiss='modal') Close
+block foot-scripts
+	//- Custom Script goes here
+	script.
+		$(document).ready(function() {
+			$('#make-sure-action').on('change', function(){
+				if (this.checked) {
+					$("#approve-stage-popup .modal-footer button[disabled]").removeAttr('disabled');
+				} else {
+					$("#approve-stage-popup .modal-footer button").attr('disabled', 'disabled');
+				}
+			});
+		});

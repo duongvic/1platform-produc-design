@@ -1,0 +1,217 @@
+extends _pug-template/layout.pug
+block head-style
+	style
+block sidebar
+	+sidebar('Account Management', 'Account acquire')
+block body
+	section.content-body(role='main')
+		header.page-header.container-fluid
+			.page-header-left
+				ol.breadcrumbs
+					li
+						a(href='#')
+							i.fa.fa-home
+					li
+						a(href="#") Accounts
+					li
+						span Add
+				.pull-right
+					a(href="#").btn.btn-primary.btn-xs 
+						i.fa.fa-plus
+						| &nbsp; Add
+		.content-body-wrap
+			.tab-content
+				#tab-list-customer.tab-pane.active
+					form#form-account-create.panel.panel-default(method='POST', action='https://admin.bizdev.truemoney.com.vn/setting/account/add')
+						input(type='hidden', name='_token', value='jfVCGuFOcivhcnTvSPBWl4kYaQo9zMYBbq3J8nKc')
+						.panel-title
+							h4 Personal Information
+							.panel-tools
+								button.btn.btn-sm.btn-primary(type='submit', value='Save', name='edit')
+									i.fa.fa-save
+									|  Save
+						.panel-body.form-horizontal
+							.row
+								.col-lg-6
+									.form-group
+										label.col-md-4.control-label(for='') Full name *
+										.col-md-8.double-input
+											input.form-control(pattern='{1,50}', required='', value='', type='text', name='first-name', placeholder='First Name')
+											input.form-control(pattern='{1,100}', required='', value='', type='text', name='last-name', placeholder='Last Name')
+								.col-lg-6
+									.form-group
+										label.col-md-4.control-label(for='') Notification mode
+										.col-md-8
+											select.form-control(name='notification')
+												option(value='', selected='') please select
+												option(value='0') None
+												option(value='1') Email
+												option(value='2') SMS
+												option(value='3') Both
+							.row
+								.col-lg-6
+									.form-group
+										label.col-md-4.control-label(for='') Email *
+										.col-md-8
+											.input-group
+												input.form-control(pattern='[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$', required='', value='', type='text', name='email', placeholder='Email')
+												span.input-group-addon.border-input(data-toggle='tooltip', title='verified')
+													i.fa.fa-lg.fa-check-circle.text-success(aria-hidden='true')
+								.col-lg-6
+									.form-group
+										label.col-md-4.control-label(for='') Phone *
+										.col-md-8
+											.input-group
+												input.form-control(pattern='[0-9]{10,11}', required='', value='', type='text', name='phone', placeholder='Phone')
+												span.input-group-addon.border-input(data-toggle='tooltip', title='not yet verified')
+													i.fa.fa-lg.fa-exclamation-triangle.text-danger(aria-hidden='true')
+							.row
+								.col-lg-6
+									.form-group
+										label.col-md-4.control-label(for='customerType') Customer type *
+										.col-md-8
+											select.form-control(name='customerType', required='')
+												option(value='', selected='') please select
+												option(value='1') CUSTOMER
+												option(value='2') AGENT
+												option(value='3') MERCHANT
+												option(value='4') SALE
+												option(value='5') TRUEMONEY
+												option(value='6') BANK
+												option(value='7') FA
+												option(value='8') STAFF
+												option(value='9') ADMIN
+												option(value='10') SYSTEM
+								.col-lg-6
+									.form-group
+										label.col-md-4.control-label(for='blackList') Blacklist reason *
+										.col-md-8
+											select.form-control(name='blackList', required='')
+												option(value='', selected='') please select
+												option(value='0') Active
+												option(value='1') 3 times wrong MPIN / PW
+												option(value='2') Device lost
+												option(value='3') Payment dispute
+												option(value='4') Fraud suspicion
+												option(value='5') Registration Pending
+						.panel-title
+							h4 Grant Role
+							.panel-tools
+								button.btn.btn-sm.btn-primary(type='button', disabled='', data-target='#action-grant-role', data-toggle='modal', name='grant-role')
+									i.fa.fa-users
+									|  Grant Role
+						.panel-body
+							.table-responsive
+								table.table.table-bordered
+									thead(style='line-height: 22px; cursor: pointer;')
+										tr
+											th(width='50') #
+											th Role Name
+											th Valid from
+											th Valid to
+											th Description
+											th Action
+block modals
+	//- Modal goes here
+	#action-grant-role.modal.fade.bs-example-modal-lg(role='dialog', aria-labelledby='grantRole', aria-hidden='true')
+		.modal-dialog(role='document')
+			.modal-content
+				form#grand_account_role(action='https://admin.bizdev.truemoney.com.vn/setting/account/247/grantRole')
+					input(type='hidden', name='_token', value='jfVCGuFOcivhcnTvSPBWl4kYaQo9zMYBbq3J8nKc')
+					.modal-header
+						button.close(type='button', data-dismiss='modal', aria-label='Close')
+							span(aria-hidden='true') ×
+						h4.modal-title Grant Role
+					.modal-body
+						.row.form-group
+							input#roleId(type='hidden', name='roleId')
+							div
+								label.col-md-3.col-sm-3.col-xs-3.control-label(for='') Role Name *
+								.col-md-9.col-sm-9.col-xs-9
+									select#role-select.form-control(name='roleName')
+										option(value='') please select
+										option(data-msg='role test P role test Prole test Prole test P', value='role_test_P') role_test_P
+										option(data-msg='', value='_A123') _A123
+										option(data-msg='', value='123_123') 123_123
+										option(data-msg='TEST_4', value='TEST_4') TEST_4
+										option(data-msg='TEST_3', value='TEST_3') TEST_3
+										option(data-msg='test 1 2 test', value='ROLE_TEST_1') ROLE_TEST_1
+										option(data-msg='ROLE_ADMIN3', value='ROLE_ADMIN3') ROLE_ADMIN3
+										option(data-msg='ROLE_ADMIN3', value='ROLEADMIN3') ROLEADMIN3
+										option(data-msg='ROLE_ADMIN2', value='ROLE_ADMIN2') ROLE_ADMIN2
+										option(data-msg='test 4', value='test 4') test 4
+										option(data-msg='test 2', value='test 2') test 2
+										option(data-msg='test1.2 22222222222222222222222 111111111111111111111111111111', value='test1') test1
+										option(data-msg='33333', value='222') 222
+										option(data-msg='ROLE_LEGAL', value='ROLE_LEGAL') ROLE_LEGAL
+										option(data-msg='ROLE_TRUEMONEY', value='ROLE_TRUEMONEY') ROLE_TRUEMONEY
+										option(data-msg='ROLE_FA', value='ROLE_FA') ROLE_FA
+										option(data-msg='ROLE_TECH_SUPPORT', value='ROLE_TECH_SUPPORT') ROLE_TECH_SUPPORT
+										option(data-msg='ROLE_BANK', value='ROLE_BANK') ROLE_BANK
+										option(data-msg='ROLE_ASM', value='ROLE_ASM') ROLE_ASM
+										option(data-msg='ROLE_SALE_SUPERVISOR', value='ROLE_SALE_SUPERVISOR') ROLE_SALE_SUPERVISOR
+										option(data-msg='ROLE_SALE_ASSISTANT', value='ROLE_SALE_ASSISTANT') ROLE_SALE_ASSISTANT
+										option(data-msg='ROLE_RSM', value='ROLE_RSM') ROLE_RSM
+										option(data-msg='ROLE_AGENT', value='ROLE_AGENT') ROLE_AGENT
+										option(data-msg='ROLE_FINANCE_SUPERVISOR', value='ROLE_FINANCE_SUPERVISOR') ROLE_FINANCE_SUPERVISOR
+										option(data-msg='ROLE_SALE_MANAGER', value='ROLE_SALE_MANAGER') ROLE_SALE_MANAGER
+										option(data-msg='ROLE_SALE', value='ROLE_SALE') ROLE_SALE
+										option(data-msg='ROLE_RECONCILIATION', value='ROLE_RECONCILIATION') ROLE_RECONCILIATION
+										option(data-msg='ROLE_CUSTOMER_CARE', value='ROLE_CUSTOMER_CARE') ROLE_CUSTOMER_CARE
+										option(data-msg='ROLE_CUSTOMER', value='ROLE_CUSTOMER') ROLE_CUSTOMER
+										option(data-msg='ROLE_ADMIN', value='ROLE_ADMIN') ROLE_ADMIN
+										option(data-msg='ROLE_FINANCE', value='ROLE_FINANCE') ROLE_FINANCE
+										option(data-msg='ROLE_SYSTEM', value='ROLE_SYSTEM') ROLE_SYSTEM
+										option(data-msg='ROLE_STAFF', value='ROLE_STAFF') ROLE_STAFF
+										option(data-msg='ROLE_SALE_SUPPORT', value='ROLE_SALE_SUPPORT') ROLE_SALE_SUPPORT
+										option(data-msg='ROLE_MERCHANT', value='ROLE_MERCHANT') ROLE_MERCHANT
+										option(data-msg='ROLE_MANAGER', value='ROLE_MANAGER') ROLE_MANAGER
+							.row.form-group(style='margin-bottom: 0px;')
+								label.col-md-3.col-sm-3.col-xs-3.control-label(for='')
+								#role-description.col-md-9.col-sm-9.col-xs-9(style='padding-left: 23px')
+						.row.form-group
+							label.col-md-3.col-sm-3.col-xs-3.control-label(for='') Valid from
+							.col-md-9.col-sm-9.col-xs-9
+								input#validFrom.form-control(type='text', placeholder='valid from', data-plugin-datepicker='', name='validFrom', value='')
+						.row.form-group
+							label.col-md-3.col-sm-3.col-xs-3.control-label(for='') Valid to
+							.col-md-9.col-sm-9.col-xs-9
+								input#validTo.form-control(type='text', placeholder='expire date', data-plugin-datepicker='', name='validTo', value='')
+						#wrapper-chk-customer-confirm(style='padding-left: 15px;')
+							input#chk-customer-confirm(type='checkbox', name='confirm')
+							label(for='chk-customer-confirm') I agree with these terms and conditions of use.
+						#msg-grant-role
+						// end tab1
+					.modal-footer
+						button#grant-role.btn.btn-sm.btn-primary(type='submit') Save
+						button.btn.btn-sm.btn-default(type='button', data-dismiss='modal') Close
+	#action-grant-delete.modal.fade.bs-example-modal-lg(role='dialog', aria-labelledby='grantRole', aria-hidden='true')
+		.modal-dialog(role='document', style='width: 400px;')
+			input#roleName(type='hidden', name='roleName', value='')
+			.modal-content
+				.modal-header
+					button.close(type='button', data-dismiss='modal', aria-label='Close')
+						span(aria-hidden='true') ×
+					h4.modal-title Warning
+				.modal-body
+					.row.form-group
+						label.control-label(for='') Are you sure to remove this role?
+					#wrapper-chk-customer-confirm
+						input#chk-account-confirm(type='checkbox', name='chk-account-confirm')
+						label(for='chk-account-confirm') I agree with these terms and conditions of use.
+					#msg-delete-role
+				.modal-footer
+					button#removeRole.btn.btn-sm.btn-primary(type='button', onclick='removeCustomerRole()') Delete
+					button.btn.btn-sm.btn-default(type='button', data-dismiss='modal') Cancel
+block foot-scripts
+	//- Custom Script goes here
+	script.
+		$(document).ready(function() {
+			$('#make-sure-action').on('change', function(){
+				if (this.checked) {
+					$("#approve-stage-popup .modal-footer button[disabled]").removeAttr('disabled');
+				} else {
+					$("#approve-stage-popup .modal-footer button").attr('disabled', 'disabled');
+				}
+			});
+		});

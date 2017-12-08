@@ -1,0 +1,65 @@
+extends _pug-template/layout.pug
+block head-style
+	style
+block sidebar
+	+sidebar('Account Management', 'Account acquire')
+block body
+	section.content-body(role='main')
+		header.page-header.container-fluid
+			.page-header-left
+				ol.breadcrumbs
+					li
+						a(href='#')
+							i.fa.fa-home
+					li
+						a(href="#") Privileges
+					li
+						a(href="#") Details
+				.pull-right
+					a(href="#").btn.btn-primary.btn-xs 
+						i.fa.fa-plus
+						| &nbsp; Add
+		.content-body-wrap
+			.row.content-body-wrap
+				.col-md-12
+					.tab-content
+						section.panel.panel-default
+							form(method='POST')
+								.panel-title
+									h4 Update Privilege
+									.panel-tools
+										button#edit_btn.btn.btn-sm.btn-info(type='button', name='edit', value='create')
+											i.fa.fa-pencil
+											|  Edit
+										button.btn.btn-sm.btn-primary(type='submit', name='update', value='update', disabled='')
+											i.fa.fa-save
+											|  Save
+								.panel-body.form-horizontal
+									.row
+										.col-lg-6
+											.form-group
+												label.col-md-4.form-control-static(for='privilege_name') Privilege Name *:
+												.col-md-8
+													| PRIVILEGE_TEST_3
+													input#privilege_name.form-control(type='hidden', name='privilege_name', value='PRIVILEGE_TEST_3', placeholder='Privelage Name')
+										.col-lg-6
+											.form-group
+												label.col-md-4.form-control-static(for='description') Privilege Description:
+												.col-md-8
+													textarea#description.form-control(name='description', rows='5', disabled='', placeholder='Description') PRIVILEGE_TEST_3
+					
+block modals
+	//- Modal goes here
+
+block foot-scripts
+	//- Custom Script goes here
+	script.
+		$(document).ready(function() {
+			$('#make-sure-action').on('change', function(){
+				if (this.checked) {
+					$("#approve-stage-popup .modal-footer button[disabled]").removeAttr('disabled');
+				} else {
+					$("#approve-stage-popup .modal-footer button").attr('disabled', 'disabled');
+				}
+			});
+		});

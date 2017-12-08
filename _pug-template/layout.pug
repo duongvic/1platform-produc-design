@@ -1,0 +1,151 @@
+//- Pug Include
+include modules.pug
+//- End: Pug Include
+doctype html
+html.fixed
+	head
+		meta(charset='UTF-8')
+		title Role Manager
+		meta(name='keywords', content='Truemoney Acquire Agent VN')
+		meta(name='description', content='Truemoney Acquire Agent VN')
+		meta(name='author', content='TruemoneyVN')
+		//- Mobile Metas
+		meta(name='viewport', content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no')
+		//- Web Fonts
+		link(href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700', rel='stylesheet')
+		//- Vendor CSS
+		link(rel='stylesheet', href='assets/vendor/bootstrap/css/bootstrap.css')
+		link(href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css', 
+			rel='stylesheet', 
+			integrity='sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN', 
+			crossorigin='anonymous')
+		link(rel='stylesheet', href='assets/vendor/font-simpleline/css/simple-line-icons.css')
+		link(rel='stylesheet', href='assets/vendor/magnific-popup/magnific-popup.css')
+		link(rel='stylesheet', href='assets/vendor/bootstrap-datepicker/css/datepicker3.css')
+		link(rel='stylesheet', href='assets/vendor/owl-carousel/owl.carousel.css')
+		link(rel='stylesheet', href='assets/vendor/owl-carousel/owl.theme.css')
+		//- Specific Page Vendor CSS
+		link(rel='stylesheet', href='assets/vendor/jquery-ui/css/ui-lightness/jquery-ui-1.10.4.custom.css')
+		link(rel='stylesheet', href='assets/vendor/bootstrap-multiselect/bootstrap-multiselect.css')
+		link(rel='stylesheet', href='assets/vendor/morris/morris.css')
+		link(rel='stylesheet', href='assets/vendor/panel_tool/panel_tool.css')
+		link(rel='stylesheet', href='assets/vendor/select2/dist/css/select2.css')
+		//- table
+		link(rel='stylesheet', href='assets/vendor/jquery-datatables-bs3/assets/css/datatables.css')
+		//- Theme CSS
+		link(rel='stylesheet', href='assets/stylesheets/theme.css')
+		link(rel='stylesheet', href='assets/stylesheets/skins/1pay_skin/navbar.css')
+		link(rel='stylesheet', href='assets/stylesheets/skins/1pay_skin/bootstrap-select.min.css', type='text/css')
+		//- Skin CSS
+		link(rel='stylesheet', href='assets/stylesheets/skins/1pay_skin/truemoney.css')
+		//- Theme Custom CSS
+		link(rel='stylesheet', href='assets/stylesheets/theme-custom.css')
+		link(rel='stylesheet', href='assets/vendor/daterangepicker/daterangepicker.css', type='text/css', media='all')
+		link(rel='stylesheet', href='assets/stylesheets/fileicons.css')
+		link(rel='stylesheet', href='assets/stylesheets/new-custom.css')
+		link(rel='stylesheet', href='assets/stylesheets/settings-css.css')
+		//- Head Libs
+		script(src='assets/vendor/modernizr/modernizr.js')
+		//- Navbar filter scripts
+		script.
+			var tmv_nav_filter = function(group, event) {
+				var nav_items = document.querySelectorAll("[data-nav-group]");
+				[].forEach.call( nav_items, function(item){
+					if ((item.getAttribute('data-nav-group') !== group) && (group !== 'all')) {
+						item.style.display = "none";
+					} else {
+						item.style.display = null;
+					}
+				});
+
+				if (event) {
+					event.target.parentElement.parentElement.getElementsByClassName('active')[0].classList.remove('active');
+					event.target.parentElement.classList.add('active');
+					// return false;
+				}
+			};
+		//- Global additional style
+		style
+			|	.nano-content {
+			|		overflow-y: auto !important;
+			|		right: !important;
+			|	}
+			|	#menu .nav-children a {
+			|		padding-left: 40px;
+			|		color: #aaa !important;
+			|	}
+			|	#menu .nav-children li.nav-active a {
+			|		color: #F58220 !important;
+			|	}
+			|	#menu ul.nav-children > li > a {
+			|		text-overflow: clip !important;
+			|		white-space: normal !important;
+			|	}
+			|	#menu li.nav-parent > a {
+			|		text-overflow: ellipsis;
+			|		overflow: hidden;
+			|	}
+			|	.sidebar-left-collapsed #menu li a {
+			|		text-overflow: clip;
+			|	}
+			| .content-body-wrap {
+			|		padding: 0;
+			|		margin: 0 15px 15px 15px;
+			| 	background: #fff;
+			| }
+			| .control-label {white-space: nowrap}
+		block head-style
+	body
+		section.body
+			+header('nothing')
+			.inner-wrapper
+				block sidebar
+				block body
+				+footer
+		//- Modals Block
+		block modals
+			
+		//- Global Scripts
+		script(type='text/javascript', src='assets/vendor/jquery/jquery.js')
+		script(type='text/javascript', src='assets/vendor/bootstrap/js/bootstrap.js')
+		//- Specific Page Vendor
+		script(type='text/javascript', src='assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.js')
+		script(type='text/javascript', src='assets/vendor/bootstrap-multiselect/bootstrap-multiselect.js')
+		//- Advanced table
+		script(type='text/javascript', src='assets/vendor/jquery-datatables/media/js/jquery.dataTables.js')
+		script(type='text/javascript', src='assets/vendor/jquery-datatables/extras/TableTools/js/dataTables.tableTools.min.js')
+		script(type='text/javascript', src='assets/vendor/jquery-datatables-bs3/assets/js/datatables.js')
+		script(type='text/javascript', src='assets/vendor/daterangepicker/moment.js')
+		script(type='text/javascript', src='assets/vendor/daterangepicker/daterangepicker.js')
+		script(type='text/javascript', src='assets/vendor/jquery-browser-mobile/jquery.browser.mobile.js')
+		script(type='text/javascript', src='assets/vendor/nanoscroller/nanoscroller.js')
+
+		script(type='text/javascript', src='assets/vendor/magnific-popup/magnific-popup.js')
+
+		script(type='text/javascript', src='assets/vendor/jquery-placeholder/jquery.placeholder.js')
+		script(type='text/javascript', src='assets/javascripts/theme.js')
+		script(type='text/javascript', src='assets/vendor/ios7-switch/ios7-switch.js')
+		script(type='text/javascript', src='assets/vendor/select2/dist/js/select2.js')
+		//- Theme Base, Slide
+		script(type='text/javascript', src='assets/vendor/pnotify/pnotify.custom.js')
+		script(type='text/javascript', src='assets/vendor/owl-carousel/owl.carousel.js')
+		script(type='text/javascript', src='assets/javascripts/ui-elements/examples.modals.js')
+		//- Theme Custom
+		script(type='text/javascript', src='assets/javascripts/theme.custom.js')
+		//- Theme Initialization Files
+		script(type='text/javascript', src='assets/javascripts/theme.init.js')
+		script(type='text/javascript', src='assets/vendor/navbar-animate/jquery.bootstrap-dropdown-on-hover.min.js')
+		//- script(type='text/javascript', src='js/socket.io-client/dist/socket.io.js')
+		script(type='text/javascript', src='assets/vendor/panel_tool/plugins.js')
+		//- Examples
+		//- script(src='assets/javascripts/tables/examples.datatables.default.js')
+		//- script(src='assets/javascripts/tables/examples.datatables.row.with.details.js')
+		//- script(src='assets/javascripts/tables/examples.datatables.tabletools.js')
+		script(type='text/javascript', src='assets/javascripts/bootstrap-select.min.js')
+		script(type='text/javascript', src='assets/javascripts/forms/examples.advanced.form.js')
+		script(type='text/javascript', src='assets/javascripts/bootstrap-notify.min.js')
+		//- script(type='text/javascript', src='assets/javascripts/custom.js')
+		script(type='text/javascript', src='assets/javascripts/settings-custom.js')
+
+		//- Page's Scripts
+		block foot-scripts

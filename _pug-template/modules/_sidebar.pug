@@ -1,0 +1,219 @@
+mixin sidebar(activeNav, activeSubnav)
+	- 
+		var nav = [
+			{
+				name: 'Transaction',
+				children:[
+					{
+						name: "Transaction history",
+						url: "",
+					},
+					{
+						name: "Cancel Transaction",
+						url: "",
+					}
+				],
+				icon: "history",
+				group: 'Service',
+				url: '#',
+			},
+			{
+				name: 'Fund in',
+				children:[
+					{
+						name: "Fund-in transaction",
+						url: '#',
+					},
+					{
+						name: "Request Fund-in",
+						url: '#',
+					},
+				],
+				icon: "usd",
+				group: 'Wallet',
+				url: '#',
+			},
+			{
+				name: 'Fund out',
+				children:[
+					{
+						name: "Fund-out transaction",
+						url: ''
+					},
+					{
+						name: "Request Fund-out",
+						url: ''
+					}
+				],
+				icon: "money",
+				group: 'Wallet',
+				url: '#',
+			},
+			{
+				name: 'Money Transfer',
+				children:[
+					{
+						name: "Money transfer method",
+						url: '#'
+					},
+					{
+						name: "Request transfer",
+						url: '#'
+					}
+				],
+				icon: "mail-forward",
+				group: 'Wallet',
+				url: '#',
+			},
+			{
+				name: 'Card Store',
+				children:[
+					{
+						name: "Store Monitoring",
+						url: '#'
+					},
+					{
+						name: "Card Item",
+						url: '#'
+					},
+					{
+						name: "Purchase Order",
+						url: '#'
+					}
+				],
+				icon: "archive",
+				group: 'Customer',
+				url: '#',
+			},
+			{
+				name: 'Sales',
+				children:[
+					{
+						name: "Sales List",
+						url: 'sales-list.html'
+					}
+				],
+				icon: "circle-o",
+				group: 'Customer',
+				url: '#',
+			},
+			{
+				name: 'Providers',
+				children:[
+					{
+						name: "Provider list",
+						url: '#'
+					},
+					{
+						name: "Provider profile",
+						url: '#'
+					}
+				],
+				icon: "user",
+				group: 'Provider',
+				url: '#',
+			},
+			{
+				name: 'Agents',
+				children:[
+					{
+						name: "Agent profile list",
+						url: 'agents-list.html'
+					},
+					{
+						name: "Agent acquire",
+						url: 'agents-list.html'
+					}
+				],
+				icon: "male",
+				group: 'Customer',
+				url: '#',
+			},
+			{
+				name: 'Inventory',
+				children:[
+					{
+						name: "Item List",
+						url: 'items-list.html'
+					},
+					{
+						name: "Box List",
+						url: 'boxes-list.html'
+					}
+				],
+				icon: "circle-o",
+				group: 'Operator',
+				url: '#',
+			},
+			{
+				name: 'Accounts',
+				children:[
+					{
+						name: "Accounts List",
+						url: '#'
+					},
+					{
+						name: "Account profile",
+						url: '#'
+					},
+				],
+				icon: "user",
+				group: 'Setting',
+				url: '#',
+			},
+			{
+				name: 'Privileges',
+				children:[
+					{
+						name: "Privileges List",
+						url: '#'
+					},
+				],
+				icon: "gear",
+				group: 'Setting',
+				url: '#',
+			},
+			{
+				name: 'Roles',
+				children:[
+					{
+						name: "Roles List",
+						url: '#'
+					},
+				],
+				icon: "gear",
+				group: 'Setting',
+				url: '#',
+			},
+		]
+	aside#sidebar-left.sidebar-left
+		.sidebar-header
+			.sidebar-title
+				| Menu
+			.sidebar-toggle.hidden-xs(
+				data-target='html',
+				data-fire-event='sidebar-left-toggle',
+				data-toggle-class='sidebar-left-collapsed')
+				i.fa.fa-bars(aria-label='Toggle sidebar')
+		.nano
+			.nano-content(style='overflow-y: auto')
+				nav#menu.nav-main(role='navigation')
+					ul.nav.nav-main
+						each pnav in nav
+							li(data-nav-group=pnav.group, ,
+							url: '#',
+								class=activeNav === pnav.name ? 'nav-active' : '', 
+								class=pnav.children ? 'nav-parent' : '')
+								if pnav.children 
+									a
+										i.fa(class='fa-'+pnav.icon)
+										span=pnav.name
+								else
+									a(href='#')
+										i.fa(class='fa-'+pnav.icon)
+										span=pnav.name
+								if pnav.children
+									ul.nav.nav-children
+										each cnav in pnav.children
+											li(class=activeSubnav === cnav.name ? 'nav-active' : '')
+												a(href=cnav.url)=cnav.name

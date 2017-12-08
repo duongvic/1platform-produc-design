@@ -1,0 +1,202 @@
+extends _pug-template/layout.pug
+block head-style
+	style
+block sidebar
+	+sidebar('Account Management', 'Account acquire')
+block body
+	section.content-body(role='main')
+		header.page-header.container-fluid
+			.page-header-left
+				ol.breadcrumbs
+					li
+						a(href='#')
+							i.fa.fa-home
+					li
+						a(href="#") Roles
+					li
+						a(href="#") Details
+				.pull-right
+					a(href="#").btn.btn-primary.btn-xs 
+						i.fa.fa-plus
+						| &nbsp; Add
+		.content-body-wrap
+			.tab-content
+				#tab-list-customer.tab-pane.active
+					// form search
+					form#form-role-detail.panel.panel-default(method='POST', action='https://admin.bizdev.truemoney.com.vn/setting/role/role_test_P/details')
+						.panel-title
+							h4 Role Details
+							.panel-tools
+								button#edit_btn.btn.btn-sm.btn-info(type='button', name='edit', value='create')
+									i.fa.fa-pencil
+									|  Edit
+								button.btn.btn-sm.btn-primary(type='submit', value='Save', name='edit', disabled='')
+									i.fa.fa-save
+									|  Save
+						.panel-body.form-horizontal
+							.row
+								.col-lg-6
+									.form-group
+										label.col-md-4.control-label(for='role-name') Role Name *
+										.col-md-8
+											input.form-control(type='text', name='role-name', value='role_test_P')
+								.col-lg-6
+									.form-group
+										label.col-md-4.control-label(for='remark') Description
+										.col-md-8
+											textarea.form-control(rows='2', disabled='', name='remark') role test P role test Prole test Prole test P
+						.panel-title
+							h4 Privilege
+							.panel-tools
+								button.btn.btn-sm.btn-primary(type='button', onclick='createRolePrivilegeModal()', name='grant-privilege')
+									i.fa.fa-users
+									|  Grant Privilege
+						.panel-body
+							.table-responsive
+								table.table.table-bordered
+									thead(style='line-height: 22px; cursor: pointer;')
+										tr
+											th(width='50') #
+											th Privilege Name
+											th Valid from
+											th Valid to
+											th Description
+											th Action
+									tbody
+										tr.even.CTRL_PERM_ADD_POST
+											td
+											td.privilegeName CTRL_PERM_ADD_POST
+											td.validDate
+											td.validTo
+											td
+											td
+												i.fa.fa-2x.fa-pencil-square.text-success(data-toggle='popover', data-trigger='hover', data-placement='top', data-content='edit', onclick="editRolePrivilegeModal('CTRL_PERM_ADD_POST',this)", style='cursor: pointer;', aria-hidden='true')
+												i.fa.fa-2x.fa-trash-o.text-danger.ml-sm(data-toggle='popover', data-trigger='hover', data-placement='top', data-content='delete', onclick="deleteRolePrivilegeModal('CTRL_PERM_ADD_POST');", style='cursor: pointer;')
+										tr.odd.TEST_2
+											td
+											td.privilegeName TEST_2
+											td.validDate
+											td.validTo
+											td
+											td
+												i.fa.fa-2x.fa-pencil-square.text-success(data-toggle='popover', data-trigger='hover', data-placement='top', data-content='edit', onclick="editRolePrivilegeModal('TEST_2',this)", style='cursor: pointer;', aria-hidden='true')
+												i.fa.fa-2x.fa-trash-o.text-danger.ml-sm(data-toggle='popover', data-trigger='hover', data-placement='top', data-content='delete', onclick="deleteRolePrivilegeModal('TEST_2');", style='cursor: pointer;')
+
+
+block modals
+	//- Modal goes here
+	#action-grant-privilege.modal.fade.bs-example-modal-lg(role='dialog', aria-labelledby='grantRole', aria-hidden='true')
+		.modal-dialog(role='document')
+			.modal-content
+				form#grand_role_privilege(action='https://admin.bizdev.truemoney.com.vn/setting/role/role_test_P/grantPrivilege')
+					input#privilege-id(type='hidden', name='privilege_id', value='')
+					input(type='hidden', name='_token', value='BY8MvRJGLsENB7EOIzlXsqv2oVy3JUYAc1zToMTv')
+					.modal-header
+						button.close(type='button', data-dismiss='modal', aria-label='Close')
+							span(aria-hidden='true') ×
+						h4.modal-title Role Details - Grant Privilege
+					.modal-body
+						// tab1
+						.row.form-group
+							div
+								label.col-md-3.col-sm-3.col-xs-3.control-label(for='') Privilege Name *
+								.col-md-9.col-sm-9.col-xs-9
+									select#privilege-select.form-control.js-select2-single(name='privilege')
+										option(value='', data-msg='') please select
+										option(data-msg='PRIVILEGE_TEST_3', value='PRIVILEGE_TEST_3')
+											| PRIVILEGE_TEST_3
+										option(data-msg='PRIVILEGE_TEST PRIVILEGE_TEST PRIVILEGE_TEST', value='PRIVILEGE_TEST')
+											| PRIVILEGE_TEST
+										option(data-msg='tét 2', value='TEST_2')
+											| TEST_2
+										option(data-msg='ưưwwwwww', value='test_1')
+											| test_1
+										option(data-msg='CTRL_PERM_ROLE_ADD_POST', value='CTRL_PERM_ROLE_ADD_POST')
+											| CTRL_PERM_ROLE_ADD_POST
+										option(data-msg='CTRL_ROLE_LIST_GET', value='CTRL_ROLE_LIST_GET')
+											| CTRL_ROLE_LIST_GET
+										option(data-msg='CTRL_ROLE_EDIT_POST', value='CTRL_ROLE_EDIT_POST')
+											| CTRL_ROLE_EDIT_POST
+										option(data-msg='CTRL_ROLE_VIEW_GET', value='CTRL_ROLE_VIEW_GET')
+											| CTRL_ROLE_VIEW_GET
+										option(data-msg='CTRL_ROLE_DELETE_GET', value='CTRL_ROLE_DELETE_GET')
+											| CTRL_ROLE_DELETE_GET
+										option(data-msg='CTRL_ROLE_ADD_POST', value='CTRL_ROLE_ADD_POST')
+											| CTRL_ROLE_ADD_POST
+										option(data-msg='CTRL_PERM_LIST_GET', value='CTRL_PERM_LIST_GET')
+											| CTRL_PERM_LIST_GET
+										option(data-msg='CTRL_PERM_EDIT_POST', value='CTRL_PERM_EDIT_POST')
+											| CTRL_PERM_EDIT_POST
+										option(data-msg='CTRL_PERM_EDIT_GET', value='CTRL_PERM_EDIT_GET')
+											| CTRL_PERM_EDIT_GET
+										option(data-msg='CTRL_PERM_DELETE_GET', value='CTRL_PERM_DELETE_GET')
+											| CTRL_PERM_DELETE_GET
+										option(data-msg='CTRL_PERM_VIEW_GET', value='CTRL_PERM_VIEW_GET')
+											| CTRL_PERM_VIEW_GET
+										option(data-msg='CTRL_PERM_ADD_POST', value='CTRL_PERM_ADD_POST')
+											| CTRL_PERM_ADD_POST
+										option(data-msg='CTRL_USER_LIST_GET', value='CTRL_USER_LIST_GET')
+											| CTRL_USER_LIST_GET
+										option(data-msg='CTRL_USER_EDIT_POST', value='CTRL_USER_EDIT_POST')
+											| CTRL_USER_EDIT_POST
+										option(data-msg='CTRL_USER_VIEW_GET', value='CTRL_USER_VIEW_GET')
+											| CTRL_USER_VIEW_GET
+										option(data-msg='CTRL_USER_DELETE_GET', value='CTRL_USER_DELETE_GET')
+											| CTRL_USER_DELETE_GET
+										option(data-msg='CTRL_USER_ADD_POST', value='CTRL_USER_ADD_POST')
+											| CTRL_USER_ADD_POST
+							.row.form-group(style='margin-bottom: 0px;')
+								label.col-md-3.col-sm-3.col-xs-3.control-label(for='')
+								#privilege-description.col-md-9.col-sm-9.col-xs-9(style='padding-left: 23px')
+						.row.form-group
+							label.col-md-3.col-sm-3.col-xs-3.control-label(for='') Valid From
+							.col-md-9.col-sm-9.col-xs-9
+								input#validFrom.form-control(type='text', placeholder='valid from', data-plugin-datepicker='', name='validFrom', value='')
+						.row.form-group
+							label.col-md-3.col-sm-3.col-xs-3.control-label(for='') Valid To
+							.col-md-9.col-sm-9.col-xs-9
+								input#validTo.form-control(type='text', placeholder='expire date', data-plugin-datepicker='', name='validTo', value='')
+						#wrapper-chk-customer-confirm(style='padding-left: 15px')
+							input#chk-customer-confirm(type='checkbox', name='chk-customer-confirm')
+							label(for='chk-customer-confirm') I agree with these terms and conditions of use.
+						#msg-grant-privilege
+						// end tab1
+					.modal-footer
+						button#grant_role_privilege.btn.btn-sm.btn-primary(type='submit') Save
+						button.btn.btn-sm.btn-default(type='button', data-dismiss='modal') Close
+			// /.modal-content
+		// /.modal-dialog
+	#action-role-delete.modal.fade.bs-example-modal-lg(role='dialog', aria-labelledby='grantRole', aria-hidden='true')
+		.modal-dialog(role='document', style='width: 400px;')
+			input#privilegeName(type='hidden', name='privilegeName', value='')
+			.modal-content
+				.modal-header
+					button.close(type='button', data-dismiss='modal', aria-label='Close')
+						span(aria-hidden='true') ×
+					h4.modal-title Warning
+				.modal-body
+					// tab1
+					.row.form-group
+						label.control-label(for='') Are you sure to delete?
+					#wrapper-chk-customer-confirm
+						input#chk-grant-privilege-confirm(type='checkbox', name='chk-grant-privilege-confirm')
+						label(for='chk-grant-privilege-confirm') I agree with these terms and conditions of use.
+					#msg-delete-privilege
+					// end tab1
+				.modal-footer
+					button#btn-remove-role-privilege.btn.btn-sm.btn-primary(type='button', onclick='deleteRolePrivilege()') Delete
+					button.btn.btn-sm.btn-default(type='button', data-dismiss='modal') Cancel
+			// /.modal-content
+		// /.modal-dialog
+block foot-scripts
+	//- Custom Script goes here
+	script.
+		$(document).ready(function() {
+			$('#make-sure-action').on('change', function(){
+				if (this.checked) {
+					$("#approve-stage-popup .modal-footer button[disabled]").removeAttr('disabled');
+				} else {
+					$("#approve-stage-popup .modal-footer button").attr('disabled', 'disabled');
+				}
+			});
+		});

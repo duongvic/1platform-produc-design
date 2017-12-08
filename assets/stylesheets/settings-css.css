@@ -1,0 +1,389 @@
+/*body{*/
+    /*background-color: #e4e7f2 !important;*/
+/*}*/
+
+body.login{
+    background-image: url('../images/login-bg.jpg');
+    background-size: cover;
+}
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 30px white inset;
+}
+.form-login{
+    min-width: 320px;
+    max-width: 800px;
+    border-radius: 4px;
+    overflow: hidden;
+    background: #fafafa;
+    border: 1px solid #ddd;
+}
+.login-modal-title{
+    padding: 20px 10px 10px;
+    font-weight: bold;
+    position: relative;
+}
+.login-modal-title .bordered{
+    border: 2px solid #fff;
+    width: 50px;
+    height: 50px;
+    border-radius: 60px;
+    display: inline-block;
+    line-height: 50px;
+    font-size: 30px;
+    margin-top: 5px;
+}
+.login-modal-title h4 {
+    font-size: 20px;
+    color: #fff;
+    margin: 10px 0px 0px;
+}
+.login-modal-body {
+    padding: 15px 25px;
+}
+.login-modal-body .form-group{
+    margin-bottom: 20px;
+}
+.login-modal-body .input-group .form-control{
+    border-left: 0px;
+    outline: none;
+    box-shadow: 0 0 0 30px white inset;
+}
+.login-modal-body .input-group .input-group-addon{
+    border-color: #eaebec;
+    background-color: #fff;
+    color: #F58220;
+    font-size: 20px;
+}
+.login-modal-body .input-group .form-control{
+    height: 40px;
+    font-size: 14px;
+}
+.login-modal-body .checkbox label{
+    padding-left: 25px;
+}
+.login-modal-body .checkbox label input{
+    margin-top: 0;
+    margin-left: -25px;
+    width: 20px;
+    height: 20px;
+}
+setlect.form-control{
+    margin-bottom: 0px !important;
+}
+/* The switch - the box around the slider */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 20px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {display:none;}
+
+/* The slider */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 0px;
+    bottom: 0px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border: 1px solid #aaa;
+}
+input:disabled + .slider:before{
+    background-color: #eee;
+}
+
+input:disabled + .slider{
+    background-color: rgba(204, 204, 204, 0.71);
+}
+
+input:checked + .slider {
+    background-color: #4CAF50;
+}
+
+input:checked:disabled + .slider {
+    background-color: rgba(90, 176, 94, 0.71);
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #4CAF50;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(20px);
+    -ms-transform: translateX(20px);
+    transform: translateX(20px);
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+.guide_alert_over{
+    cursor: pointer;
+}
+.search_form{
+    margin-top: 15px;
+}
+
+.panel-tools a{
+    padding: 5px 10px;
+    display: inline-block;
+}
+
+header.navbar .navbar-right .dropdown .dropdown-menu{
+    left: initial !important;
+    right: 5px;
+}
+header.navbar .navbar-right .dropdown .dropdown-menu:before{
+    left: initial !important;
+    right: 15px;
+}
+/*Role view*/
+#table-role{
+    /*width: 600px !important;*/
+}
+/*Role view end*/
+/*** LOGIN **/
+div.tmn-panel {
+    background: #FBFBFB;
+    border: 0px solid #CCCCCC;
+    border-radius: 4px;
+    -webkit-box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+body.login div.tmn-panel div.tmn-panel-body {
+    background-color: transparent;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    padding-left: 0;
+    padding-right: 0;
+}
+body.login * {
+    border-color: #CCCCCC;
+}
+body.login .content {
+    display: inline-block;
+}
+body.login .centered {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+body.login .login-wrapper > form {
+    max-width: 350px;
+    margin: auto;
+    margin-top: 15px;
+}
+body.login .form-group {
+    margin-bottom: 10px;
+}
+body.login .single-col-xs > * {
+    margin-left: auto;
+    margin-right: auto;
+    display: inline-block;
+    width: 100%;
+}
+body.login .login-wrapper > form input,
+body.login .login-wrapper > form .input-group {
+    height: 40px;
+    border-radius: 2px;
+    font-size: 16px;
+    color: #6F6F6F;
+}
+body.login .sub-text,
+body.login div.tmn-panel div.tmn-panel-heading .tmn-breadcrumb span > a,
+body.login #footer a, html.login-css-style #footer .lang-label {
+    color: #A4A4A4;
+    font-size: 14px;
+}
+
+body.login .login-wrapper > form .input-group-addon {
+    border-bottom-left-radius: 2px;
+    border-top-left-radius: 2px;
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+}
+
+body.login .btn-primary {
+    color: #fff;
+    background-color: #F78604;
+    border-color: #F78604;
+    border-radius: 2px;
+    color: white;
+    background-color: #f78604;
+    border-color: #DD7803;
+}
+
+body.login .btn-lg,
+body.login .btn-group-lg > .btn,
+body.login .bill .btn-group-lg > .bill-toggle {
+    border-radius: 3px;
+    font-size: 18px;
+    line-height: 1;
+    font-weight: lighter;
+}
+
+body.login .login-wrapper > form input,
+body.login .login-wrapper > form .input-group {
+    height: 40px;
+    border-radius: 2px;
+    font-size: 16px;
+    color: #6F6F6F;
+}
+
+body.login .btn.btn-submit,
+body.login .bill .btn-submit.bill-toggle {
+    color: white;
+}
+
+body.login .login-wrapper > form .btn,
+body.login .login-wrapper > form .bill .bill-toggle,
+body.login .bill .login-wrapper > form .bill-toggle {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+body.login .btn.btn-submit{
+    font-weight: bold;
+}
+body.login .bill.intro-wallet {
+    padding: 0;
+}
+body.login .bill {
+    display: inline-block;
+    border-radius: 0;
+    text-align: left;
+    width: 270px;
+    min-height: 300px;
+    border: 0px;
+    margin-bottom: 0;
+    padding: 20px;
+    -webkit-box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.2);
+}
+body.login .intro-wallet {
+    text-align: center;
+    color: #6F6F6F;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+body.login #iframe-login, #iframe-logout {
+    font-size: 16px;
+    line-height: initial;
+}
+body.login #iframe-login {
+    background: #ffffff;
+    margin: 0px;
+    padding: 0px;
+}
+.panel-body:before,
+body.login div.tmn-panel div.tmn-panel-body:before, .panel-body:after,
+body.login div.tmn-panel div.tmn-panel-body:after {
+    content: " ";
+    display: table;
+}
+.tmn-panel-body>.row{
+    margin: 0px;
+}
+#iframe-login .iframe-container > img {
+    margin-top: 25px;
+    margin-bottom: 15px;
+    width: 160px;
+    height: 160px;
+}
+@media (max-width: 767px) {
+    body.login .bill-wrapper {
+        padding-top: 50px;
+        display: block;
+    }
+    body.login .bill{
+        min-height:initial;
+    }
+    body.login .bill.intro-wallet {
+        width: 100%;
+    }
+}
+@media (max-width: 600px) {
+    body.login .full-height {
+        background-color: #FBFBFB;
+    }
+    body.login .flex-center {
+        align-items: baseline;
+        display: block;
+    }
+    body.login div.tmn-panel{
+        border: none;
+        border-radius: 0;
+        box-shadow: none;
+    }
+    body.login div.tmn-panel div.tmn-panel-body {
+        padding-bottom: 10px;
+    }
+}
+@media (max-width: 400px) {
+    body.login .bill-wrapper{
+        display: none;
+    }
+}
+/* account list */
+.warp-msg{
+    background: gray;
+    padding: 5px;
+}
+.warp-msg .modal-msg{
+    font-weight: bold;
+    font-size: 16px;
+    display: inline-block;
+    color: white !important;
+}
+.border-input {
+    border: 1px solid #eaebec;
+}
+/* sm */
+@media (min-width: 768px)
+{
+    .col-sm-text-right {
+        text-align: right;
+    }
+}
+/* md */
+@media (min-width: 992px)
+{
+    .col-md-text-right {
+        text-align: right;
+    }
+}
+/* lg */
+@media (min-width: 1200px)
+{
+    .col-lg-text-right {
+        text-align: right;
+    }
+}
+/* end account list */

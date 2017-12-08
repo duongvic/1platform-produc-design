@@ -1,0 +1,131 @@
+extends _pug-template/layout.pug
+block head-style
+	style
+block sidebar
+	+sidebar('Account Management', 'Account acquire')
+block body
+	section.content-body(role='main')
+		header.page-header.container-fluid
+			.page-header-left
+				ol.breadcrumbs
+					li
+						a(href='#')
+							i.fa.fa-home
+					li
+						a(href="#") Roles
+					li
+						a(href="#") Add
+				.pull-right
+					a(href="#").btn.btn-primary.btn-xs 
+						i.fa.fa-plus
+						| &nbsp; Add
+		.content-body-wrap
+			.tab-content
+				#tab-list-customer.tab-pane.active
+					form.panel.panel-default(method='POST', action='https://admin.bizdev.truemoney.com.vn/setting/role/add')
+						.panel-title
+							h4 Role Details
+							.panel-tools
+								button.btn.btn-sm.btn-primary(type='submit', value='Save', name='search')
+									i.fa.fa-save
+									|  Save
+						.panel-body.form-horizontal
+							.row
+								.col-lg-6
+									.form-group
+										label.col-md-4.control-label(for='role-name') Role Name *
+										.col-md-8
+											input.form-control(type='text', pattern='[a-zA-Z0-9_]{1,50}', required='', name='role-name', placeholder='Role Name')
+								.col-lg-6
+									.form-group
+										label.col-md-4.control-label(for='remark') Description
+										.col-md-8
+											textarea.form-control(rows='2', name='remark')
+						.panel-title
+							h4 Privilege
+							.panel-tools
+								input.btn.btn-sm.btn-primary(type='button', data-target='#action-grant-privilege', data-toggle='modal', value='Grant Privilege', disabled='', name='grant-privilege')
+						.panel-body
+							.table-responsive
+								table.table.table-bordered
+									thead(style='line-height: 22px; cursor: pointer;')
+										tr
+											th(width='50') #
+											th Privilege Name
+											th Valid from
+											th Valid to
+											th Description
+											th Action
+
+
+block modals
+	//- Modal goes here
+	#action-grant-privilege.modal.fade.bs-example-modal-lg(role='dialog', aria-labelledby='grantRole', aria-hidden='true')
+		.modal-dialog(role='document')
+			.modal-content
+				.modal-header
+					button.close(type='button', data-dismiss='modal', aria-label='Close')
+						span(aria-hidden='true') ×
+					h4.modal-title Role Details - Grant Privilege
+				.modal-body
+					// tab1
+					.row.form-group
+						div
+							label.col-md-3.col-sm-3.col-xs-3.control-label(for='') Privilege Name *
+							.col-md-9.col-sm-9.col-xs-9
+								select#privilege-select.form-control.js-select2-single(name='customer-type')
+									option(value='') please select
+									option(data-msg='User can view customer screen', value='0') View Customer Screen
+									option(data-msg='User can edit customer screen', value='1') Edit Customer Screen
+						.row.form-group(style='margin-bottom: 0px;')
+							label.col-md-3.col-sm-3.col-xs-3.control-label(for='')
+							#privilege-description.col-md-9.col-sm-9.col-xs-9(style='padding-left: 23px')
+					.row.form-group
+						label.col-md-3.col-sm-3.col-xs-3.control-label(for='') Valid From
+						.col-md-9.col-sm-9.col-xs-9
+							input#validDate.form-control(type='text', placeholder='valid from', data-plugin-datepicker='', name='validFrom', value='')
+					.row.form-group
+						label.col-md-3.col-sm-3.col-xs-3.control-label(for='') Valid To
+						.col-md-9.col-sm-9.col-xs-9
+							input.form-control(type='text', placeholder='expire date', data-plugin-datepicker='', name='validTo', id='valid from', value='')
+					#wrapper-chk-customer-confirm(style='padding-left: 15px')
+						input#chk-customer-confirm(type='checkbox', name='chk-customer-confirm')
+						label(for='chk-customer-confirm') I agree with these terms and conditions of use.
+					// end tab1
+				.modal-footer
+					button.btn.btn-sm.btn-primary(type='button') Save
+					button.btn.btn-sm.btn-default(type='button', data-dismiss='modal') Close
+			// /.modal-content
+		// /.modal-dialog
+	#action-role-delete.modal.fade.bs-example-modal-lg(role='dialog', aria-labelledby='grantRole', aria-hidden='true')
+		.modal-dialog(role='document', style='width: 400px;')
+			.modal-content
+				.modal-header
+					button.close(type='button', data-dismiss='modal', aria-label='Close')
+						span(aria-hidden='true') ×
+					h4.modal-title Warning
+				.modal-body
+					// tab1
+					.row.form-group
+						label.control-label(for='') Are you sure to delete?
+					#wrapper-chk-customer-confirm
+						input#chk-customer-confirm(type='checkbox', name='chk-customer-confirm')
+						label(for='chk-customer-confirm') I agree with these terms and conditions of use.
+					// end tab1
+				.modal-footer
+					button.btn.btn-sm.btn-primary(type='button') Delete
+					button.btn.btn-sm.btn-default(type='button', data-dismiss='modal') Cancel
+			// /.modal-content
+		// /.modal-dialog
+block foot-scripts
+	//- Custom Script goes here
+	script.
+		$(document).ready(function() {
+			$('#make-sure-action').on('change', function(){
+				if (this.checked) {
+					$("#approve-stage-popup .modal-footer button[disabled]").removeAttr('disabled');
+				} else {
+					$("#approve-stage-popup .modal-footer button").attr('disabled', 'disabled');
+				}
+			});
+		});

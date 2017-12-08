@@ -1,0 +1,11 @@
+extends _pug-template/layout-blank.pug
+block head-style
+	style
+		| body, html {height: 100%}
+		| 
+		|
+block body
+	.container-fluid.text-center(style='position: relative; top: 50%; transform: translateY(-50%)')
+		h1.mb-xl Permission Denied !
+		a.btn.btn-primary(href="#") Go to Dashboard
+		

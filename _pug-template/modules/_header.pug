@@ -1,0 +1,82 @@
+mixin header(activeTab)
+	header.header.navbar.navbar-secondary
+		.container-fluid.navbar-container
+			nav.navbar.navbar-default.navbar-default-normal(role='navigation')
+				.navbar-header
+					a.navbar-brand.navbar-brand-secondary(href='/') Truemoney
+				.collapse.navbar-collapse.navbar-ex1-collapse
+					ul#navbar-main-1.nav.navbar-nav
+						li.navbar-nav-title
+							a(href='#')
+					ul.navbar-nav.nav
+						//- li
+						//- 	a(href='#', onclick='tmv_nav_filter("all", event)') All
+						li.active
+							a(href='#', onclick='tmv_nav_filter("Customer", event)') Customer
+						li
+							a(href='#', onclick='tmv_nav_filter("Provider", event)') Provider
+						li
+							a(href='#', onclick='tmv_nav_filter("Wallet", event)') Wallet
+						li
+							a(href='#', onclick='tmv_nav_filter("Service", event)') Service
+						li
+							a(href='#', onclick='tmv_nav_filter("Operation", event)') Operation
+						li
+							a(href='#', onclick='tmv_nav_filter("Setting", event)') Setting
+					ul#navbar-main-2.nav.navbar-nav.navbar-right
+
+						li.dropdown
+							a.dropdown-toggle(href='#', data-toggle='dropdown')
+								img(style='width:20px', src='assets/images/navbar/avatar/user_login.png', alt='',data-toggle="tooltip",data-placement="left",title="username@truemoney.com.vn")
+							ul.dropdown-menu.animated(data-animation='fadeInDown-1')
+								li
+									a(href='#', data-target='#changePasswordModal', data-toggle='modal') Change Password
+								li.divider(role='separator')
+								li
+									a(href='/logout') Sign Out
+									
+						li.dropdown
+							a.dropdown-toggle(href='#', data-toggle='dropdown', aria-expanded='true')
+								img(width='23', height='23', alt='', src='https://admin.bizdev.truemoney.com.vn/customer/assets/images/navbar/flags/en.png')
+								b.caret
+							ul.dropdown-menu.animated(data-animation='fadeInDown-1')
+								li
+									a(href='https://admin.bizdev.truemoney.com.vn/customer/agent-acquire/list?lang=en')
+										img(width='23', height='23', alt='', src='https://admin.bizdev.truemoney.com.vn/customer/assets/images/navbar/flags/en.png')
+										|  English
+								li
+									a(href='https://admin.bizdev.truemoney.com.vn/customer/agent-acquire/list?lang=vn')
+										img(width='23', height='23', alt='', src='https://admin.bizdev.truemoney.com.vn/customer/assets/images/navbar/flags/vn.png')
+										|  VietNam
+			nav.navbar.navbar-default.navbar-default-responsive(role='navigation')
+				.visible-xs.toggle-sidebar-left(data-toggle-class='sidebar-left-opened', data-target='html', data-fire-event='sidebar-left-opened')
+				.navbar-header
+					button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-ex1-collapse-1')
+					a.modal-with-move-anim.guide_alert.guide_alert_bt_responsive.guide_alert_over(href='#modalAnim')
+						span.pl_remaining_setup_steps_coun 0
+						i.icon-bell
+					a.navbar-brand.navbar-brand-secondary(href='#') 
+				.collapse.navbar-collapse.navbar-ex1-collapse-1
+					ul.nav.navbar-nav.navbar-nav-language.navbar-nav-logout
+						li.dropdown.dropdown-res.navbar-account
+							a.btn-signup.ga-signup.button.secondary.dropdown-toggle(href='#', data-toggle='dropdown')
+								img.account_img(src='assets/images/navbar/avatar/user_login.png', alt='')
+								b.caret
+							ul.dropdown-menu
+								li
+									a(href='#') Change password
+								li
+									a(href='/logout') Sign out
+					ul.nav.navbar-nav.navbar-nav-primary
+						li
+							a(href='#') Customer
+						li
+							a(href='#') Provider
+						li
+							a(href='#') Wallet
+						li
+							a(href='#') Service
+						li
+							a(href='#') Operation
+						li
+							a(href="#") Setting

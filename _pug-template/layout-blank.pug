@@ -1,0 +1,53 @@
+//- Pug Include
+include modules.pug
+//- End: Pug Include
+doctype html
+html.fixed
+	head
+		meta(charset='UTF-8')
+		title Role Manager
+		meta(name='keywords', content='Truemoney Acquire Agent VN')
+		meta(name='description', content='Truemoney Acquire Agent VN')
+		meta(name='author', content='TruemoneyVN')
+		//- Mobile Metas
+		meta(name='viewport', content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no')
+		//- Web Fonts
+		link(href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700', rel='stylesheet')
+		//- Vendor CSS
+		link(rel='stylesheet', href='assets/vendor/bootstrap/css/bootstrap.css')
+		link(href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css', 
+			rel='stylesheet', 
+			integrity='sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN', 
+			crossorigin='anonymous')
+		link(rel='stylesheet', href='assets/vendor/font-simpleline/css/simple-line-icons.css')
+		link(rel='stylesheet', href='assets/vendor/magnific-popup/magnific-popup.css')
+		link(rel='stylesheet', href='assets/vendor/bootstrap-datepicker/css/datepicker3.css')
+		link(rel='stylesheet', href='assets/vendor/owl-carousel/owl.carousel.css')
+		link(rel='stylesheet', href='assets/vendor/owl-carousel/owl.theme.css')
+		//- Specific Page Vendor CSS
+		link(rel='stylesheet', href='assets/vendor/jquery-ui/css/ui-lightness/jquery-ui-1.10.4.custom.css')
+		link(rel='stylesheet', href='assets/vendor/bootstrap-multiselect/bootstrap-multiselect.css')
+		link(rel='stylesheet', href='assets/vendor/morris/morris.css')
+		link(rel='stylesheet', href='assets/vendor/panel_tool/panel_tool.css')
+		link(rel='stylesheet', href='assets/vendor/select2/dist/css/select2.css')
+		//- table
+		link(rel='stylesheet', href='assets/vendor/jquery-datatables-bs3/assets/css/datatables.css')
+		//- Theme CSS
+		link(rel='stylesheet', href='assets/stylesheets/theme.css')
+		link(rel='stylesheet', href='assets/stylesheets/skins/1pay_skin/navbar.css')
+		link(rel='stylesheet', href='assets/stylesheets/skins/1pay_skin/bootstrap-select.min.css', type='text/css')
+		//- Skin CSS
+		link(rel='stylesheet', href='assets/stylesheets/skins/1pay_skin/truemoney.css')
+		//- Theme Custom CSS
+		link(rel='stylesheet', href='assets/stylesheets/theme-custom.css')
+		link(rel='stylesheet', href='assets/vendor/daterangepicker/daterangepicker.css', type='text/css', media='all')
+		link(rel='stylesheet', href='assets/stylesheets/fileicons.css')
+		link(rel='stylesheet', href='assets/stylesheets/new-custom.css')
+		link(rel='stylesheet', href='assets/stylesheets/settings-css.css')
+		//- Head Libs
+		script(src='assets/vendor/modernizr/modernizr.js')
+
+		style
+		block head-style
+	body
+		block body

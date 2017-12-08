@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html class="fixed">
+  <head>
+    <meta charset="UTF-8">
+    <title>Role Manager</title>
+    <meta name="keywords" content="Truemoney Acquire Agent VN">
+    <meta name="description" content="Truemoney Acquire Agent VN">
+    <meta name="author" content="TruemoneyVN">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/vendor/font-simpleline/css/simple-line-icons.css">
+    <link rel="stylesheet" href="assets/vendor/magnific-popup/magnific-popup.css">
+    <link rel="stylesheet" href="assets/vendor/bootstrap-datepicker/css/datepicker3.css">
+    <link rel="stylesheet" href="assets/vendor/owl-carousel/owl.carousel.css">
+    <link rel="stylesheet" href="assets/vendor/owl-carousel/owl.theme.css">
+    <link rel="stylesheet" href="assets/vendor/jquery-ui/css/ui-lightness/jquery-ui-1.10.4.custom.css">
+    <link rel="stylesheet" href="assets/vendor/bootstrap-multiselect/bootstrap-multiselect.css">
+    <link rel="stylesheet" href="assets/vendor/morris/morris.css">
+    <link rel="stylesheet" href="assets/vendor/panel_tool/panel_tool.css">
+    <link rel="stylesheet" href="assets/vendor/select2/dist/css/select2.css">
+    <link rel="stylesheet" href="assets/vendor/jquery-datatables-bs3/assets/css/datatables.css">
+    <link rel="stylesheet" href="assets/stylesheets/theme.css">
+    <link rel="stylesheet" href="assets/stylesheets/skins/1pay_skin/navbar.css">
+    <link rel="stylesheet" href="assets/stylesheets/skins/1pay_skin/bootstrap-select.min.css" type="text/css">
+    <link rel="stylesheet" href="assets/stylesheets/skins/1pay_skin/truemoney.css">
+    <link rel="stylesheet" href="assets/stylesheets/theme-custom.css">
+    <link rel="stylesheet" href="assets/vendor/daterangepicker/daterangepicker.css" type="text/css" media="all">
+    <link rel="stylesheet" href="assets/stylesheets/fileicons.css">
+    <link rel="stylesheet" href="assets/stylesheets/new-custom.css">
+    <link rel="stylesheet" href="assets/stylesheets/settings-css.css">
+    <script src="assets/vendor/modernizr/modernizr.js"></script>
+    <script>
+      var tmv_nav_filter = function(group, event) {
+      	var nav_items = document.querySelectorAll("[data-nav-group]");
+      	[].forEach.call( nav_items, function(item){
+      		if ((item.getAttribute('data-nav-group') !== group) && (group !== 'all')) {
+      			item.style.display = "none";
+      		} else {
+      			item.style.display = null;
+      		}
+      	});
+      
+      	if (event) {
+      		event.target.parentElement.parentElement.getElementsByClassName('active')[0].classList.remove('active');
+      		event.target.parentElement.classList.add('active');
+      		// return false;
+      	}
+      };
+    </script>
+    <style>
+      	.nano-content {
+      		overflow-y: auto !important;
+      		right: !important;
+      	}
+      	#menu .nav-children a {
+      		padding-left: 40px;
+      		color: #aaa !important;
+      	}
+      	#menu .nav-children li.nav-active a {
+      		color: #F58220 !important;
+      	}
+      	#menu ul.nav-children > li > a {
+      		text-overflow: clip !important;
+      		white-space: normal !important;
+      	}
+      	#menu li.nav-parent > a {
+      		text-overflow: ellipsis;
+      		overflow: hidden;
+      	}
+      	.sidebar-left-collapsed #menu li a {
+      		text-overflow: clip;
+      	}
+      .content-body-wrap {
+      		padding: 0;
+      		margin: 0 15px 15px 15px;
+      	background: #fff;
+      }
+      .control-label {white-space: nowrap}
+    </style>
+    <style></style>
+  </head>
+  <body>
+    <section class="body">
+      <header class="header navbar navbar-secondary">
+        <div class="container-fluid navbar-container">
+          <nav class="navbar navbar-default navbar-default-normal" role="navigation">
+            <div class="navbar-header"><a class="navbar-brand navbar-brand-secondary" href="/">Truemoney</a></div>
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+              <ul class="nav navbar-nav" id="navbar-main-1">
+                <li class="navbar-nav-title"><a href="#"></a></li>
+              </ul>
+              <ul class="navbar-nav nav">
+                <li class="active"><a href="#" onclick="tmv_nav_filter(&quot;Customer&quot;, event)">Customer</a></li>
+                <li><a href="#" onclick="tmv_nav_filter(&quot;Provider&quot;, event)">Provider</a></li>
+                <li><a href="#" onclick="tmv_nav_filter(&quot;Wallet&quot;, event)">Wallet</a></li>
+                <li><a href="#" onclick="tmv_nav_filter(&quot;Service&quot;, event)">Service</a></li>
+                <li><a href="#" onclick="tmv_nav_filter(&quot;Operation&quot;, event)">Operation</a></li>
+                <li><a href="#" onclick="tmv_nav_filter(&quot;Setting&quot;, event)">Setting</a></li>
+              </ul>
+              <ul class="nav navbar-nav navbar-right" id="navbar-main-2">
+                <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown"><img style="width:20px;" src="assets/images/navbar/avatar/user_login.png" alt="" data-toggle="tooltip" data-placement="left" title="username@truemoney.com.vn"/></a>
+                  <ul class="dropdown-menu animated" data-animation="fadeInDown-1">
+                    <li><a href="#" data-target="#changePasswordModal" data-toggle="modal">Change Password</a></li>
+                    <li class="divider" role="separator"></li>
+                    <li><a href="/logout">Sign Out</a></li>
+                  </ul>
+                </li>
+                <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown" aria-expanded="true"><img width="23" height="23" alt="" src="https://admin.bizdev.truemoney.com.vn/customer/assets/images/navbar/flags/en.png"/><b class="caret"></b></a>
+                  <ul class="dropdown-menu animated" data-animation="fadeInDown-1">
+                    <li><a href="https://admin.bizdev.truemoney.com.vn/customer/agent-acquire/list?lang=en"><img width="23" height="23" alt="" src="https://admin.bizdev.truemoney.com.vn/customer/assets/images/navbar/flags/en.png"/> English</a></li>
+                    <li><a href="https://admin.bizdev.truemoney.com.vn/customer/agent-acquire/list?lang=vn"><img width="23" height="23" alt="" src="https://admin.bizdev.truemoney.com.vn/customer/assets/images/navbar/flags/vn.png"/> VietNam</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </nav>
+          <nav class="navbar navbar-default navbar-default-responsive" role="navigation">
+            <div class="visible-xs toggle-sidebar-left" data-toggle-class="sidebar-left-opened" data-target="html" data-fire-event="sidebar-left-opened"></div>
+            <div class="navbar-header">
+              <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-ex1-collapse-1"></button><a class="modal-with-move-anim guide_alert guide_alert_bt_responsive guide_alert_over" href="#modalAnim"><span class="pl_remaining_setup_steps_coun">0</span><i class="icon-bell"></i></a><a class="navbar-brand navbar-brand-secondary" href="#"> </a>
+            </div>
+            <div class="collapse navbar-collapse navbar-ex1-collapse-1">
+              <ul class="nav navbar-nav navbar-nav-language navbar-nav-logout">
+                <li class="dropdown dropdown-res navbar-account"><a class="btn-signup ga-signup button secondary dropdown-toggle" href="#" data-toggle="dropdown"><img class="account_img" src="assets/images/navbar/avatar/user_login.png" alt=""/><b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">Change password</a></li>
+                    <li><a href="/logout">Sign out</a></li>
+                  </ul>
+                </li>
+              </ul>
+              <ul class="nav navbar-nav navbar-nav-primary">
+                <li><a href="#">Customer</a></li>
+                <li><a href="#">Provider</a></li>
+                <li><a href="#">Wallet</a></li>
+                <li><a href="#">Service</a></li>
+                <li><a href="#">Operation</a></li>
+                <li><a href="#">Setting</a></li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+      </header>
+      <div class="inner-wrapper">
+        <aside class="sidebar-left" id="sidebar-left">
+          <div class="sidebar-header">
+            <div class="sidebar-title">Menu</div>
+            <div class="sidebar-toggle hidden-xs" data-target="html" data-fire-event="sidebar-left-toggle" data-toggle-class="sidebar-left-collapsed"><i class="fa fa-bars" aria-label="Toggle sidebar"></i></div>
+          </div>
+          <div class="nano">
+            <div class="nano-content" style="overflow-y: auto;">
+              <nav class="nav-main" id="menu" role="navigation">
+                <ul class="nav nav-main">
+                  <li class="nav-parent" data-nav-group="Service" ,="," url:="url:" #="#"><a><i class="fa fa-history"></i><span>Transaction</span></a>
+                    <ul class="nav nav-children">
+                      <li><a href="">Transaction history</a></li>
+                      <li><a href="">Cancel Transaction</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-parent" data-nav-group="Wallet" ,="," url:="url:" #="#"><a><i class="fa fa-usd"></i><span>Fund in</span></a>
+                    <ul class="nav nav-children">
+                      <li><a href="#">Fund-in transaction</a></li>
+                      <li><a href="#">Request Fund-in</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-parent" data-nav-group="Wallet" ,="," url:="url:" #="#"><a><i class="fa fa-money"></i><span>Fund out</span></a>
+                    <ul class="nav nav-children">
+                      <li><a href="">Fund-out transaction</a></li>
+                      <li><a href="">Request Fund-out</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-parent" data-nav-group="Wallet" ,="," url:="url:" #="#"><a><i class="fa fa-mail-forward"></i><span>Money Transfer</span></a>
+                    <ul class="nav nav-children">
+                      <li><a href="#">Money transfer method</a></li>
+                      <li><a href="#">Request transfer</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-parent" data-nav-group="Customer" ,="," url:="url:" #="#"><a><i class="fa fa-archive"></i><span>Card Store</span></a>
+                    <ul class="nav nav-children">
+                      <li><a href="#">Store Monitoring</a></li>
+                      <li><a href="#">Card Item</a></li>
+                      <li><a href="#">Purchase Order</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-parent" data-nav-group="Customer" ,="," url:="url:" #="#"><a><i class="fa fa-circle-o"></i><span>Sales</span></a>
+                    <ul class="nav nav-children">
+                      <li><a href="sales-list.html">Sales List</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-parent" data-nav-group="Provider" ,="," url:="url:" #="#"><a><i class="fa fa-user"></i><span>Providers</span></a>
+                    <ul class="nav nav-children">
+                      <li><a href="#">Provider list</a></li>
+                      <li><a href="#">Provider profile</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-parent" data-nav-group="Customer" ,="," url:="url:" #="#"><a><i class="fa fa-male"></i><span>Agents</span></a>
+                    <ul class="nav nav-children">
+                      <li><a href="agents-list.html">Agent profile list</a></li>
+                      <li><a href="agents-list.html">Agent acquire</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-parent" data-nav-group="Operator" ,="," url:="url:" #="#"><a><i class="fa fa-circle-o"></i><span>Inventory</span></a>
+                    <ul class="nav nav-children">
+                      <li><a href="items-list.html">Item List</a></li>
+                      <li><a href="boxes-list.html">Box List</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-parent" data-nav-group="Setting" ,="," url:="url:" #="#"><a><i class="fa fa-user"></i><span>Accounts</span></a>
+                    <ul class="nav nav-children">
+                      <li><a href="#">Accounts List</a></li>
+                      <li><a href="#">Account profile</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-parent" data-nav-group="Setting" ,="," url:="url:" #="#"><a><i class="fa fa-gear"></i><span>Privileges</span></a>
+                    <ul class="nav nav-children">
+                      <li><a href="#">Privileges List</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-parent" data-nav-group="Setting" ,="," url:="url:" #="#"><a><i class="fa fa-gear"></i><span>Roles</span></a>
+                    <ul class="nav nav-children">
+                      <li><a href="#">Roles List</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </aside>
+        <section class="content-body" role="main">
+          <header class="page-header container-fluid">
+            <div class="page-header-left">
+              <ol class="breadcrumbs">
+                <li><a href="#"><i class="fa fa-home"></i></a></li>
+                <li><a href="#">Privileges</a></li>
+                <li><a href="#">Details</a></li>
+              </ol>
+              <div class="pull-right"><a class="btn btn-primary btn-xs" href="#"> <i class="fa fa-plus"></i>&nbsp; Add</a></div>
+            </div>
+          </header>
+          <div class="content-body-wrap">
+            <div class="row content-body-wrap">
+              <div class="col-md-12">
+                <div class="tab-content">
+                  <section class="panel panel-default">
+                    <form method="POST">
+                      <div class="panel-title">
+                        <h4>Update Privilege</h4>
+                        <div class="panel-tools">
+                          <button class="btn btn-sm btn-info" id="edit_btn" type="button" name="edit" value="create"><i class="fa fa-pencil"></i> Edit</button>
+                          <button class="btn btn-sm btn-primary" type="submit" name="update" value="update" disabled=""><i class="fa fa-save"></i> Save</button>
+                        </div>
+                      </div>
+                      <div class="panel-body form-horizontal">
+                        <div class="row">
+                          <div class="col-lg-6">
+                            <div class="form-group">
+                              <label class="col-md-4 form-control-static" for="privilege_name">Privilege Name *:</label>
+                              <div class="col-md-8">PRIVILEGE_TEST_3
+                                <input class="form-control" id="privilege_name" type="hidden" name="privilege_name" value="PRIVILEGE_TEST_3" placeholder="Privelage Name">
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-lg-6">
+                            <div class="form-group">
+                              <label class="col-md-4 form-control-static" for="description">Privilege Description:</label>
+                              <div class="col-md-8">
+                                <textarea class="form-control" id="description" name="description" rows="5" disabled="" placeholder="Description">PRIVILEGE_TEST_3</textarea>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </form>
+                  </section>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <footer class="main-footer">
+          <div class="container-fluid pt-sm">
+            <div class="row">
+              <div class="col-xs-12 col-md-6 col-md-offset-6">
+                <div class="footer-info"><span>© 2017 by 1PAY Co., Ltd A member of<a target="_blank" href="http://mog.vn">MOG Vietnam</a></span></div>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </section>
+    <script type="text/javascript" src="assets/vendor/jquery/jquery.js"></script>
+    <script type="text/javascript" src="assets/vendor/bootstrap/js/bootstrap.js"></script>
+    <script type="text/javascript" src="assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+    <script type="text/javascript" src="assets/vendor/bootstrap-multiselect/bootstrap-multiselect.js"></script>
+    <script type="text/javascript" src="assets/vendor/jquery-datatables/media/js/jquery.dataTables.js"></script>
+    <script type="text/javascript" src="assets/vendor/jquery-datatables/extras/TableTools/js/dataTables.tableTools.min.js"></script>
+    <script type="text/javascript" src="assets/vendor/jquery-datatables-bs3/assets/js/datatables.js"></script>
+    <script type="text/javascript" src="assets/vendor/daterangepicker/moment.js"></script>
+    <script type="text/javascript" src="assets/vendor/daterangepicker/daterangepicker.js"></script>
+    <script type="text/javascript" src="assets/vendor/jquery-browser-mobile/jquery.browser.mobile.js"></script>
+    <script type="text/javascript" src="assets/vendor/nanoscroller/nanoscroller.js"></script>
+    <script type="text/javascript" src="assets/vendor/magnific-popup/magnific-popup.js"></script>
+    <script type="text/javascript" src="assets/vendor/jquery-placeholder/jquery.placeholder.js"></script>
+    <script type="text/javascript" src="assets/javascripts/theme.js"></script>
+    <script type="text/javascript" src="assets/vendor/ios7-switch/ios7-switch.js"></script>
+    <script type="text/javascript" src="assets/vendor/select2/dist/js/select2.js"></script>
+    <script type="text/javascript" src="assets/vendor/pnotify/pnotify.custom.js"></script>
+    <script type="text/javascript" src="assets/vendor/owl-carousel/owl.carousel.js"></script>
+    <script type="text/javascript" src="assets/javascripts/ui-elements/examples.modals.js"></script>
+    <script type="text/javascript" src="assets/javascripts/theme.custom.js"></script>
+    <script type="text/javascript" src="assets/javascripts/theme.init.js"></script>
+    <script type="text/javascript" src="assets/vendor/navbar-animate/jquery.bootstrap-dropdown-on-hover.min.js"></script>
+    <script type="text/javascript" src="assets/vendor/panel_tool/plugins.js"></script>
+    <script type="text/javascript" src="assets/javascripts/bootstrap-select.min.js"></script>
+    <script type="text/javascript" src="assets/javascripts/forms/examples.advanced.form.js"></script>
+    <script type="text/javascript" src="assets/javascripts/bootstrap-notify.min.js"></script>
+    <script type="text/javascript" src="assets/javascripts/settings-custom.js"></script>
+    <script>
+      $(document).ready(function() {
+      	$('#make-sure-action').on('change', function(){
+      		if (this.checked) {
+      			$("#approve-stage-popup .modal-footer button[disabled]").removeAttr('disabled');
+      		} else {
+      			$("#approve-stage-popup .modal-footer button").attr('disabled', 'disabled');
+      		}
+      	});
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Help</title>
+    <link rel="stylesheet" href="">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            font-family: Arial;
+            color: #111;
+        }
+        body {
+        	background: #fafafa;
+        }
+        ol {
+            padding-left: 1.6em;
+        }
+        
+        .page {
+            max-width: 1080px;
+            min-width: 960px;
+            padding: 0 15px;
+            margin: auto;
+        }
+        
+        .page__header {
+            font-size: 20px;
+            font-weight: bold;
+            padding: 16px 0;
+        }
+        
+        .page__sidebar {
+            float: right;
+            width: 160px;
+            padding-left: 16px;
+        }
+        
+        .page__footer {
+            clear: both;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 16px 0;
+        }
+        
+        .page__content {
+            min-height: 900px;
+        }
+        
+        .help-table {
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+        
+        .help-table th {
+            font-size: 11px;
+            font-weight: bold;
+            white-space: nowrap;
+            text-align: left;
+            vertical-align: top;
+            border: 1px solid #aaa;
+            padding: 8px;
+        }
+        .help-table td {
+            vertical-align: top;
+            border: 1px solid #aaa;
+            padding: 8px;
+            background: #fff;
+        }
+	    .denote-list {
+	    	font-size: 13px;
+	    	list-style: none;
+	    	font-style: italic;
+	    } 
+	    .denote-list li span:first-child {
+	    	font-weight: bold;
+	    	display: block;
+	    }
+	    .denote-list li {
+	    	margin-top: 10px;
+	    }
+	    .sidebar h2 {
+	    	margin-bottom: 10px;
+	    }
+	    .steps-list {
+	    	margin-bottom: 16px;
+	    }
+	    .steps-list a {
+	    	color: #F58220;
+	    	text-transform: uppercase;
+	    	margin-top: 8px;
+	    	display: block;
+	    	line-height: 1.4;
+	    }
+    </style>
+</head>
+
+<body>
+    <div class="page">
+        <header class="page__header header">
+            Truemoney Agent Network Help Docs
+        </header>
+        <aside class="page__sidebar sidebar">
+            <h2>Steps</h2>
+            <ol start='0' class='steps-list'>
+                <li><a href="#">Initiate</a></li>
+                <li><a href="#">Call</a></li>
+                <li><a href="#">Assign</a></li>
+                <li><a href="#">Assess</a></li>
+                <li><a href="#">Generate</a></li>
+                <li><a href="#">Map Device</a></li>
+                <li><a href="#">Device Approve</a></li>
+                <li><a href="#">Device Finance</a></li>
+                <li><a href="#">DeviceSE</a></li>
+                <li><a href="#">Sign Contract</a></li>
+                <li><a href="#">Installing</a></li>
+                <li><a href="#">Deposit</a></li>
+                <li><a href="#">KYC</a></li>
+                <li><a href="#">Confirm</a></li>
+            </ol>
+            <h2>Denotation</h2>
+            <ul class="denote-list">
+				<li>
+					<span>Agent:</span>  
+					<span>Đại lý</span>
+				</li>
+				<li>
+				    <span>Customer Care:</span>
+				    <span>Nhân viên Chăm sóc khách hàng </span>
+				</li>
+				<li>
+				    <span>ASM (Area Sales Manager)
+				</span>
+				    <span>Quản lý kinh doanh khu vực
+				</span>
+				</li>
+				<li>
+				    <span>SS (Sales Supervisor)
+				</span>
+				    <span>Giám sát kinh doanh tỉnh
+				</span>
+				</li>
+				<li>
+				    <span>SE (Sales Executive)</span>
+				    <span>Nhân viên kinh doanh
+				</span>
+				</li>
+				<li>
+				    <span>SA (Sales Assisstant)
+				</span>
+				    <span>Trợ lý kinh doanh miền
+				</span>
+				</li>
+				<li>
+				    <span>TS (Tech Support)
+				</span>
+				    <span>Hỗ trợ kỹ thuật miền
+				</span>
+				</li>
+				<li>
+				    <span>RSM (Region Sales Manager)
+				</span>
+				    <span>Quản lý kinh doanh miền
+				</span>
+				</li>
+				<li>
+				    <span>Finance
+				</span>
+				    <span>Nhân viên kế toán quản lý thiết bị
+				</span>
+				</li>
+				<li>
+				    <span>Sales Support
+				</span>
+				    <span>Hỗ trợ kinh doanh
+				</span>
+				</li>
+				<li>
+				    <span>Finance Supervisor
+				</span>
+				    <span>Hỗ trợ tài chính (phê duyệt lệnh nạp tiền)
+				</span>
+				</li>
+				<li>
+				    <span>Legal
+				</span>
+				    <span>Nhân viên pháp chế
+				</span>
+				</li>
+
+				
+            </ul>
+        </aside>
+        <main class="page__content content">
+            <table class="help-table">
+                <thead>
+                    <tr>
+                        <th>STEP</th>
+                        <th>DESCRIPTION</th>
+                        <th>APPROVE/REJECT</th>
+                        <th>ACTOR</th>
+                        <th>STATUS INPUT</th>
+                        <th>STATUS OUTPUT</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td >0. INITIATE</td>
+                        <td >Đại lý (agent - anonymous) Đăng ký yêu cầu làm đại lý trên trang Landing page (hoặc nguồn tương tự)</td>
+                        <td > </td>
+                        <td >Agent</td>
+                        <td > </td>
+                        <td >2.Initiate</td>
+                    </tr>
+                    <tr>
+                        <td >1. CALL</td>
+                        <td >1.1. Đại lý tồn tại và mong muốn tham gia hệ thống.<br /> Nhân viên chăm sóc khách hàng (customer care) nhìn thấy yêu cầu làm đại lý, gọi điện cho khách hàng để thu thập thông tin: Họ và tên, Giới tính, Địa chỉ cửa hàng, Tỉnh thành
+                            *<br /> Lưu ý: Tối thiểu phải có thông tin tỉnh thành để Giám sát kinh doanh (Sales Supervisor) có thể phân công cho nhân viên kinh doanh (Sales Excutive)</td>
+                        <td >APPROVE<br /> Click đúp vào nút &gt; , trên màn hình popup Process, nhấn nút Approve để chuyển qua bước tiếp theo</td>
+                        <td >Customer care</td>
+                        <td >2.Initiate</td>
+                        <td >4.Call</td>
+                    </tr>
+                    <tr>
+                        <td ></td>
+                        <td >1.2. Nếu không tồn tại khách hàng, hoặc khách hàng không muốn làm đại lý,….</td>
+                        <td >REJECT<br /> Nhấn nút Reject để từ chối yêu cầu</td>
+                        <td >Customer care</td>
+                        <td >2.Initiate</td>
+                        <td >1.reject</td>
+                    </tr>
+                    <tr>
+                        <td > </td>
+                        <td >1.3. Nếu Sales Supervisor hoặc Area Sales Manager nhận thấy thông tin nhập sai hoặc không chấp nhận yêu cầu, thì reject và đẩy lại yêu cầu cho nhân viên CSKH (trạng thái về là 3.reject).<span> </span></td>
+                        <td >APPROVE<br /> REJECT<br /> Nhân viên CSKH có thể cập nhật lại thông tin và Approve để chuyển qua bước tiếp theo, hoặc Reject</td>
+                        <td >Customer care</td>
+                        <td >3.reject</td>
+                        <td >4.Call</td>
+                    </tr>
+                    <tr>
+                        <td > </td>
+                        <td > </td>
+                        <td > </td>
+                        <td > </td>
+                        <td >3.reject</td>
+                        <td >1.reject</td>
+                    </tr>
+                    <tr>
+                        <td >2.ASSIGN</td>
+                        <td >2.1.Phân công cho nhân viên kinh doanh.<br /> Click vào link tên đại lý để hiển thị form Agent Profile, chọn tab Busines để nhập nhân viên kinh doanh muốn phân công (Sales Exuctives), nhấn Save</td>
+                        <td >APPROVE<br /> Click đúp vào nút &gt; , trên màn hình popup Process, nhấn nút Approve để chuyển qua bước tiếp theo</td>
+                        <td >SS/ASM</td>
+                        <td >4.Call</td>
+                        <td >6.Assign</td>
+                    </tr>
+                    <tr>
+                        <td > </td>
+                        <td >2.2. Từ chối đại lý<br /> Vì lý do nào đó như nhập sai tỉnh thành hoặc từ chối không xử lý, SS/ASM có quyền đẩy lại đại lý về cho nhân viên CSKH xử lý lại</td>
+                        <td >REJECT<br /> Nhấn nút Reject để từ chối yêu cầu</td>
+                        <td >SS/ASM</td>
+                        <td >4.Call</td>
+                        <td >3.reject</td>
+                    </tr>
+                    <tr>
+                        <td > </td>
+                        <td >2.3. Nhân viên kinh doanh (SE) từ chối<br /> Hồ sơ đại lý đã phân công cho NVKD có thể bị từ chối do phân công sai địa bàn, hoặc do lý do cá nhân</td>
+                        <td >APPROVE<br /> REJECT</td>
+                        <td >SS/ASM</td>
+                        <td >5.reject</td>
+                        <td >6.Assign <br>3.reject</td>
+                    </tr>
+                    <tr>
+                        <td >3.ASSESS</td>
+                        <td >3.1.Nhân viên kinh doanh đánh giá đại lý<br /> NVKD tiến hành gặp gỡ đại lý, thu thập thông tin đại lý để nhập vào hệ thống bằng cách chọn link đại lý, tab Business, Personal, Contract: Họ tên, email, địa chỉ nơi ở, địa chỉ thường
+                            trú,..., CMND/HC/CC, loại hợp đồng,...., lập survey đánh giá và đính kèm file vào hệ thống, đính kèm file ảnh chụp cửa hàng, ảnh chụp CMND/HC/CC... Save</td>
+                        <td >APPROVE<br /> Click đúp vào nút &gt; , trên màn hình popup Process, nhấn nút Approve để chuyển qua bước tiếp theo</td>
+                        <td >SE</td>
+                        <td >6.Assign</td>
+                        <td >8.Assess</td>
+                    </tr>
+                    <tr>
+                        <td > </td>
+                        <td >3.2. Nhân viên kinh doanh từ chối hồ sơ đại lý<br /> Sau khi thu thập thông tin vì lý do nào đó, NVKD có thể trả lại hồ sơ cho người quản lý SS/ASM</td>
+                        <td >REJECT<br /> Nhấn nút Reject để từ chối yêu cầu</td>
+                        <td >SE</td>
+                        <td >6.Assign</td>
+                        <td >5.reject</td>
+                    </tr>
+                    <tr>
+                        <td > </td>
+                        <td >3.3. Nhân viên trợ lý kinh doanh xem xét hồ sơ có thể trả lại cho SE để cập nhật lại hoặc từ chối vì lý do nào đó.<br /> NVKD có thể cập nhật lại hồ sơ để đẩy tiếp, hoặc từ chối để trả lại<span> </span></td>
+                        <td >APPROVE<br /> REJECT</td>
+                        <td >SE</td>
+                        <td >7.reject</td>
+                        <td >8.Assess</td>
+                    </tr>
+                    <tr>
+                        <td > </td>
+                        <td > </td>
+                        <td > </td>
+                        <td > </td>
+                        <td >7.reject</td>
+                        <td >5.reject</td>
+                    </tr>
+                    <tr>
+                        <td >4.GENERATE</td>
+                        <td >4.1.Nhân viên trợ lý kinh doanh miền xem xét hồ sơ, thấy khớp thông tin hồ sơ với bản cứng (Xem trên các tab Business, Personal &amp; Identity, Contract, các file đính kèm), thì tiến hành phê duyệt để sinh ID cho đại lý</td>
+                        <td >APPROVE<br /> Click đúp vào nút &gt; , trên màn hình popup Process, nhấn nút Approve để chuyển qua bước tiếp theo</td>
+                        <td >SA</td>
+                        <td >8.Assess</td>
+                        <td >10.Generate</td>
+                    </tr>
+                    <tr>
+                        <td > </td>
+                        <td >4.2.NV TLKD nếu thấy hồ sơ không khớp hoặc đại lý không đủ tiêu chuẩn để tham gia hệ thống thì có thể từ chối</td>
+                        <td >REJECT<br /> Nhấn nút Reject để từ chối yêu cầu</td>
+                        <td >SA</td>
+                        <td >8.Assess</td>
+                        <td >7.reject</td>
+                    </tr>
+                    <tr>
+                        <td > </td>
+                        <td >4.3.NV Hỗ trợ kỹ thuật có thể trả lại hồ sơ không cấp thiết bị nếu nhân viên kinh doanh đang cầm thiết bị chưa trả lại.</td>
+                        <td >APPROVE<br /> REJECT</td>
+                        <td >SA</td>
+                        <td >9.reject</td>
+                        <td >10.Generate</td>
+                    </tr>
+                    <tr>
+                        <td > </td>
+                        <td > </td>
+                        <td > </td>
+                        <td > </td>
+                        <td >9.reject</td>
+                        <td >7.reject</td>
+                    </tr>
+                    <tr>
+                        <td >5.MAP DEVICE</td>
+                        <td >5.1.NV Hỗ trợ kỹ thuật thực hiện gán hộp thiết bị để liên kết với đại lý. Box thiết bị đổi trạng thái từ Mapped --&gt; Linked</td>
+                        <td >APPROVE<br /> Click đúp vào nút &gt; , trên màn hình popup Process, nhấn nút Approve để chuyển qua bước tiếp theo</td>
+                        <td >Tech Support</td>
+                        <td >10.Generate</td>
+                        <td >12.MapDevice</td>
+                    </tr>
+                    <tr>
+                        <td > </td>
+                        <td >5.2.NV Hỗ trợ kỹ thuật có thể từ chối thực hiện</td>
+                        <td >REJECT<br /> Nhấn nút Reject để từ chối yêu cầu</td>
+                        <td >Tech Support</td>
+                        <td >10.Generate</td>
+                        <td >9.reject</td>
+                    </tr>
+                    <tr>
+                        <td > </td>
+                        <td >5.3.Quản lý kinh doanh miền có thể từ chối việc xuất <br /> Sau đó NV hỗ trợ kỹ thuật có thể approve hoặc reject</td>
+                        <td >APPROVE<br /> REJECT</td>
+                        <td >Tech Support</td>
+                        <td >11.reject</td>
+                        <td >12.MapDevice</td>
+                    </tr>
+                    <tr>
+                        <td > </td>
+                        <td > </td>
+                        <td > </td>
+                        <td >Tech Support</td>
+                        <td >11.reject</td>
+                        <td >9.reject</td>
+                    </tr>
+                    <tr>
+                        <td >6.DEVICE APPROVE</td>
+                        <td >6.1.Quản lý kinh doanh miền xem phần thiết bị đã gán cho đại lý, Approve để xác nhận việc xuất kho thiết bị<span> </span></td>
+                        <td >APPROVE<br /> Click đúp vào nút &gt; , trên màn hình popup Process, nhấn nút Approve để chuyển qua bước tiếp theo</td>
+                        <td >RSM</td>
+                        <td >12.MapDevice</td>
+                        <td >14.Device Approve</td>
+                    </tr>
+                    <tr>
+                        <td > </td>
+                        <td >6.2.Quản lý kinh doanh miền từ chối xuất kho thiết bị</td>
+                        <td >REJECT<br /> Nhấn nút Reject để từ chối yêu cầu</td>
+                        <td >RSM</td>
+                        <td >12.MapDevice</td>
+                        <td >11.reject</td>
+                    </tr>
+                    <tr>
+                        <td > </td>
+                        <td >6.3.Nhân viên kế toán phụ trách thiết bị từ chối xuất kho thiết bị, trả lại cho Quản lý kinh doanh miền. Quản lý kinh doanh miền có thể approve hoặc reject</td>
+                        <td >APPROVE<br /> REJECT</td>
+                        <td >RSM</td>
+                        <td >13.reject</td>
+                        <td >14.Device Approve</td>
+                    </tr>
+                    <tr>
+                        <td > </td>
+                        <td > </td>
+                        <td > </td>
+                        <td >RSM</td>
+                        <td >13.reject</td>
+                        <td >11.reject</td>
+                    </tr>
+                    <tr>
+                        <td >7.DEVICE FINANCE</td>
+                        <td >7.1.Nhân viên kế toán quản lý thiết bị xem phần thiết bị đã gán cho đại lý, Approve để xác nhận việc xuất kho thiết bị<span> </span></td>
+                        <td >APPROVE<br /> Click đúp vào nút &gt; , trên màn hình popup Process, nhấn nút Approve để chuyển qua bước tiếp theo</td>
+                        <td >Finance</td>
+                        <td >14.Device Approve</td>
+                        <td >16.Device Finance</td>
+                    </tr>
+                    <tr>
+                        <td > </td>
+                        <td >7.2.Nhân viên kế toán quản lý thiết bị từ chối xuất kho thiết bị</td>
+                        <td >REJECT<br /> Nhấn nút Reject để từ chối yêu cầu</td>
+                        <td >Finance</td>
+                        <td >14.Device Approve</td>
+                        <td >13.reject</td>
+                    </tr>
+                    <tr>
+                        <td > </td>
+                        <td >7.3.Nhân viên kế toán quản lý thiết bị từ chối xuất kho thiết bị, trả lại cho Quản lý kinh doanh miền. Quản lý kinh doanh miền có thể approve hoặc reject</td>
+                        <td >APPROVE<br /> REJECT</td>
+                        <td >Finance</td>
+                        <td >15.reject</td>
+                        <td >16.Device Finance</td>
+                    </tr>
+                    <tr>
+                        <td > </td>
+                        <td > </td>
+                        <td > </td>
+                        <td >Finance</td>
+                        <td >15.reject</td>
+                        <td >13.reject</td>
+                    </tr>
+                    <tr>
+                        <td >8.DEVICE SE</td>
+                        <td >8.1.Giám sát kinh doanh xem phần thiết bị đã gán cho đại lý, thực hiện in file bàn giao cho NVKD, sau đó đính kèm file bàn giao đã có chữ ký NVKD, Approve để xác nhận việc đã giao cho NVKD. Box Thiết bị sau đó đổi trạng thái từ
+                            Linked --&gt; Active, cập nhật Box province = tỉnh của đại lý được liên kết</td>
+                        <td >APPROVE<br /> Click đúp vào nút &gt; , trên màn hình popup Process, nhấn nút Approve để chuyển qua bước tiếp theo</td>
+                        <td >Finance</td>
+                        <td >16.Device Finance</td>
+                        <td >18.DeviceSE</td>
+                    </tr>
+                    <tr>
+                        <td > </td>
+                        <td >8.2.Nhân viên kế toán quản lý thiết bị từ chối xuất kho thiết bị</td>
+                        <td >REJECT<br /> Nhấn nút Reject để từ chối yêu cầu</td>
+                        <td >Finance</td>
+                        <td >16.Device Finance</td>
+                        <td >15.reject</td>
+                    </tr>
+                    <tr>
+                        <td > </td>
+                        <td >8.3.Nhân viên kế toán quản lý thiết bị từ chối xuất kho thiết bị, trả lại cho Quản lý kinh doanh miền. Quản lý kinh doanh miền có thể approve hoặc reject</td>
+                        <td >APPROVE<br /> REJECT</td>
+                        <td >Finance</td>
+                        <td >17.reject</td>
+                        <td >18.DeviceSE</td>
+                    </tr>
+                    <tr>
+                        <td > </td>
+                        <td > </td>
+                        <td > </td>
+                        <td >Finance</td>
+                        <td >17.reject</td>
+                        <td >15.reject</td>
+                    </tr>
+                    <tr>
+                        <td >9.SIGN CONTRACT</td>
+                        <td >9.1.Nhân viên kinh doanh gặp đại lý, lấy chữ ký đại lý trên hợp đồng, biên bản bàn giao thiết bị. NVKD hỗ trợ đại lý thực hiện lệnh nạp tiền.<br /> Approve để xác nhận đã giao NV hỗ trợ kinh doanh.</td>
+                        <td >APPROVE<br /> Click đúp vào nút &gt; , trên màn hình popup Process, nhấn nút Approve để chuyển qua bước tiếp theo</td>
+                        <td >SE</td>
+                        <td >18.DeviceSE</td>
+                        <td >20.Sign Contract</td>
+                    </tr>
+                    <tr>
+                        <td > </td>
+                        <td >9.2.NVKD có thể từ chối hồ sơ nếu đại lý từ chối hợp tác hoặc cần sửa thông tin ở bước trước đó</td>
+                        <td >REJECT<br /> Nhấn nút Reject để từ chối yêu cầu</td>
+                        <td >SE</td>
+                        <td >18.DeviceSE</td>
+                        <td >17.reject</td>
+                    </tr>
+                    <tr>
+                        <td > </td>
+                        <td >9.3. Khi Nhân viên hỗ trợ kinh doanh trả lại hồ sơ do nhập sai dữ liệu hoặc lý do khác thì NVKD cần tiếp nhận và xử lý lại.</td>
+                        <td >APPROVE<br /> REJECT</td>
+                        <td >SE</td>
+                        <td >19.reject</td>
+                        <td >20.Sign Contract</td>
+                    </tr>
+                    <tr>
+                        <td > </td>
+                        <td > </td>
+                        <td > </td>
+                        <td >SE</td>
+                        <td >19.reject</td>
+                        <td >17.reject</td>
+                    </tr>
+                    <tr>
+                        <td >10.INSTALLING</td>
+                        <td >10.1.Nhân viên hỗ trợ kinh doanh nhận lại hồ sơ xem xét tính đúng đắn và chuyển tiếp hồ sơ cho bộ phận pháp chế, nhắc nhở bộ phận kế toán xác nhận lệnh nạp tiền (có thể giao phiếu thu tiền)</td>
+                        <td >APPROVE<br /> Click đúp vào nút &gt; , trên màn hình popup Process, nhấn nút Approve để chuyển qua bước tiếp theo</td>
+                        <td >Sales Support</td>
+                        <td >20.Sign Contract</td>
+                        <td >22.Installing</td>
+                    </tr>
+                    <tr>
+                        <td > </td>
+                        <td >10.2.NVHTKD có thể từ chối hồ sơ nếu có thông tin chưa chính xác cần xử lý lại</td>
+                        <td >REJECT<br /> Nhấn nút Reject để từ chối yêu cầu</td>
+                        <td >Sales Support</td>
+                        <td >20.Sign Contract</td>
+                        <td >19.reject</td>
+                    </tr>
+                    <tr>
+                        <td > </td>
+                        <td >10.3. Khi Nhân viên hỗ trợ tài chính trả lại hồ sơ do nhập sai dữ liệu hoặc lý do khác thì NVHTKD cần tiếp nhận và xử lý lại.</td>
+                        <td >APPROVE<br /> REJECT</td>
+                        <td >Sales Support</td>
+                        <td >21.reject</td>
+                        <td >22.Installing</td>
+                    </tr>
+                    <tr>
+                        <td > </td>
+                        <td > </td>
+                        <td > </td>
+                        <td >Sales Support</td>
+                        <td >21.reject</td>
+                        <td >19.reject</td>
+                    </tr>
+                    <tr>
+                        <td >11.DEPOSIT</td>
+                        <td >11.1.Nhân viên hỗ trợ tài chính xác nhận đại lý đã nạp tiền</td>
+                        <td >APPROVE<br /> Click đúp vào nút &gt; , trên màn hình popup Process, nhấn nút Approve để chuyển qua bước tiếp theo</td>
+                        <td >Finance Supervisor</td>
+                        <td >22.Installing</td>
+                        <td >24.Deposit</td>
+                    </tr>
+                    <tr>
+                        <td > </td>
+                        <td >11.2.NVHTTC có thể từ chối hồ sơ nếu có thông tin chưa chính xác cần xử lý lại</td>
+                        <td >REJECT<br /> Nhấn nút Reject để từ chối yêu cầu</td>
+                        <td >Finance Supervisor</td>
+                        <td >22.Installing</td>
+                        <td >21.reject</td>
+                    </tr>
+                    <tr>
+                        <td > </td>
+                        <td >11.3. Khi Nhân viên pháp chế trả lại hồ sơ do nhập sai dữ liệu hoặc lý do khác thì NVHTTC cần tiếp nhận và xử lý lại.</td>
+                        <td >APPROVE<br /> REJECT</td>
+                        <td >Finance Supervisor</td>
+                        <td >23.reject</td>
+                        <td >24.Deposit</td>
+                    </tr>
+                    <tr>
+                        <td > </td>
+                        <td > </td>
+                        <td > </td>
+                        <td >Finance Supervisor</td>
+                        <td >23.reject</td>
+                        <td >21.reject</td>
+                    </tr>
+                    <tr>
+                        <td >12.KYC</td>
+                        <td >12.1.Nhân viên pháp chế nhận hợp đồng, xin chữ ký và dấu của công ty, giao lại 1 bản cho nhân viên kinh doanh hoặc gửi đại lý. Thực hiện chuyển đổi KYC Status = full, Nhấn Approve để xác nhận hoàn thành.<span> </span></td>
+                        <td >APPROVE<br /> Click đúp vào nút &gt; , trên màn hình popup Process, nhấn nút Approve để chuyển qua bước tiếp theo</td>
+                        <td >Legal</td>
+                        <td >24.Deposit</td>
+                        <td >26.KYC</td>
+                    </tr>
+                    <tr>
+                        <td > </td>
+                        <td >12.2.Nhân viên pháp chế có thể phát hiện sai sót, từ chối xử lý và trả lại nhân viên HTTC</td>
+                        <td >REJECT<br /> Nhấn nút Reject để từ chối yêu cầu</td>
+                        <td >Legal</td>
+                        <td >24.Deposit</td>
+                        <td >23.reject</td>
+                    </tr>
+                    <tr>
+                        <td > </td>
+                        <td >12.3.Đại lý từ chối do sai thông tin hoặc lý do khác. Nhân viên pháp chế tiếp nhận để xử lý lại</td>
+                        <td >APPROVE<br /> REJECT</td>
+                        <td >Legal</td>
+                        <td >25.reject</td>
+                        <td >26.KYC</td>
+                    </tr>
+                    <tr>
+                        <td > </td>
+                        <td > </td>
+                        <td > </td>
+                        <td >Legal</td>
+                        <td >25.reject</td>
+                        <td >23.reject</td>
+                    </tr>
+                    <tr>
+                        <td >13.CONFIRM</td>
+                        <td >13.1.Đại lý truy cập bằng số điện thoại/ email và mật khẩu được cấp, nếu các thông tin đã đúng thì xác nhận Approve</td>
+                        <td >APPROVE<br /> Click đúp vào nút &gt; , trên màn hình popup Process, nhấn nút Approve để chuyển qua bước tiếp theo</td>
+                        <td >Agent</td>
+                        <td >26.KYC</td>
+                        <td >28.Confirm</td>
+                    </tr>
+                    <tr>
+                        <td > </td>
+                        <td >13.2.Đại lý truy cập thấy thông tin chưa chính xác hoặc từ chối hợp tác có thể Reject</td>
+                        <td >REJECT<br /> Nhấn nút Reject để từ chối yêu cầu</td>
+                        <td >Agent</td>
+                        <td >26.KYC</td>
+                        <td >25.reject</td>
+                    </tr>
+                </tbody>
+            </table>
+        </main>
+        <footer class="page__footer footer">
+            truemoney.vn
+        </footer>
+    </div>
+    <script src="assets/javascripts/sticky.min.js"></script>
+    <script>
+
+    </script>
+</body>
+
+</html>
